@@ -62,67 +62,67 @@ type StackInfoMap = {
 
 export const StackInfo: Record<Stack, StackInfoMap> = {
   [Stack.typescript]: {
-    value: 'TypeScript',
+    value: 'Python',
     color: Colors.typescript,
   },
   [Stack.javascript]: {
-    value: 'JavaScript',
+    value: 'AWS',
     color: Colors.javascript,
   },
   [Stack.go]: {
-    value: 'Go',
+    value: 'Docker',
     color: Colors.go,
   },
   [Stack.react]: {
-    value: 'React',
+    value: 'Linux',
     color: Colors.react,
   },
   [Stack.reactnative]: {
-    value: 'React Native',
+    value: 'Predictive Modeling',
     color: Colors.reactnative,
   },
   [Stack.graphql]: {
-    value: 'GraphQL',
+    value: 'TensorFlow',
     color: Colors.graphql,
   },
   [Stack.aws]: {
-    value: 'AWS',
+    value: 'PyTorch',
     color: Colors.aws,
   },
   [Stack.gcp]: {
-    value: 'Google Cloud',
+    value: 'Computer Vision',
     color: Colors.gcp,
   },
   [Stack.python]: {
-    value: 'Python',
+    value: 'SQL',
     color: Colors.python,
   },
   [Stack.node]: {
-    value: 'Node',
+    value: 'NLP',
     color: Colors.node,
   },
   [Stack.django]: {
-    value: 'Django',
+    value: 'Git',
     color: Colors.django,
   },
   [Stack.nats]: {
-    value: 'NATS',
+    value: 'MLFlow',
     color: Colors.nats,
   },
   [Stack.kafka]: {
-    value: 'Kafka',
+    value: 'RabbitMQ',
     color: Colors.kafka,
   },
   [Stack.arangodb]: {
-    value: 'ArangoDB',
+    value: 'Deep Learning',
     color: Colors.arangodb,
   },
   [Stack.postgres]: {
-    value: 'Postgres',
+    value: 'PostgreSQL',
     color: Colors.postgres,
   },
   [Stack.redis]: {
-    value: 'Redis',
+    value: 'MLOps',
     color: Colors.redis,
   },
   [Stack.mongo]: {
@@ -130,15 +130,15 @@ export const StackInfo: Record<Stack, StackInfoMap> = {
     color: Colors.mongo,
   },
   [Stack.docker]: {
-    value: 'Docker',
+    value: 'Bert',
     color: Colors.docker,
   },
   [Stack.kubernetes]: {
-    value: 'Kubernetes',
+    value: 'Web Scraping',
     color: Colors.kubernetes,
   },
   [Stack.terraform]: {
-    value: 'Terraform',
+    value: 'OOP',
     color: Colors.terraform,
   },
 };
