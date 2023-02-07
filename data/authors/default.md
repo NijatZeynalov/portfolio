@@ -1,18 +1,20 @@
 ---
-name: Karan Pratap Singh
-shortname: Karan
+name: Nijat Zeynalov
+shortname: Nijat
 avatar: /static/avatar.jpg
-occupation: Senior Software Engineer
-company: Curebase
-resume: /static/Karan_Resume.pdf
-email: contact@karanpratapsingh.com
-twitter: https://twitter.com/karan_6864
-linkedin: https://www.linkedin.com/in/karan99
-github: https://github.com/karanpratapsingh
+occupation: Machine Learning Enfineer
+company: azerconnect
+resume: /static/NIJAT_ZEYNALOVCV.pdf
+email: nijatzeynalov98298@gmail.com
+twitter: https://twitter.com
+linkedin: https://www.linkedin.com/in/nijat-zeynalov-064163142/
+github: https://github.com/nijatzeynalov
 ---
 
-A software engineer who values learning and growing with people, teams, and technologies.
+Multifaceted, AWS and Google Certified Machine Learning Engineer with 3+ years of programming experience producing machine learning solutions based on predictive modeling. Proficient with ML technologies for development, deployment of ML algorithms, entire training and inference pipelines.
 
-Presently, I am working as a Senior Software Engineer at [Curebase](https://www.curebase.com) where I am helping to build a decentralized clinical trial platform while scaling infrastructure with a focus on security, HIPAA, and GDPR compliance.
+Presently, I am working as a Machine Learning Engineer at azerconnect. Prior work includes Building and Deploying Face Liveness Detection Engine for Spoofing, Applying perspective transformation and homography to build OCR engine.
 
-Previously I've worked with the Digitization Program Office (DPO) at the [Smithsonian Institution](https://www.si.edu) as a consulting Full Stack Engineer in collaboration with the Office of the Chief Information Officer (OCIO).
+Previously I've worked at the Data Technologies department at the ABB as a Data Scientist where I was using predictive modeling to increase and optimize customer experiences, revenue generation (the conversion rate increased by 10 %.).
+
+I also have an experience working as a Visiting Researcher at University of Cambridge, Computational Structural Biology Lab. I collaborated in interdisciplinary projects, recommend ML-based solutions and determine computational strategies under the professor Garib Murshudov.
