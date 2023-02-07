@@ -1,8 +1,8 @@
 ---
 name: Nijat Zeynalov
 shortname: Nijat
-avatar: /static/avatar.jpg
-occupation: Machine Learning Enfineer
+avatar: /static/327051479_840176820405446_1733367509828975296_n-2.jpg
+occupation: Machine Learning Engineer
 company: azerconnect
 resume: /static/NIJAT_ZEYNALOVCV.pdf
 email: nijatzeynalov98298@gmail.com
