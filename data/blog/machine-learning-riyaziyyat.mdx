@@ -1,0 +1,267 @@
+---
+title: 'Maşın Öyrənməsi üçün riyaziyyat önəmlidir?'
+date: '2022-12-20'
+tags: []
+draft: false
+summary: 'Bayes teoremi şərti ehtimalın hesablanması üçün prinsipial üsullardan biridir.'
+images: ['/static/blogs/bayes-teoremi/medical-questions-2.png']
+authors: ['default']
+---
+Maşın Öyrənməsi üçün riyaziyyat önəmlidir?  
+
+Riyaziyyat, müxtəlif maşın öyrənmə alqoritmlərinin daxili işini başa düşməyə imkan verən maşın öyrənməsində əsas riyazi anlayışlardan biridir.
+
+  
+
+Maşın öyrənməsində riyaziyyatın vacib tətbiqlərindən biri geri yayılma ilə tandemdə neyron şəbəkə modelini öyrətməyə imkan verən gradient desant (eniş) alqoritmidir.
+
+  
+
+Bu tutorialda siz riyaziyyatın maşın öyrənməsində vacib rolunu öyrənəcəksiniz.
+
+  
+
+Bu tutorialı tamamladıqdan sonra öyrənəcəksiniz ki:
+
+  
+
+-   Riyaziyyat error funksiyasını minimuma endirmək üçün gradient desant alqoritmi kimi maşın öyrənmə alqoritmlərinin daxili işlərinin başa düşülməsində ayrılmaz rol oynayır.
+-   Riyaziyyat bizə müxtəlif maşın öyrənmə tətbiqlərini təmsil edən çoxölçülü girişləri olan funksiyalarla yanaşı, mürəkkəb məqsəd funksiyalarını optimallaşdırmaq üçün lazımi alətlər təqdim edir.
+
+  
+
+Gəlin başlayaq.
+
+  
+
+**_Ümumi baxış_**
+
+  
+
+Bu tutorial iki hissəyə bölünür, onlar bunlardır:
+
+  
+
+-   Maşın öyrənməsində riyaziyyat
+-   Niyə maşın öyrənməsində riyaziyyat işə yarayır
+
+  
+
+**_Maşın öyrənməsində riyaziyyat_**
+
+  
+
+Neyron şəbəkə modeli, istər dayaz, istərsə də dərin, bir sıra girişləri gözlənilən nəticələrə uyğunlaşdıran bir funksiya həyata keçirir.
+
+  
+
+Neyroşəbəkə tərəfindən həyata keçirilən funksiya təlim məlumatlarında dəyişiklikləri modelləşdirməyə neyron şəbəkəyə ən yaxşı imkan verən çəkilər dəstini iterativ olaraq axtaran təlim prosesi vasitəsilə öyrənilir.
+
+  
+
+_“Çox sadə funksiya növü tək girişdən tək çıxışa xətti mappingdir.”_
+
+  
+
+Səh 187, Deep Learning, 2019.
+
+  
+
+Belə bir xətti funksiya maillik, m və y-kəsici, c malik olan xəttin tənliyi ilə təmsil oluna bilər:
+
+  
+
+y = mx + c
+
+  
+
+m və c parametrlərinin hər birinin dəyişdirilməsi müxtəlif giriş-çıxış mappinglərini təyin edən müxtəlif xətti modellər yaradır.
+
+  
+
+![pastedGraphic.png](blob:https://stackedit.io/d42b5b58-c97a-4272-9e9e-16aade8a6f00)
+
+  
+
+Mapping funksiyasının öyrənilməsi prosesi proqnozlaşdırılan və hədəf nəticələr arasında minimum xəta (error) ilə nəticələnən bu model parametrlərinin və ya çəkilərin yaxınlaşmasını nəzərdə tutur. Bu xəta tez-tez bir-birini əvəz edən mənada istifadə edilən çatışmamazlıq funksiyası, xərc funksiyası və ya xəta funksiyası vasitəsilə hesablanır və itkini minimuma endirmə prosesi funksiyaların optimallaşdırılması adlanır.
+
+  
+
+Funksiyaların optimallaşdırılması prosesinə diferensial riyaziyyat tətbiq edə bilərik.
+
+  
+
+Diferensial riyaziyyatın funksiyaların optimallaşdırılmasına necə tətbiq oluna biləcəyini daha yaxşı başa düşmək üçün xətti mapping funksiyasına malik olan xüsusi nümunəmizə qayıdaq.
+
+  
+
+Deyək ki, bizdə x tək giriş xüsusiyyətlərinin bəzi verilənlər bazası və onların y müvafiq hədəf çıxışları var. Verilənlər toplusunda erroru ölçmək üçün, biz çatışmamazlıq funksiyası olaraq proqnozlaşdırılan və hədəf çıxışlar arasında hesablanan kvadrat xətaların (SSE) cəmini götürməliyik.
+
+  
+
+w0 = m və w1 = c model çəkiləri üçün müxtəlif qiymətlər üzrə parametr taramasının aparılması qabarıq formada olan fərdi xəta profillərini yaradır.
+
+  
+
+![pastedGraphic_1.png](blob:https://stackedit.io/2c15e178-fe4d-4011-87ae-2d1987b7bf59)
+
+  
+
+Fərdi xəta profillərinin birləşdirilməsi üçölçülü xəta səthi yaradır ki, bu da qabarıq formadadır. Bu səhv səthi model çəkiləri, w0 və w1 üçün süpürülmüş dəyərlər diapazonu ilə müəyyən edilən çəki məkanında yerləşir.
+
+  
+
+![pastedGraphic_2.png](blob:https://stackedit.io/d7c512de-b3cc-4769-82d9-0f77914459ba)
+
+  
+
+  
+
+Bu çəki məkanında hərəkət etmək müxtəlif xətti modellər arasında hərəkət etməyə bərabərdir. Məqsədimiz bütün mümkün alternativlər arasında məlumatlara ən yaxşı uyğun gələn modeli müəyyən etməkdir. Ən yaxşı model, xəta səthindəki ən aşağı nöqtəyə uyğun gələn verilənlər bazasında ən aşağı xəta ilə xarakterizə olunur.
+
+  
+
+_“Qabarıq və ya qab şəkilli xəta səthi verilənlər dəstini modelləşdirmək üçün xətti funksiyanı öyrənmək üçün olduqca faydalıdır, çünki bu o deməkdir ki, öyrənmə prosesi xəta səthində ən aşağı nöqtənin axtarışı kimi çərçivəyə salına bilər. Bu ən aşağı nöqtəni tapmaq üçün istifadə edilən standart alqoritm gradient enişi (desant) kimi tanınır.”_
+
+  
+
+Səh 194, Deep Learning, 2019.
+
+  
+
+Qradiyent enmə alqoritmi optimallaşdırma alqoritmi olaraq qradiyentin enişini təqib edərək xəta səthində ən aşağı nöqtəyə çatmağa çalışacaq. Bu enmə xəta səthinin qradiyentinin və ya mailliyin hesablanmasına əsaslanır.
+
+  
+
+Burada diferensial riyaziyyat meydana çıxır.
+
+  
+
+_“__Diferensial riyaziyyat və xüsusilə diferensiallaşdırma, dəyişmə nisbətləri ilə məşğul olan riyaziyyat sahəsidir.__“_
+
+  
+
+Page 198, Deep Learning, 2019.
+
+  
+
+Daha rəsmi olaraq optimallaşdırmaq istədiyimiz funksiyanı aşağıdakılarla işarə edək:
+
+  
+
+error = f(weights)
+
+  
+
+Çəkilərə nisbətdə xətanın dəyişmə sürətini və ya mailliyi hesablayaraq, qradiyent enmə alqoritmi xətanı azaltmağa davam etmək üçün çəkilərin necə dəyişdirilməsinə qərar verə bilər.
+
+  
+
+**_Niyə maşın öyrənməsində riyaziyyat işə yarayır_**
+
+  
+
+Optimallaşdırmaq üçün nəzərdən keçirdiyimiz xəta funksiyası nisbətən sadədir, çünki o, qabarıqdır və vahid qlobal minimum ilə xarakterizə olunur.
+
+  
+
+Buna baxmayaraq, maşın öyrənməsi kontekstində biz tez-tez optimallaşdırma tapşırığını çox çətinləşdirə bilən daha mürəkkəb funksiyaları optimallaşdırmalıyıq. Əgər funksiyaya giriş də çoxölçülüdürsə, optimallaşdırma daha da çətinləşə bilər.
+
+  
+
+Riyaziyyat hər iki problemi həll etmək üçün bizə lazımi alətlər təqdim edir.
+
+  
+
+Fərz edək ki, bizim minimuma endirmək istədiyimiz daha ümumi funksiyamız var və y real çıxışı hasil etmək üçün x real girişi götürür:
+
+  
+
+_y_ = f(x)
+
+  
+
+  
+
+X-in müxtəlif qiymətlərində dəyişmə sürətinin hesablanması faydalıdır, çünki o, y-də müvafiq dəyişiklikləri əldə etmək üçün x-ə tətbiq etməli olduğumuz dəyişikliklərin göstəricisini verir.
+
+  
+
+Funksiyanı minimuma endirdiyimiz üçün məqsədimiz f(x)-in mümkün qədər aşağı qiymətini əldə edən və eyni zamanda sıfır dəyişmə sürəti ilə xarakterizə olunan nöqtəyə çatmaqdır; deməli, qlobal minimum. Funksiyanın mürəkkəbliyindən asılı olaraq, bu, mütləq mümkün olmaya bilər, çünki optimallaşdırma alqoritminin tutula biləcəyi bir çox yerli minimum və ya yəhər nöqtələri ola bilər.
+
+  
+
+_“Dərin öyrənmə kontekstində biz optimal olmayan bir çox yerli minimuma və çox düz bölgələrlə əhatə olunmuş bir çox yəhər nöqtələrinə malik ola bilən funksiyaları optimallaşdırırıq.“_
+
+  
+
+Səh 84, Deep Learning, 2017.
+
+  
+
+Beləliklə, dərin öyrənmə kontekstində biz çox vaxt f(x)-in çox aşağı dəyərinə uyğun gələn qlobal minimuma mütləq uyğun gəlməyən suboptimal həlli qəbul edirik.
+
+  
+
+![pastedGraphic_3.png](blob:https://stackedit.io/dd569940-1ddf-4cdb-a483-52e5395f19d4)
+
+  
+
+Əgər işlədiyimiz funksiya çoxlu giriş qəbul edirsə, hesablama bizə qismən törəmələr anlayışını da təqdim edir; və ya daha sadə dillə desək, qalan girişləri sabit saxlayaraq, girişlərin hər birindəki dəyişikliklərə görə y-nin dəyişmə sürətini hesablamaq üçün metod, xi.
+
+  
+
+_“Buna görə çəkilərin hər biri qradiyentin enmə alqoritmində müstəqil olaraq yenilənir: çəki yeniləmə qaydası hər çəki üçün SSE-nin qismən törəməsindən asılıdır və hər çəki üçün fərqli qismən törəmə olduğu üçün ayrıca çəki var,hər çəki üçün qaydanı yeniləyin.“_
+
+  
+
+Səh 200, Deep Learning, 2019.
+
+  
+
+Beləliklə, əgər xəta funksiyasının minimuma endirilməsini bir daha nəzərdən keçirsək, hər bir xüsusi çəkiyə görə xəta üçün qismən törəmənin hesablanması, hər bir çəkinin digərlərindən asılı olmayaraq yenilənməsinə imkan verir.
+
+  
+
+Bu həm də o deməkdir ki, qradiyent enmə alqoritmi xəta səthindən aşağı düz bir yol izləməyə bilər. Əksinə, hər bir çəki xəta əyrisinin yerli qradiyentinə mütənasib olaraq yenilənəcək. Beləliklə, gradient eniş alqoritminin funksiya minimumuna çatması üçün lazım olan qədər bir çəki digərinə nisbətən daha böyük miqdarda yenilənə bilər.
+
+  
+
+**_Əlavə oxumaq üçün_**
+
+  
+
+Daha dərinə getmək istəyirsinizsə, bu bölmə mövzu ilə bağlı daha çox resurs təqdim edir.
+
+  
+
+**_Kitablar_**
+
+  
+
+-   [https://www.amazon.com/Deep-Learning-Press-Essential-Knowledge/dp/0262537559/ref=sr_1_4?dchild=1&keywords=deep+learning&qid=1622968138&sr=8-4](https://www.amazon.com/Deep-Learning-Press-Essential-Knowledge/dp/0262537559/ref=sr_1_4?dchild=1&keywords=deep+learning&qid=1622968138&sr=8-4)
+
+  
+
+-   [https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/ref=sr_1_1?dchild=1&keywords=deep+learning&qid=1622968138&sr=8-1](https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618/ref=sr_1_1?dchild=1&keywords=deep+learning&qid=1622968138&sr=8-1)
+
+  
+
+  
+
+**_Xülasə_**
+
+  
+
+Bu tutorialda siz hesablamanın maşın öyrənməsində vacib rolunu öyrəndiniz.
+
+
+Xüsusilə, öyrəndiniz ki:
+
+  
+
+-   Riyaziyyat maşın öyrənməsi alqoritmlərinin daxili işlərinin başa düşülməsində ayrılmaz rol oynayır, məsələn, dəyişiklik sürətinin hesablanmasına əsaslanan xəta funksiyasını minimuma endirən qradiyent enmə alqoritmi.
+-   Riyaziyyatda dəyişmə sürəti konsepsiyası, forması mütləq qabarıq olmayan daha mürəkkəb obyektiv funksiyaları minimuma endirmək üçün də istifadə edilə bilər.
+-   Riyaziyyatda digər vacib anlayış olan qismən törəmənin hesablanması bizə çoxlu giriş qəbul edən funksiyalarla işləməyə imkan verir.
+
+Bu məqalənin hazırlanmasında Fidan Nağıyeva, Səidə Aslanzadə və Jalə Mehdiyeva iştirak etmişlər. 
