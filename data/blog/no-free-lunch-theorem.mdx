@@ -1,0 +1,113 @@
+---
+title: 'Maşın öyrənməsi üçün Pulsuz nahar yoxdur teoremi'
+date: '2022-12-30'
+tags: []
+draft: false
+summary: 'No Free Lunch Theorem (”Pulsuz nahar yoxdur” teoremi)'
+images: ['/static/blogs/no-free-lunch/no-freelunch.png']
+authors: ['default']
+---
+
+**Maşın öyrənməsi üçün “Pulsuz nahar yoxdur” teoremi**
+
+  
+
+No Free Lunch Theorem (”Pulsuz nahar yoxdur” teoremi) - maşın öyrənməsi sahəsində tez-tez istifadə olunasa da, az saylı insanlar tərəfindən başa düşülür.
+
+Qeyd etməliyik ki, bütün optimallaşdırma alqoritmləri mümkün problemlər üzrə təxmini eyni dərəcədə yaxşı işləyir. Bu da o deməkdir ki, optimallaşdırma alqoritmlərini nəzərə alsaq, hər baxımdan ideal optimallaşdırma alqoritmi yoxdur.
+
+Deyə bilərik ki, optimallaşdırma maşın öyrənməsi ilə sıx bağlı olduğundan ideal optimallaşdırma alqoritminin olmaması problemi maşın öyrənməsi elmində də qarşımıza çıxır.
+
+Biz bu məqaləmizdə optimallaşdırma məsələsi üçün “**No Free Lunch**” - yəni, “Pulsuz nahar yoxdur” teoreminə nəzər yetirəcəyik və aşağıdakı məsələlərə toxunacağıq.
+
+1.  Sözügedən teoremə görə bütün optimallaşdırma alqoritmlərinin performansı bəzi xüsusi məhdudiyyətlər daxilində eynidir.
+2.  Heç bir halda ən yaxşı optimallaşdırma və ya maşın öyrənməsi alqoritmi yoxdur.
+3.  Bütün mümkün məqsəd funksiyalarının altçoxluğu, yəni bu teoremə əsaslanan praktiki həllər məhdud sayda ola bilər.
+
+Məqaləmizi 3 əsas hissəyə bölə bilərik;
+
+1.  “**No Free Lunch**” - yəni, “Pulsuz nahar yoxdur” teoremi nədir?
+2.  Optimallaşdırma məsələsinə təsirlər.
+3.  Maşın öyrənməsinə təsirlər.
+
+  
+
+“**No Free Lunch**” - yəni, “Pulsuz nahar yoxdur” teoremi nədir?
+
+Tez-tez NFL, NFLT -yəni, **No Free Lunch** teoremi dilimizə “Pulsuz nahar yoxdur” teoremi kimi tərcümə edilə bilər. Bu, bütün optimallaşdırma alqoritmlərinin performansının bütün mümkün məqsəd funksiyaları üzərində orta hesabla eyni dərəcədə yaxşı işləməsini təklif edən teoremdir.
+
+NFL - müəyyən məhdudiyyətlər daxilində, mümkün olan bütün problemlərin həll alqoritminin performansı təxminən eynidir, hətta, bu alqoritmlərə “Təsadüfi Axtarış alqoritmi” də daxildir.
+
+Bu teoremin tətbiq sahəsi optimallaşdırma və axtarış alqorimtləridir. Çünki, optimallaşdırma alqoritmi də bir növ axtarış alqoritmi kimi təsvir edilə bilər.
+
+Belə nəticəyə gəlirik ki, optimallaşdırma məsələsində ən çox istifadə etdiyimiz alqoritmin performansı təsadüfi axtarış alqoritmi kimi istənilən alqoritmin performansı ilə təxmini eynidir. Başqa sözlə desək, zamandan asılı optimallaşdırma problemləri üçün bütün mümkün problemlərin hər hansı bir cüt həll alqoritminin orta performansı eynidir.
+
+Sözügedən teoremi başa düşmək üçün ən asan yol Exceldə yarada biləcəyimiz böyük bir cədvəli nəzərdən keçirməkdir.
+
+  
+
+![pastedGraphic.png](https://user-images.githubusercontent.com/31247506/217636327-bde5aa21-c0a1-4aba-ac33-a3a0d1fc54cf.png)
+
+  
+
+Cədvəlin yuxarı hissəsinə nəzər salsaq, hər bir sütun fərqli optimallaşdırma alqoritmini təmsil edir. Cədvəli təşkil edən sətirlər isə fərqli məqsəd funksiyalarını əks etdirir, cədvəlin hər bir xanası isə məqsəd funksiyasının həll alqoritminin performasını təmsil edir.
+
+Biz bu cədvəlin sonsuz böyüklükdə olduğunu təsəvvür edə bilərik. Buna baxmayaraq, cədvəlin hər bir sütununda verilən qiymətlərə əsasən istənilən alqoritmin orta məhsuldarlğını hesablaya bilərik və bu, hər hasnı digər alqoritm sütununun orta məhsuldarlığı ilə eyni olacaqdır.
+
+Əgər bir alqoritm problemlərin verilən sinfi üçün digər alqoritmdən daha yaxşı hesab olunursa, bu o deməkdir ki, eyni alqoritm bu problemlərin digər sinfi üçün daha yalnış sayılacaq.
+
+Artıq, “Pulsuz nahar yoxdur” teoremi ilə tanış olduğumuza görə optimallaşdırma məsələsinə təsirlərinə baxaq.
+
+Optimallaşdırma məsələsinə təsirlər.
+
+Dırnaqarası qara-qutu optimallaşdırma alqoritmləri bir çox müxtəlif optimallaşdırma problemlərinə tətbiq edilə bilən və məqsəd funksiyası hesab edilən alqoritmlərdir. Sözügedən qara-qutu alqoritmlərinə nümunə olaraq genetik alqoritmləri, hissəcik sürüsü məsələsinin optimallaşdırma alqoritmlərini, simulyasiya edilmiş tavlama və ya süni tavlama alqoritmlərini qeyd edə bilərik.
+
+“Pulsuz nahar yoxdur” teoremi 1990-cı illərin sonlarında təklif edildi. Bu teorem hər hansı bir qara qutu optimallaşdırma alqoritminin digər optimallaşdırma alqoritmindən daha yaxşı olduğu iddialarına qarşı çıxır. Bu teorem, ən yaxşı optimallaşdırma alqoritminin olmadığını, belə alqoritmin varlığının mümkünsüz olduğu fikrini önə sürür.
+
+Qısaca, teorem göstərir ki, heç bir optimallaşdırma alqoritmi orta hesabla hər hansı digər optimallaşdırma alqoritmindən daha yaxşı deyil.
+
+“Pulsuz nahar yoxdur” kimi tanınan bu teoremin əsas məsələsi öyrənənin nə qədər yaxşı ola biləcəyinə məhdudiyyət qoymasıdır. Bu məhdudiyyət olduqca aşağıdır: Heç bir öyrənən təsadüfi seçiləndən daha yaxşı ola bilməz.
+
+Məsələ ondadır ki, alqoritmlərin tətbiqi məsələsi verilən problemlərlə bağlı deyil. Alqoritmlər əvvəlcədən maksimallaşdırma, minimallaşdırma kimi heç bir məlumatı olmayan məqsəd funksiyalarına tətbiq edirir və bu teoremin ən əsas məhdudiyyətidir.
+
+Optimallaşdırılan məqsəd funksiyası haqqında çox zaman “bir qədər” məlumatımız olur. Əslində, əgər, həqiqətən, məqsəd funksiyası haqqında heç nə bilmirdiksə, optimallaşdırma alqoritmini seçə bilməzdik.
+
+Wolpert və Macreadynin “Pulsuz nahar yoxdur” teoremi ilə işlədikləri kimi, bütün mümkün məqsəd funksiyalarının fəzada ehtimalının paylanması məsələsi haqqında fərziyyələr təklif edilmədiyi halda, bir alqoritmi digər alqoritmdən üstun tutmaq üçün heç bir səbəb yoxdur.
+
+Optimallaşdırma sahəsinə yeni başlayanlara problem anlayışı haqqında mümkün qədər çox şey öyrənmək və bu problemlərdən istifadə edərək alqoritm qurulması tövsiyə olunur. Problemlərlə bağlı alqoritmləri çox bilmək və onlardan mümkün qədər istifadə etmək daha yaxşı metoddur. Çünki, belə texnika problemə daha yaxşı uyğunlaşdırılmış sayılır və alqoritmin problem üzərində gözlənilən kimi işləməsi ehtimalı da bir o qədər artır. “Pulsuz nahar yoxdur” teoremi bu texnikanı dəstəkləyir.
+
+Bizi mövcud ola biləcək bütün dünyalar maraqlandırmır, yalnız öz yaşadığımız dünya maraqlandırır. Əgər biz, yaşadığımız dünya haqqında nəsə biliriksə və bunu öyrənənə əlavə ediriksə, o zaman deyə bilərik ki, bunun təsadüfi təxminlər üzərində üstünlüyü vardır. Əlavə olaraq, alqoritmin performansı dedikdə, bütün məqsəd funksiyaları və bütün mümkün optimallaşdırma alqoritmlərinə nəzərən orta hesab nəzərdə tutulur. Halbuki, praktikada biz xüsusi struktura və ya formaya uyğunlaşdırılmış alqoritmlərə malik olan məqsəd funksiyalarının kiçik bir hissəsi ilə maraqlanırıq.
+
+Biz deyə bilərik ki, müxtəlif axtarış alqoritmlərinin praktikada nə qədər yaxşı işlədiyinə dair müxtəlif iddialar var, lakin məqaləmizdə vurğulamaq istədiyimiz nöqtə heç bir fərziyyə olmadan və yalnız axtarış alqoritmlərinin faydası ilə bağlı riyazi prinsiplərə əsaslanan prioritetlərdir.
+
+Sözügedən təsirlər bu sahəyə yeni yönəlmiş insanları teoremin məhdud praktiki dəyərlərini qeyd etməyə vadar edir, lakin, nəzərə almaq lazımdır ki, bütün qeyri-adi və patoloji problemlərə praktikada nadir hallarda rast gəlinir.
+
+Optimallaşdırma üçün “Pulsuz nahar yoxdur” teoreminin nəticələrini nəzərdən keçirdik. İndi isə, maşın öyrənməsinə təsirlərə baxaq.
+
+Maşın öyrənməsinə təsirlər.
+
+Maşın öyrənməsi optimallaşdırma problemi kimi təsvir edilə və ya çərçivəyə salına bilər. Əksər maşın öyrənmə alqoritmləri optimallaşdırma problemini öz daxilində həll edir.
+
+Optimallaşdırma və axtarış üçün “pulsuz nahar yoxdur” teoremi qruplaşdırma və reqressiya proqnpzlaşdırıcı modelləşdirmə tapşırıqlarının əsasını təşkil edən maşın öyrənməsinə, xüsusi olaraq, nəzarətli öyrənməyə tətbiq edilir.
+
+Bu o deməkdir ki, bütün maşın öyrənmə alqoritmləri bütün mümkün proqnozlaşdırma problemlərində eyni dərəcədə effektivdir, məsələn, təsadüfi meşə təsadüfi proqnozlar qədər yaxşıdır.
+
+Deməli, bütün öyrənmə alqoritmləri eynidir.
+
+“Bütün alqortimlər orta hesabla eyni qədər yalnış qruplaşdırma riskinə malikdir. Buna görə də, heç bir öyrənmə alqoritmi digərindən daha aşağı riskə malik ola bilməz.”
+
+Lakin, teoremin alqoritmlərin qiymətləndirilməsinə və ya seçilməsinə müxtəlif təsirləri var, məsələn, k-qat çarpaz yoxlama aparatlarının qoşulması və ya qoşulmaması və s. Çünki, prefiksli öyrənmə alqoritmləri arasından seçim edərkən, k-qat çarpaz yoxlamadan istifadə edən alqoritm etməyəndən alqoritmdən daha zəif hesab olunur. Bu, həmçinin, “yaxşı” maşın öyrənməsi modelini təşkil edən ümumi üsullara da təsir göstərir. Məsələn, həddən artıq uyğunlaşmaqdan çəkinmək və ya yaxşı işləyən və mümkün olan ən sadə modelin qurulması və s. Digər nümunələr isə, nəzarətli öyrənmə üçün hazırlanan mürrəkkəb üsullardan deyil də, sadə üsullardan istifadə olunmasına nəzər yetirilir. Qısaca, deyilir ki, “bütün üsullar uğur qazandırca uğursuz olur”.
+
+Bütün mümkün proqnozlaşdırma problemləri arasında ən yaxşı maşın öyrənmə alqoriitminin olmadığını nəzərə alsaq, bu, yeni öyrənmə alqoritmlərini inkişaf etdirməyə və hazırlanmış alqoritmləri daha yaxşı başa düşmə ehtiyacına təkan verir.
+
+“Pulsuz nahar yoxdur” teoreminin nəticəsi olaraq, real dünyada baş verən geniş məlumat çeşidini əhatə etmək üçün bir çox müxtəlf növ modellər hazırlamalıyıq və hər bir model üçün istifadə edə biləcəyimiz çoxlu müxtəlif alqoritmlər ola bilər ki, bu da sürət-dəqiqlik-müxtəliflik mübadiləsi yaradır.
+
+Sözügedən teorem, həmçinin müəyyən bir proqnozlaşdırıcı modelləşdirmə problemi üçün müxtəlif maşın öyrənmə alqoritmlərinin sınaqdan keçirilməsi arqumentini dəstəkləyir.
+
+“Pulsuz nahar yoxdur” teoremi iddia edir ki, modelləşdirmə problemi haqqında əsaslı məlumat olmadan, hər hansı digər modeldən həmişə daha yaxşı nəticə verəcək tək bir model yoxdur. Buna görə də, müxtəlif üsulları sınamaq üçün güclü bir vəziyyət hazırlana bilər, sonra hansı modelə diqqət yetirəcəyimizi müəyyənləşdirə bilərik.
+
+Buna baxmayaraq, optimallaşdırmada olduğu kimi, teoremin nəticələri həll olunan problem haqqında heç bir biliyə malik olmayan öyrənmə alqoritmlərinin seçilməsinə əsaslanır.
+
+Lakin, bu sahəyə yeni başlayan insanlar ilkin təcrübələri zamanı öyrənmə alqoritminə daxil edilə bilən problem haqqında nəsə öyrənmək üçün mövcud məlumatları nəzərdən keçirməli olurlar. Buna görə də, onlara əvvəlcədən bəzi biliklər olmadan öyrənmənin mümkün olmadığını və yalnız məlumatların kifayət etmədiyini söyləyə bilərik.
+
+“Pulsuz nahar yoxdur” teoreminin praktiki nəticəsi ondan ibarətdir ki, bilik olmadan öyrənmək kimi bir şey yoxdur. Təkcə məlumat kifayət deyil.
