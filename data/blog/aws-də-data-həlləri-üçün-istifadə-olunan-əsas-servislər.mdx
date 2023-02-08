@@ -8,139 +8,110 @@ images: ['/static/blogs/awsde-data-helleri-servisleri/awsde-data-helleri.png']
 authors: ['default']
 ---
 
-In this article, we'll set up [nats-surveyor](https://github.com/nats-io/nats-surveyor) for advanced monitoring of our [NATS servers](https://github.com/nats-io/nats-server) through [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/).
+Bu gün AWS 200-ə yaxın müxtəlif servis təklif edir ki, onların içində data engineerlər tərəfindən data pipelinelar qurmaq üçün istifadə edilə bilən bir sıra analitik servislər də mövcuddur. Praktikada, bir problemin həlli üçün istifadə edilə bilən çoxsaylı AWS servisləri var və mütəxəssis problem üçün ən yaxşı servisi müəyyən etməzdən əvvəl onları müxtəlif perspektivlərdən qiymətləndirməli, hər bir servisin müsbət və mənfi tərəflərinə hakim olmalıdır.
 
-### What is NATS Surveyor?
+Bu məqalədə AWS-də data həlləri yaratmaq üçün istifadə edilən bir neçə AWS servisindən bəhs edəcəm.
 
-![setup](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zd2x79at8dmnnjkcox4g.png)
+> Bu məqalə seriyası 2 hissədən ibarət olacaq, siz oxuduqdan sonra aşağıdakı mövzular haqqında məlumat əldə edəcəksiniz:
+> 
+> • Dataların AWS-ə daşınması üçün istifadə olunan AWS servisləri  
+> • Dataların transformasiya edilməsi üçün istifadə olunan AWS servisləri  
+> • Böyük data pipelineların təşkili üçün istifadə olunan AWS servisləri  
+> • Dataların istifadə olunması üçün istifadə olunan AWS servisləri
 
-NATS surveyor polls the NATS server for [Statz](https://docs.nats.io/running-a-nats-service/nats_admin/monitoring#monitoring-endpoints) messages to generate data for Prometheus. This allows a single exporter to connect to any NATS server and get an entire picture of a NATS deployment without requiring extra monitoring components or sidecars.
+## 1. Dataların AWS-ə daşınması üçün istifadə olunan AWS servisləri
 
-It's really powerful as we can now just connect the data generated for [Prometheus](https://prometheus.io/) and setup dashboards on observability platforms like [Grafana](https://grafana.com/).
+Data həllərinin yaradılmasında ilk addım müxtəlif mənbələrdən məlumatları AWS-ə “çəkib gətirməkdir”. İndi mən bu məqsəd üçün hazırlanmış bəzi əsas AWS servislərindən bəhs edəcəm.
 
-### Setup
+**Amazon Database Migration Service (DMS)**
 
-Let's setup our local super cluster and start our surveyor service.
+![](https://miro.medium.com/max/400/1*9C4gK_oTcfrGcNzjpIuluA.png)
 
-**Local cluster**
+Ümumiyyətlə, burada ən çox qarşılaşacağınız use case dataları ənənəvi verilənlər bazası sistemindən Amazon S3-ə, ya da Amazon Redshift kimi məlumat anbarına sinxronizasiya etməkdir. Amazon DMS mövcud verilənlər bazası sistemlərini yeni verilənlər bazası mühərrikinə köçürmək üçün istifadə edilə bilən çox yönlü bir vasitədir, məsələn, siz şirkətinizdəki mövcud Oracle verilənlər bazasını Amazon Aurora-ya keçid etdirə bilərsiniz. Lakin analitik nöqteyi-nəzərdən Amazon DMS, həmçinin bir sıra ümumi verilənlər bazası mühərriklərindən Amazon S3 məlumat gölünə davamlı replikasiyanı həyata keçirmək üçün də istifadə edilə bilər.
 
-To setup our local super cluster, we can use [this repo](https://github.com/ColinSullivan1/nats-local-supercluster.git). Here's the topology.
+_Amazon DMS bir verilənlər bazası mühərrikindən fərqli verilənlər bazası mühərrikinə keçid etməyi və ya mövcud verilənlər bazasında olan dataları davamlı olaraq Amazon S3 ilə sinxronizasiyanı asanlaşdırır._
 
-```bash
-$ git clone https://github.com/ColinSullivan1/nats-local-supercluster.git
-$ cd nats-local-supercluster
-$ ./start_supercluster.sh
-```
+**Amazon Kinesis**
 
-![supercluster](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jcp2i9gw3osfglyn7at3.png)
+![](https://miro.medium.com/max/744/1*-y41FB3oKZH4KbJz4fpedg.png)
 
-**Surveyor**
+Amazon Kinesis reatime və ya reatime-a yaxın streaming dataların qəbulu və emalı prosesini asanlaşdıran servisdir. Kinesis-in təklif etdiyi servislər:
 
-Now that our local super cluster is up and running, we can setup [nats-surveyor](https://github.com/nats-io/nats-surveyor).
+-   Amazon Kinesis Firehose: Sizə streaming dataların mənbəyindən dataları asanlıqla qəbul etmək və həmin dataları Amazon S3, Amazon Redshift, Amazon Elasticsearch, eləcə də üçüncü tərəf xidmətləri (məsələn, Splunk, Datadog və Yeni Relikt) kimi hədəflərə köçürmək imkanı verir.
+-   Kinesis Data Streams: Aşağı gecikmə ilə realtime data axınlarını qəbul və emal edir.
+-   Kinesis Data Analytics: Bu servisdən istifadə edərək, streaming data üzərində analitika aparmaq üçün SQL sorğuları yaza bilərik.
+-   Kinesis Video Streams: Video və ya audio axınları, həmçinin termal görüntülər və RADAR görüntüləri kimi dataları emal edir.
 
-For now, we'll do it with [docker](https://docs.docker.com/engine/install/) and [docker-compose](https://docs.docker.com/compose/install/).
+**Amazon DataSync**
 
-_Note: We can also install `nats-surveyor` directly from the [Github releases](https://github.com/nats-io/nats-surveyor/releases) as well_
+![](https://miro.medium.com/max/375/1*R-_QHyeveTaOKHDKiXyrIA.png)
 
-```bash
-$ git clone https://github.com/nats-io/nats-surveyor.git
-$ cd nats-surveyor/docker-compose
-$ ./survey.sh "nats://$(ipconfig getifaddr en0):4000" 9 ../../nats-local-supercluster/auth/nkeys/creds/myoperator/SYS/SYS.creds
-[+] Running 3/0
- ⠿ Container nats-surveyor  Created                                                      0.0s
- ⠿ Container prometheus     Created                                                      0.0s
- ⠿ Container grafana        Created                                                      0.0s
-Attaching to grafana, nats-surveyor, prometheus
-...
-```
+Çox vaxt mövcud on-promise serverlərdə olan verilənləri AWS-ə daşımaq tələb olunur və Amazon DataSync məlumat ötürülməsi üçün yüksək performans və sabitlik təklif etməklə bu prosesi asanlaşdırır.
 
-_Notice how we use_ `ipconfig getifaddr en0` to get the current IP of the system and _`SYS.creds` with NATS surveyor._
+DataSync Amazon S3 daxil olmaqla, dataları AWS daxilində çoxsaylı hədəflərə daşıya bilər. Məsələn, əgər sizdə end of day əməliyyatlarını fayl serverinə yazan bir həlliniz varsa, DataSync bu dataların S3-ə sinxronizasiyasını təmin edə bilər.
 
-**Generating demo data**
+**AWS Snow**
 
-For generating traffic we can use the `nats bench` command
+![](https://miro.medium.com/max/375/1*pvV5OBTCBkGN1Z1HryrCzQ.png)
 
-_Note: Learn more about NATS CLI in the previous [article](https://karanpratapsingh.com/blog/introduction-nats-cli)._
+AWS-ə daşınmalı olan data çox böyük olduqda və ya yaxşı şəbəkə bağlantısı olmadıqda, ya da dataların sadəcə ölçüsünün şəbəkə bağlantısı vasitəsilə ötürülməsini qeyri-mümkün etdiyi hallarda AWS Snow qurğuları istifadə edilə bilər.
 
-```bash
-$ nats bench -s 127.0.0.1:4000 --msgs 100000000 --pub 1 --sub 1 --creds ../../nats-local-supercluster/auth/nkeys/creds/myoperator/myaccount/myuser.creds subject
-16:38:53 Starting pub/sub benchmark [subject=subject, msgs=100,000,000, msgsize=128 B, pubs=1, subs=1]
-16:38:53 Starting subscriber, expecting 100,000,000 messages
-16:38:53 Starting publisher, publishing 100,000,000 messages
-Finished     40s [==========================================] 100%
-Finished     40s [==========================================] 100%
+AWS Snow qurğuları, fiziki olaraq sizə göndərilir və yerli şəbəkə bağlantısına qoşularaq dataları qəbul edir. Data yerli şəbəkə üzərindən qurğuya ötürülür və qurğu daha sonra məlumatların Amazon S3-ə ötürülməsi üçün AWS-ə geri göndərilir. Bütün qurğular yolda dataların şifrələnməsini təmin edir. Burada bir çox qurğu mövcuddur:
 
-NATS Pub/Sub stats: 4,924,665 msgs/sec ~ 601.16 MB/sec
- Pub stats: 2,462,354 msgs/sec ~ 300.58 MB/sec
- Sub stats: 2,462,346 msgs/sec ~ 300.58 MB/sec
-```
+• AWS Snowcone: 8 TB istifadə edilə bilən yaddaşa malik yüngül (2,1 kq) qurğu  
+• AWS Snowball Edge Optimized (məlumatların ötürülməsi üçün): 80 TB istifadə edilə bilən yaddaşa malik orta çəki (22,5 kq) qurğu  
+• AWS Snowmobile: Yarımqoşqulu yük maşını ilə çəkilmiş yük konteyneri, 100 PB-ə qədər tutum
 
-_Yes, we just transferred 100 Million messages in just 40s alongside running a super cluster on the same machine! NATS has amazing performance._
+![](https://miro.medium.com/max/875/1*wAqbaBLzosBi3Cvj0Y853g.jpeg)
 
-We can also use `nats bench` with `--pubsleep` flag to simulate real-time traffic in the background while we look at the dashboards.
+## 2. Dataların transformasiya edilməsi üçün istifadə olunan AWS servisləri
 
-```bash
-$ nats bench -s 127.0.0.1:4000 --msgs 100000000 --pubsleep 1ms --pub 1 --sub 1 --creds ../../nats-local-supercluster/auth/nkeys/creds/myoperator/myaccount/myuser.creds subject
-14:24:20 Starting pub/sub benchmark [subject=subject, msgs=100,000,000, msgsize=128 B, pubs=1, subs=1, js=false, pubsleep=1ms, subsleep=0s]
-14:24:20 Starting subscriber, expecting 100,000,000 messages
-14:24:20 Starting publisher, publishing 100,000,000 messages
-Receiving    18s [--------------------------------------------------------------]   0%
-Publishing   18s [--------------------------------------------------------------]   0%
-```
+Datalarınız Amazon S3 kimi hansısa AWS servisinə daşındıqdan sonra, növbəti mərhələ verilənləri analitika üçün optimallaşdırmaq və məlumat end-userə təqdim etmək üçün onları transformasiya etməkdir.
 
-### Monitoring
+Əvvəlki bölmədə məlumatların AWS-yə daxil edilməsi üçün müzakirə etdiyimiz bəzi servislər sadə transformasiyalar həyata keçirə bilər. Məsələn, Amazon DMS məlumatları Kinesis Firehose kimi Parket formatında (analitika üçün optimallaşdırılmış format) yaza bilər. Bununla belə, müxtəlif analitik tapşırıqlar və müxtəlif end userlər üçün məlumatlarınızı tam optimallaşdırmaq üçün tez-tez daha ağır transformasiyalar tələb olunur və bu bölmədə bunun üçün istifadə oluna biləcək bəzi əsas AWS servislərini nəzərdən keçirəcəyik.
 
-Now we should be able to go to [Grafana](https://grafana.com/) running on `[localhost:3000/dashboards](http://localhost:3000/dashboards)` and see all the available monitoring dashboards.
+**AWS Lambda**
 
-_Note: You might be presented with a login screen, the default user is `admin` and the password is `admin`_
+![](https://miro.medium.com/max/450/1*HhBufXsvcU-mo0VKORZkHg.png)
 
-Here we can see we have different dashboards such as Clients, Clusters, NATS Overview, Network Usage, Super Cluster, etc. So let's explore these dashboards one by one!
+AWS Lambda kodun icrası üçün serversiz mühit təmin edir və AWS-nin ən populyar xidmətlərindən biridir. 140-dan çox digər AWS xidmətləri ilə inteqrasiya da daxil olmaqla, kodunuzu müxtəlif yollarla icra etmək üçün Lambda funksiyanızı işə sala bilərsiniz və siz yalnız kodunuzun icra etdiyi müddətə görə ödəniş edirsiniz.
 
-![dashboard](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i2w6b06py84498apzkdj.png)
+Lambda əsasən daxil olan dataların çevrilməsi və sadə transformasiyalar üçün istifadə olunur. Əlbəttə, 15 dəqiqəyə qədər işləmə qabiliyyəti və maksimum 10 GB yaddaş konfiqurasiyası ilə daha təkmil emal etmək də mümkündür.
 
-**Clients**
+AWS Lambda bir çox fərqli proqramlaşdırma dillərini, o cümlədən data mühəndisliyi ilə bağlı tapşırıqlar üçün ən populyar dillərdən birinə çevrilmiş Python dilini dəstəkləyir.
 
-In the client dashboard, we can monitor things like slow consumers, subscriptions, connections per second, and much more.
+**AWS Glue**
 
-![clients](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kg9txknr6z9xx54ai9gc.png)
+![](https://miro.medium.com/max/500/1*2dWsgTsAHJjNwYGoFHW54Q.png)
 
-**Clusters**
+AWS Glue bir neçə ayrı servisə bölünə bilən çoxsaylı komponentlərə malikdir, lakin bu komponentlər hamısı birlikdə işləyə bilər. Buna görə də AWS onları AWS Glue ailəsində qruplaşdırıb.
 
-In the cluster dashboard, we can see how many clusters we are running with bandwidth and messages per second.
+AWS Glue-un mərkəzində dataların transformasiyası və işlənməsi üçün Python mühərriki və ya Apache Spark mühərriki təmin edən serversiz mühit dayanır. Python kiçik və orta verilənlər bazalarında transformasiyaları həyata keçirmək üçün istifadə oluna bilər, Apache Spark isə çox böyük verilənlər topluları üçün optimal emal etməyə imkan verir.
 
-![clusters](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/kibtmsthb54qofkn14h8.png)
+Hər iki mühərrik Amazon S3-də olan datalarla və AWS Glue Data Catalog ilə işləyə bilər. Bundan əlavə, hər iki mühərrik istifadəçi baxımından serversizdir, yəni istifadəçinin serverləri yerləşdirməsi və ya idarə etməsinə ehtiyac yoxdur, istifadəçi sadəcə işini gücləndirmək istədikləri Məlumat Emalı Vahidlərinin (DPU) sayını göstərməlidir. Glue ETL işləri konfiqurasiya edilmiş DPU-ların sayına, eləcə də əsas kodun mühitdə icra etdiyi vaxta əsasən ödənilir.
 
-**Overview**
+AWS Glue bəzi ümumi ETL tapşırıqlarını sadələşdirmək üçün əlavə Spark kitabxanaları və funksionallıq təmin etsə də, onların istifadəsi istəyə bağlıdır, AWS Glue həmçinin canlı məlumat axınlarını emal etmək üçün nəzərdə tutulmuş əsas Spark API-nin genişləndirilməsi olan Spark Streaming-i dəstəkləyir.
 
-The overview dashboard provides basic information about how many servers and clusters we are running with route or gateway connections.
+**Amazon EMR**
 
-_Check out that insane 300k messages/sec, and that's on a development machine!_
+![](https://miro.medium.com/max/605/1*Vt2EwsL3RE-po6iBS6c0Jw.png)
 
-![overview](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/efpln8xw2i1r8uh7vqdn.png)
+Amazon EMR, Apache Spark, Apache Hive, Apache Hudi, Apache HBase, Presto, Pig və s. kimi məşhur open source big data emalı alətlərini işə salmaq üçün idarə olunan platforma təqdim edir.
 
-**Network Usage**
+Soruşa bilərsiniz ki, Amazon EMR Apache Spark-ı işə salmaq üçün istifadə oluna bilirsə, AWS nə üçün eyni big data emal mühərrikini effektiv şəkildə həyata keçirən iki xidmət təklif edir? Hər iki xidmət Apache Spark mühərrikindən istifadə edərək böyük məlumatların emalı üçün istifadə oluna bilsə də, mühüm fərqlər var.
 
-The network dashboard is all about how much data is being sent or received in our clusters.
+Başlanğıc üçün onu deyək ki, AWS Glue Apache Spark-ı işə salmaq üçün serversiz mühit təklif edir, halbuki Amazon EMR ilə siz Apache Spark-ı işə salmaq istədiyiniz klasterin ətraflı konfiqurasiyasını təyin etməlisiniz. Və bu, servislər arasındakı ən böyük fərqlərdən biridir.
 
-![network usage](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/f2z6r4cnhmqec3v7hkyd.png)
+Həmçinin, AWS Glue-da siz eyni ölçülü server üçün Amazon EMR ilə müqayisədə bir qədər yüksək pul ödəyirsiniz, lakin AWS Glue Apache Spark mühitinin idarə edilməsi və konfiqurasiya etməklə bağlı daha az anlayış və ya təcrübə tələb edir.
 
-**Node Resource Usage**
+Xülasə, Apache Spark mühitlərini idarə etmək təcrübəniz varsa, Amazon EMR ideal seçim ola bilər. Yox, əgər minimal konfiqurasiya ilə datalarınızı emal etmək istəyirsinizsə, AWS Glue ən uyğun seçimdir.
 
-This dashboard provides information about individual nodes and provides metrics like CPU and memory usage of our nodes.
+Digər mühüm fərq odur ki, Amazon EMR böyük verilənlərin emalı üçün çoxlu əlavə alətlər təklif edir. Məsələn, əgər siz Apache Hive, Presto və ya EMR-də dəstəklənən digər alət dəstlərindən istifadə edən bir mühitə köçürsünüzsə, Amazon EMR çox uyğundur.
 
-![node resource usage](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ei4kh7ud3lk8g6one3kp.png)
+Bu günlük bu qədər, növbəti məqalədə:
 
-**Super Cluster**
+-   Böyük data pipelineların təşkili üçün istifadə olunan AWS servisləri
+-   Dataların istifadə olunması üçün istifadə olunan AWS servisləri
 
-This dashboard works at the super cluster level and provides metrics like super cluster bandwidth, connections, message rate, and much more.
-
-This makes it really easy to monitor multiple super clusters.
-
-![superclusters](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/i3gy392beuczimtwlw2d.png)
-
-### Conclusion
-
-In this article, we set up NATS Surveyor, which is an incredible tool that makes it easy to setup monitoring for our NATS services as easily as a single command. It's a must have if you're running distributed systems with NATS at scale. Make sure to checkout the [docs](https://docs.nats.io/) for more info.
-
-I hope this article was helpful, feel free to [reachout](https://karanpratapsingh.com?action=contact) to me if you face any issues. Have a great day!
+Oxuduğunuz üçün təşəkkür edirəm!
 
