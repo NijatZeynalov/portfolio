@@ -1,0 +1,105 @@
+---
+title: 'Pythonla Azərbaycanca sözlərin düzgün yazılışı | Peter Norvig alqoritması'
+date: '2022-09-15'
+tags: []
+draft: false
+summary: 'NLP layihələri ilə çalışarkən, qarşılaşacağımız problemlərdən biri də mətndə orfoqrafik qaydaların pozulması ilə bağlı ola bilər.'
+images: ['/static/blogs/azerbaycanca-sozlerin-duzgun-yazilisi/sozlerin-duzgun-yazilisi.png']
+authors: ['default']
+---
+Yaxınlarda, başladığım  **“Utterance intention classification for Azerbaijani health dialogues”** adlı layihə çərçivəsində, data collection məqsədi ilə yerli tibb forumlarından birini scraping etdim, etməz olaydım :). Baş verə biləcək bütün orfoqrafik səhvlərlə qarşılaşmaq şansını əldə etdiyim bu dataset, 24.000 azərbaycanlı istifadəçinin 19 xəstəlik üzrə müvafiq həkimə ünvanladığı suallardan ibarətdir. Həddindən artıq çirkli data olduğunu nəzərə alaraq, bir neçə təmizləmə əməliyyatı həyata keçirsəm də, modelin dəqiqliyi 50–60 faiz civarında idi.
+
+Bir neçə model sınadım, lakin nəticənin dəyişmədiyini görərək, hər nə qədər təmizləsəm də problemin datada olduğunun fərqinə vardım. Datada həddindən artıq ümumi sözlər mövcud idi, dilimizdə isə stemmer və lemmatization kimi texnikalar hələ hazırlanmadığından datanı manual olaraq normallaşdırmaq qeyri-mümkün idi. Məsələn: getmək sözü datasetdə 10-dan artıq formada mövcuddur. (gedirəm, get, getsin, gedirik və s.) hələ orfoqrafik qaydaları nəzərə almasaq (gedsin və s.). Bu isə öz növbəsində, vocabularynın mənasız yerə böyüməsinə gətirib çıxarır, model yaxşı öyrənə bilmir.
+
+# Həll yolu nədir?
+
+Açığı bu data ilə həll yolu, layihənin “başını buraxmaq”-dır. Ancaq düşündüm bir az da özümü challange edim. Fikirləşdim ki, əksər sözlər səhv yazılıb, okay, ilk olaraq bu sözləri doğru şəkildə yazılmasını təmin edim ki, nəticədə vocabulary size azalmış olsun. (yaxşı sözü 8 formada yazılıb- yaxsi, yaxshi, yaxwi, yakhsi, yaxşı, yaxşi və s.) bütün bu sözlərin səhv yazılması real həyatdan götürülmüş layihə üçün kifayət qədər normaldır. Çünki, data hansısa kitabdan, akademik məqalədən yox, istifadəçilərin yazdığı şərhlərdən təşkil olunub. İngilis dilində, spell checking adlanan bu texnika haqqında Google tərəfindən 2009-cu ildə yazılmış bu  [paperdə](http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/36180.pdf)  çox gözəl izah verilib.
+
+> Spellchecking is the task of predicting which words in a document are misspelled. These predictions might be presented to a user by underlining the misspelled words.
+
+Ümumiyyətlə, Spell checking alətləri öncədən hazırlanmış bir korpus üzərindən train olunur, özünü sözlərin doğru yazılışı üzərində train edir və gələcəldə bu söz yanlış yazıldıqda korpusdakı doğru sözü referans olaraq götürür. Spell checking-də düzgün korpus seçimi çox önəmlidir, bu məqsədlə internet üzərində mövcud Azərbaycan dilində olan bir neçə  [korpusu](https://wortschatz.uni-leipzig.de/en/download/Azerbaijani)  sınadım, lakin əksəriyyət korpusun özündə belə doğru yazılmamış sözlər mövcud idi. Bundan əlavə olaraq, dilimizdə stemmer və lemmetization kimi texnikalar olmadığından dolayı, o tip korpuslar çox da əlverişli deyil. Belə qərara gəldim ki, azərbaycanca yazılmış bir neçə kitab üzərindən yeni korpus yaradım. Çünki, mövcud korpuslar crawled datadır və yanlışlıqlar mövcud ola bilir. Yaratmış olduğum korpus, 6 sahə üzrə  **(biologiya, coğrafiya, detektiv, ədəbiyyat, ensiklopediya, roman)**  47 kitab üzərindən toplanmış 1478667 sözdən ibarətdir.
+
+Spell checking üçün bir neçə alqoritma, metod olsa da, onlardan ən məşhuru və sadə olanı Google çalışanı Peter Norvig tərəfindən yaradılmış olan sadə məntiqli “Spelling Corrector”-dur.
+
+# Norvig alqoritması
+
+Norvig alqoritması bir mətn və ya söz listi alır və bu listdə olan kəlimələri sözbəsöz ayıraraq, onlar üçün doğru olan variantını öyrənir. “edit1()” funksiyası sözü incələyir və doğru variantını düzəltmək üçün onu dəyişdirən 4 fərqli texnikaya sahibdir. Bu texnikalar aşağıdakılardır:
+
+**_Silmə: Sözdəki hərifi yerindən asılı olmayaraq silir._**
+
+**_Transpose: İki hərfin yerini düzgün sıraya keçirir._**
+
+**_Dəyişdirmə: Yanlış yazılan hərfi doğru olanla dəyişdirir._**
+
+**_Əlavə: Çatışmayan hərfi düzgün yerə əlavə edir._**
+
+Yuxarıdakı texnikalarını bir söz üzərində tətbiq edək, məsələn: “söz” kəlməsi üçün doğru ola biləcək namizəd sözlər: sö sz öz ösz szö zsö s_öz sö_z ssöz sööz szöz adbc aebc vb. Daha sonra, bu namizəd sözlər bir listə əlavə olunur.
+
+Listdə olan hər bir namizəd unigram dil modeli ilə proqnoz edilir. Hər kəlimə üçün frequency hesablanılır, (bunu hesablamaq üçün böyük mətn korpusu mövcud olmalıdır) Ən yüksək frequency-ə sahib namizəd kəlimə cavab olaraq götürülür.
+
+**def** edits1(word):  
+    "Return all strings that are one edit away from this word."  
+    pairs      = splits(word)  
+    deletes    = [a+b[1:]           **for** (a, b) **in** pairs **if** b]  
+    transposes = [a+b[1]+b[0]+b[2:] **for** (a, b) **in** pairs **if** len(b) > 1]  
+    replaces   = [a+c+b[1:]         **for** (a, b) **in** pairs **for** c **in** alphabet **if** b]  
+    inserts    = [a+c+b             **for** (a, b) **in** pairs **for** c **in** alphabet]  
+    **return** set(deletes + transposes + replaces + inserts)  
+  
+**def** splits(word):  
+    "Return a list of all possible (first, rest) pairs that comprise word."  
+    **return** [(word[:i], word[i:])   
+            **for** i **in** range(len(word)+1)]  
+  
+alphabet='ABCÇDEƏFGĞHXIİJKQLMNOÖPRSŞTUÜVYZabcçdeəfgğhxıijkqlmnoöprsştuüvyz'
+
+Yuxarıdakı kod parçasından görülən, split funksiyası sözü hər dəfə bir hərf əlavə etməklə cütlüklərə bölür. Məsələn splits(‘necesen’) funksiyasının nəticəsi:
+
+![](https://miro.medium.com/max/173/1*a_7tOqxtI1mr5sMHLgrVTw.jpeg)
+
+edits1 funksiyası isə bu sözə bir vahid məsafədə olan bütün sözləri generasiya edir.
+
+![](https://miro.medium.com/max/875/1*lgCZBaCAvYs4BiKdxfutvw.jpeg)
+
+correct funksiyası, daxil edilən söz üçün ən yüksək ehtimalla doğru ola biləcək sözü qaytarır. Burada, əminlik üçün ehtimal nəzəriyyəsi tətbiq edilir.
+
+**def** correct(word):  
+    "Find the best spelling correction for this word."  
+    _# Prefer edit distance 0, then 1, then 2; otherwise default to word itself._  
+    candidates = (known(edits0(word)) **or**   
+                  known(edits1(word)) **or**   
+                  known(edits2(word)) **or**   
+                  [word])  
+    **return** max(candidates, key=COUNTS.get)
+
+_Fərz edək ki, bizim korpusumuz, doğru sözlərdən ibarət bir siyahıdır, yəni buradakı hər bir söz, istifadəçinin daxil etdiyi yanlış sözün doğru olan namizədidir. Burada bizim məqsədimiz, doğru sözlər siyahısından (korpusdan) elə bir c-doğru sözü tapmaqdır ki, həmin c-doğru sözünün, bizim daxil etdiyimiz yalnış sözün doğru namizədi olmaq ehtimalı maksimum olsun._
+
+![](https://miro.medium.com/max/875/0*ISI-wPj8HdpMdfDi.png)
+
+Bayes teoremindən istifadə edərək, yuxarıdakı ifadəni bu şəkildə də yaza bilərik:
+
+![](https://miro.medium.com/max/875/0*KwzrG3QxGJluaOKD.png)
+
+P(w)-ın hər bir c doğru söz namizədi üçün eyni olduğu üçün, bu şəkildə sadələşdirmə edək.
+
+![](https://miro.medium.com/max/805/0*wj1wobviO0Ka8PAl.png)
+
+Yuxarıdakı ifadə bizim final ifadəmizdir və bu ifadənin kompanentlərini aşağıdakı şəkildə izah edə bilərik.
+
+**1- Seçmə mexanizmi**(**_argmax_**)— Ən yüksək ehtimala malik doğru namizəd sözü seçirik.
+
+**2- Namizəd modeli (_c ∈ candidates)_:** Nəzərə alınacaq bütün namizədlərin siyahısı. Norvig, çalışmasında Damerau-Levenshtein məsafəsindən istifadə edir, haradaki icazə verilən əməliyyatlar silmə, dəyişdirmə, əlavə, transpose-dir. Müəllif ona görə bu metriki seçib ki, adıçəkilən dörd əməliyyat insanlar tərəfindən edilən orfoqrafik səhvlərin yüzdə 80-dən çox faizini əhatə edir.
+
+**3- Səhv modeli P(w|c):** İstifadəçinin c sözünü nəzərdə tutduğu zaman mətndə onun əvəzinə w sözünü yazma ehtimalını göstərir. Məsələn,  _P(gel|gəl)_  daha çoxdur, nəinki  _P(gəlljldjfd | gəl)._
+
+**4-Dil modeli P(c): c-** sözünün  korpusumuzda bir söz kimi nə qədər görünməsi ehtimalıdır. Yəni, bu söz korpusumuzun neçə faizini təşkil edir.
+
+İndi isə alqoritmamızı korpusumuza tətbiq edərək, bir neçə eksperiment aparaq. Mən bu alqoritmanı tibblə əlaqəli datasetə tətbiq etməyi planlaşdırdığım üçün, tibblə bağlı suallar da ünvanlamışam.
+
+![](https://miro.medium.com/max/679/1*LAl7TL8sWJU7nvOz_6MPTA.jpeg)
+
+Ümumilikdə, doğru sözləri tapa bilsə də, əksər hallarda bu alqoritma səhvlərə yol verir. Baxmayaraq ki, korpus təmiz və ümumi korpusdur. Bu baxımdan, eyni korpus üzərindən yeni metodlar sınayaraq, ən dəqiq olanı seçəcəm.
+
+Oxuduğunuz üçün təşəkkür edirəm!
+
+**Github** [**profilimdən**](https://github.com/NijatZeynalov/Norvig-s-Spell-Checker-Algorithm-for-Azerbaijani-Language)**, cümlələr və bigramları yükləyə bilərsiniz. Məqalənin əvvəlində də qeyd etdiyim kimi, əksər hallarda hazır korpuslar çox da təmiz olmur, bu baxımdan hazırlamış olduğum korpusun faydalı olduğunu düşünürəm.**
