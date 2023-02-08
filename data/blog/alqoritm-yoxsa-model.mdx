@@ -1,0 +1,121 @@
+---
+title: 'Alqoritm və model arasındakı fərq'
+date: '2022-08-30'
+tags: []
+draft: false
+summary: 'Maşın öyrənməsi sahəsinə yeni başlayanlar tez tez “maşın öyrənməsi alqoritmləri” və “maşın öyrənməsi modeli” ifadələrini bir-biri ilə əvəz edir. Bəs, bunlar, həqiqətən, eyni şeydir, yoxsa fərqli? '
+images: ['/static/blogs/alqoritm-yoxsa-model/alqoritm-model.png]
+authors: ['default']
+---
+**Alqoritm və model arasındakı fərq**
+
+Maşın öyrənməsi, əsasən, maşın öyrənməsi alqoritmərini və modellərini əhatə edir.
+
+Bu məqaləmizdə bir maşın öyrənməsi alqoritmləri və maşın öyrənməsi modelləri arasındakı fərqlərdən danışacağıq. Məqaləmizin əsas fikirlərini aşağıdakı kimi qruplaşdıra bilərik:
+
+-   Maşın öyrənmə alqoritmləri kodda həyata keçirilən və ilkin verilənlər üzərində işləyən prosedurlardır.
+-   Maşın öyrənmə modelləri alqoritmlər üzərində yardılır. Model məlumatlarından və proqnozlaşdırma alqoritmlərindən ibarətdir.
+-   Maşın öyrənmə alqoritmləri maşın öyrənmə modellərinin proqramının avtomatik proqramlaşdırmasının bir növüdür.
+
+Məqaləmizi 4 hissəyə bölə bilərik:
+
+1.  Maşın öyrənməsi alqoritmi nədir?
+2.  Maşın öyrənməsi modeli nədir?
+3.  Alqoritm və model
+4.  Maşın öyrənməsi avtomatik proqramlaşdırmadır.
+
+Maşın öyrənməsi alqoritmi nədir?
+
+Maşın öyrənməsi alqoritmi maşın öyrənməsində model yaratmaq üçün verilənlər üzərində işləyən prosedurdur.
+
+Maşın öryənməsi alqoritmləri tanınma məsələsini həyata keçirir. Alqoritmlər verilənlərdən öyrənir və ya verilənlər bazasına uyğunlaşdırır.
+
+Çox sayda maşın öyrənmə alqoritmləri vardır.
+
+Məsələn, k-ya ən yaxın qonşular kimi təsnifat alqoritmləri vardır. Xətti reqressiya kimi reqressiya alqoritmləri, həmçinin, k-means kimi qruplaşdırma alqoritmləri var.
+
+Maşın öyrənməsi alqoritmlərinə aşağıdakı nümunələri qeyd edə bilərik:
+
+Xətti reqressiya; Logistik reqressiya; Qərar ağacı; Süni neyron şəbəkəsi; k- Ən yaxın qonşular; k-means;
+
+Maşın öyrənməsi alqoritmini kompüter elmlərində qarşılaşdığımız hər hansı digər alqoritm kimi düşünə bilərik. Məsələn, bubble-sort adlanın çeşidləmə və axtarış kimi bəzi alqoritmləri qeyd edə bilərik. Beləliklə, maşın öyrənmə alqoritmləri bir sıra xüsusiyyətlərə malikdir.
+
+-   Maşın öyrənmə alqoritmləri riyaziyyat və psevdo-koddan istifadə etməklə təsvir edilə bilər.
+-   Maşın öyrənmə alqoritmlərinin faydalılığının təhlil və təsvir edilə bilər.
+-   Maşın öyrənmə alqoritmləri bir sıra müasir proqramlaşdırma dillərindərindən biri ilə həyata keçirilə bilər.
+
+Məsələn, biz müxtəlif məqalələrdə psevdo-kod və ya xətti cəbr ilə təsvir edilən maşın öyrənmə alqoritmlərini görə bilərik. Başqa xüsusi alqoritmlərlə müqayisədə maşın öyrənmə alqoritmlərinin daha efektiv olduğunu görə bilərik.
+
+Maşın öyrənməsi sahəsində uzun illər çalışmış insanlar, məsələn, akademiklər yeni maçın öyrənmə alqoritmləri hazırlaya bilər. Mühəndislər də, bu alqoritmləri öz praktikasında işlədə, inkişaf etdirə və ya standart maşın öyrənmə alqoritmlərindən istifadə edə bilərlər. Bu, akademiklərin kompüter elmlərinin müxtəlif sahələrində olduğu kimi yeni alqoritmlər hazırlaya bildiyi və bu alqoritmlərdən istifadə edə bildiyi sahədir.
+
+Biz, həmçinin standart maşın öyrənməsi alqoritmlərindən istifadə edə bilərik. Məsələn, Python proqramlaşdırma dilində bir çox qruplaşdırma, reqressiya və klassifikasiya kimi məhşur alqoritmlərdən istifadə olunur.
+
+Maşın öyrənməsi modeli nədir?
+
+Maşın öyrənməsində “model” verilənlər üzərində işləyən maşın öyrənmə alqoritminin nəticəsidir. Model maşın öyrənmə alqoritmi ilə öyrənilənləri təmsil edir.
+
+Model maşın öyrənmə alqoritminə giriş məlumatları verildikdən sonra saxlanılan və proqnozlar vermək üçün tələb olunan qaydaları, rəqəmləri və strukturu təmsil edir.
+
+Bəzi nümunələr bunu daha aydın göstərə bilər:
+
+-   Xətti reqressiya alqoritmi xüsusi dəyərlərə malik əmsallar vektorundan ibarət modellə nəticələnir.
+-   Qərar ağacı alqoritmi xüsusi dəyərləri olan if-then (əgər-onda) ifadələr ağacından ibarət bir modellə nəticələnir.
+-   Neyron şəbəkəsi, geri yayılma və qradiyent enmə alqoritmləri birlikdə vektorları və ya xüsusi dəyərləri olan çəkilərin matrisləri olan qrafik strukturundan ibarət modellə nəticələnir.
+
+Maşın öyrənmə modeli yeni başlayanlar üçün daha çətin olur, çünki kompüter elmlərində digər alqoritmlərlə aydın şəkildə müqayisə oluna bilmir.
+
+Məsələn, çeşidləmə alqoritminin çeşidlənmiş nəticəsi əslində model deyil. Ən yaxşı bənzətmə maşın öyrənmə modelini “proqram” kimi düşünməkdir.
+
+Maşın öyrənmə modeli "proqramı" həm ilkin verilənlərdən, həm də proqnoz vermək üçün verilənlərin istifadəsindən ibarətdir.
+
+Məsələn, xətti reqressiya alqoritmini və onun nəticə modelini nəzərdən keçirək. Model, proqnoz vermək üçün giriş kimi qəbul edilmiş ilkin verilənlər və vurulan, cəmlənən əmsallar vektorundan ibarətdir.
+
+Biz sonradan istifadə üçün maşın öyrənmə modeli üçün məlumatları saxlayırıq.
+
+Biz tez-tez maşın öyrənmə kitabxanası tərəfindən təmin edilən maşın öyrənmə modeli üçün proqnozlaşdırma əməliyyatından istifadə edirik. Bəzən proqramımızın bir hissəsi kimi proqnozlaşdırmanı özümüz həyata keçirə bilərik. Əksər proqnozlaşdırma əməliyyatlarının olduqca sadə olduğunu nəzərə alsaq, bunu etmək çox vaxt sadədir.
+
+Alqoritm və model
+
+Beləliklə, biz artıq maşın öyrənmə “alqoritmi” və maşın öyrənmə “modeli” ilə tanışıq. Deyə bilərik ki, model yaratmaq üçün verilənlər üzərində alqoritm işlədilir.
+
+Maşın öyrənməsi ⇒ Maşın öyrənmə modeli
+
+Biz, həmçinin, başa düşürük ki, model həm nəticə, həm də yeni məlumatlar üzrə proqnoz vermək üçün ilkin verilənlərdən necə istifadə edilməsi prosedurundan ibarətdir. Biz bu proseduru bir proqnoz alqoritmi kimi düşünə bilərik.
+
+Maşın Öyrənmə Modeli == Model Məlumatları + Proqnozlaşdırma Alqoritmi
+
+Məsələn, əksər alqoirmlərin bütün işləri “alqoritmdə” görülür və beləliklə, “proqnozlaşdırma alqoritmi” çox az iş görür.
+
+Alqoritm verilənlər bazasında modelin səhvini (verilənlər + proqnozlaşdırma alqoritmi) minimuma endirən bir növ optimallaşdırma prosedurudur. Xətti reqressiya alqoritmi yaxşı bir nümunədir. O, verilənlər bazasında cəmin kvadratı xətasını minimuma endirən çəkilər toplusunu tapmaq üçün optimallaşdırma prosesini həyata keçirir (və ya xətti cəbrdən istifadə etməklə analitik şəkildə həll olunur).
+
+Xətti reqressiya:
+
+Alqoritm: Verilənlər toplusunda xətanı minimuma endirən əmsallar toplusunu tapın; Model məlumatı: əmsalların vektoru; Proqnozlaşdırma alqoritmi: Giriş cərgəsi ilə cəm əmsallarını tapın.
+
+Bəzi alqoritmlər əhəmiyyətsizdir və ya heç nə etmir və bütün iş model və ya proqnoz alqoritmində olur.
+
+K- ən yaxın qonşu alqoritminin əsas məsələsi, onun bütün məlumat bazasını saxlamasıdır. Buna görə də, model məlumatları bütün verilənlər toplusudur və bütün işlər proqnozlaşdırma alqoritmindədir, yəni proqnoz vermək üçün yeni bir sıra verilənlər toplusu qarşılıqlı əlaqədə olmalıdır.
+
+K- ən yaxın qonşu:
+
+Alqoritm: Məlumatları yadda saxlayın. Model məlumatı: Bütün təlim verilənlər toplusu. Proqnozlaşdırma alqoritmi: k-ya ən çox oxşar cərgə tapın və onların hədəf dəyişəninin orta dəyərini tapın.
+
+İstənilən maşın öyrənmə alqoritmini başa düşmək üçün bu parçalanmadan istifadə edə bilərik.
+
+Maşın öyrənməsi avtomatik proqramlaşdırmadır.
+
+Biz, həqiqətən, sadəcə bir maşın öyrənmə “modeli” istəyirik və “alqoritm”dən modeli əldə etmək üçün istifadə edirik.
+
+Maşın öyrənmə üsulları effektiv şəkildə həll edilə bilməyən problemlər üçün istifadə olunur. Məsələn, e-poçtları spam kimi təsnif etməyimiz lazımdırsa, bunun üçün maşın öyrənməsi üsulları kimi proqram lazımdır. Bu tapşırığı yerinə yetirmək üçün oturub bir sıra e-poçtu əl ilə nəzərdən keçirə və if (əgər) şərt ifadələri ilə yaza bilərik. İnsanlar buna cəhd etdilər, lakin, bu yanaşma istənilən nəticəni vermədi. Bu yanaşmanın əvəzinə, bu problemi həll etmək üçün maşın öyrənmə üsullarından istifadə edə bilərik. Xüsusilə, Naive Bayes kimi bir alqoritm e-poçt mesajlarını təsnif etməyə kömək edə bilər. Əslində, bizim məksədimiz Naive Bayes alqoritmi deyil, e-poçtları təsnif etmək üçün istifadə edə biləcəyiz modeli qurmaqdır. Yəni, maşın öyrənmə modelini qurmaq istəyirik. Beləliklə, bu problemi həll etmək üçün maşın öyrənmə alqoritmi tərəfindən avtomatik yazılmış və ya yaradılmış proqrama, yəni modelə ehtiyacımız var.
+
+Maşın öyrənmə alqoritmləri avtomatik proqramlaşdırmanı həyata keçirir və maşın öyrənmə modelləri bizim üçün yaradılmış proqramlardır.
+
+Qısacası, biz bu məqalədə maşın öyrənməsi alqoritmi ilə maşın öyrənməsi modeli arasındakı fərqi öyrəndik. Öyrəndiklərimizi aşağıdakı kimi yaza bilərik:
+
+Maşın öyrənmə alqoritmləri kodda həyata keçirilən və verilənlər üzərində işləyən prosedurlardır.
+
+Maşın öyrənmə modelləri alqoritmlərlə çıxarılır, məlumatlardan və proqnozlaşdırma alqoritmindən ibarətdir.
+
+Maşın öyrənmə alqoritmləri, maşın öyrənmə modellərinin təmsil etdiyi bir növ avtomatik proqramlaşdırmadır.
+
+Bu məqalənin hazırlanmasında Fidan Nağıyeva, Səidə Aslanzadə və Jalə Mehdiyeva iştirak etmişlər.
