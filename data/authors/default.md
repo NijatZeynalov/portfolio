@@ -18,3 +18,11 @@ Presently, I am working as a Machine Learning Engineer at azerconnect. Prior wor
 Previously I've worked at the Data Technologies department at the ABB as a Data Scientist where I was using predictive modeling to increase and optimize customer experiences, revenue generation (the conversion rate increased by 10 %.).
 
 I also have an experience working as a Visiting Researcher at University of Cambridge, Computational Structural Biology Lab. I collaborated in interdisciplinary projects, recommend ML-based solutions and determine computational strategies under the professor Garib Murshudov.
+
+Rewards:
+
+__Achieved in top 15 at Data Competition : E-GOV__
+
+__Winner of "The Open Data Hackathon for Municipalities" : Valmiera, Latvia__
+
+__Awarded by the management for building an analytical model to increase sales: ABB__
