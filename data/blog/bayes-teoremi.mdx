@@ -1,0 +1,465 @@
+---
+title: 'Maşın öyrənməsi üçün Bayes teoremi'
+date: '2022-12-30'
+tags: []
+draft: false
+summary: 'Bayes teoremi şərti ehtimalın hesablanması üçün prinsipial üsullardan biridir.'
+images: ['/static/blogs/bayes-teoremi/medical-questions-2.png']
+authors: ['default']
+---
+
+Baxmayaraq ki, Ehtimal nəzəriyyəsində geniş istifadə olunsa da, Bayes teoremi maşın öyrənməsi sahəsində də rast gəlinir.  Bu yazıda siz şərti ehtimalların hesablanması üçün Bayes teoremini və onun maşın öyrənməsində necə istifadə edildiyini öyrənəcəyik.
+
+Məqaləmizdə aşağıdakı mövzulara toxunacağıq:
+
+-   Bayes teoremi nədir və real ssenari üzrə hesablamalar vasitəsilə necə işləmək olar?
+-   Bayes teoreminin hesablamasındakı şərtlər və onların arxasında duran intuisiyalar nələrdir?
+-   Bayes teoremini təsnifatlarda, optimallaşdırmada və modellərdə necə istifadə edildiyinə dair nümunələr.
+
+Məqaləmizi aşağıdakı kimi hissələrə bölə bilərik:
+
+1.  Şərti ehtimal üçün Bayes teoremi;
+2.  Teoremdə terminlərin adlandırılması;
+3.  Bayes teorminin hesablanması üçün nümunə;
+
+3.1. Diaqnostik Test Ssenarisi;
+
+3.2. Əllə hesablama;
+
+3.3. Pythonla hesablama;
+
+3.4. Binary təsnifat terminologiyası;
+
+5.1. Sadə Bayes Təsnifatı;
+
+5.2. Optimal Bayes Təsnifatı;
+
+6.  Maşın Öyrənməsində Bayes teoremindən istifadə;
+
+6.1. Bayes Optimizasiyası;
+
+6.2. Bayes şəbəkələri.
+
+**Şərti ehtimal üçün Bayes teoremi**
+
+Bayes teoreminə keçməzdən əvvəl birgə və şərti ehtimalı nəzərdən keçirək.
+
+
+Birgə ehtimal, iki hadisənin(və ya daha çox) eyni vaxtda baş vermə ehtimalıdır, çox vaxt iki asılı təsadüfi dəyişəndən A və B hadisələri baxımından təsvir olunur.
+
+Birgə Ehtimal: Eyni vaxtda iki (və ya daha çox) hadisənin baş vermə ehtimalı kimi başa düşə bilərik, məs. P(A və B) və ya P(A, B).
+
+Şərti ehtimal isə, başqa bir hadisənin baş verməsi nəzərə alınmaqla bir hadisənin baş vermə ehtimalıdır, çox vaxt iki asılı təsadüfi dəyişəndən A və B hadisələri baxımından təsvir olunur.
+
+Şərti ehtimal: Başqa bir hadisənin baş verməsi nəzərə alınmaqla bir (və ya daha çox) hadisənin baş vermə ehtimalıdır, məs. P(A verilmiş B-də) və ya P(A | B).
+
+Birgə ehtimal şərti ehtimaldan istifadə etməklə hesablana bilər; misal üçün:
+
+P(A, B) = P(A | B) * P(B)
+
+Bilməliyik ki, birgə ehtimal eyni zamanda simmetrikdir, yəni:
+
+P(A, B) = P(B, A)
+
+Şərti ehtimalı birgə ehtimaldan istifadə etməklə hesablamaq olar; misal üçün:
+
+P(A | B) = P(A, B) / P(B)
+
+Şərti ehtimal simmetrik deyil; misal üçün:
+
+P(A | B) != P(B | A)
+
+**Şərti ehtimalın hesablanması üçün alternativ yol**
+
+İndi şərti ehtimalı hesablamaq üçün başqa bir üsul haqqında danışacağıq.
+
+Konkret olaraq, bir şərti ehtimal digər şərti ehtimaldan istifadə etməklə hesablana bilər; misal üçün:
+
+P(A|B) = P(B|A) * P(A) / P(B)
+
+Bunun əksi də doğrudur; misal üçün:
+
+P(B|A) = P(A|B) * P(B) / P(A)
+
+Şərti ehtimalın hesablanmasına bu alternativ yanaşma ya birgə ehtimalın hesablanması çətin olduqda (çox vaxt belə olur), ya əks şərti ehtimal mövcud olduqda və ya hesablanması asan olduqda faydalıdır.
+
+Şərti ehtimalın bu alternativ hesablanması Bayes qaydası və ya Bayes teoremi adlanır və onu ilk təsvir edən Tomas Bayesin şərəfinə adlandırılır.
+
+Bayes teoremi: Birgə ehtimal olmadan şərti ehtimalın hesablanmasının prinsipial yoludur. Çox vaxt belə olur ki, məxrəcə birbaşa çıxışımız olmur, məsələn, P(B).
+
+Biz bunu alternativ yolla hesablaya bilərik; misal üçün:
+
+P(B) = P(B|A) * P(A) + P(B|A olmayan) * P(A olmayan)
+
+Bu, aşağıda təsvir olunan P(B)-nin alternativ hesablamasından istifadə edən Bayes teoreminin formulasını verir:
+
+P(A|B) = P(B|A) * P(A) / P(B|A) * P(A) + P(B|A olmayan) * P(A olmayan)
+
+Beləliklə, əgər P(A) varsa, onda onun tamamlayıcısı kimi P(A olmayan) hesablaya bilərik. Misal üçün:
+
+P(A olmayan) = 1 – P(A) Əlavə olaraq, əgər P(B olmayan|A olmayan) varsa, onda onun tamamlayıcısı kimi P(B | A olmayan) hesablaya bilərik; misal üçün:
+
+P(B|A deyil) = 1 – P(B olmayan | A olmayan)
+
+İndi Bayes teoreminin hesablanması ilə tanış olduğumuz üçün gəlin tənlikdəki terminlərin mənasına daha yaxından nəzər salaq.
+
+**Teoremdə terminlərin adlandırılması**
+
+Bayes teorem tənliyindəki terminlər tənliyin istifadə olunduğu kontekstdən asılı olaraq adlanır. Bu müxtəlif perspektivlərdən hesablama haqqında düşünmək və probleminizi tənliklə əlaqələndirməyə kömək edir.
+
+İlk olaraq, ümumiyyətlə, nəticə P(A|B) cari ehtimal, P(A) isə əvvəlki ehtimal kimi istinad edilir.
+
+P(A|B): Cari ehtimal. P(A): Əvvəlki ehtimal. Bəzən P(B|A) ehtimala, P(B) isə sübut kimi dəyərləndirilir.
+
+P(B|A): Ehtimal. P(B): Sübut. Bu, Bayes teoremini aşağıdakı kimi təkrarlamağa imkan verir:
+
+Cari ehtimal = Ehtimal * Əvvəlki ehtimal / Sübut
+
+Bunu tüstü və yanğın hadisəsi ilə aydınlaşdıra bilərik.
+
+Tüstü olduğunu nəzərə alsaq, yanğın olma ehtimalı nədir?
+
+P(Yanğın) Əvvəlki olduğu halda, P(Tüstü|Alov) ehtimal, P(Tüstü) sübutdur:
+
+P(Yanğın|Tüstü) = P(Tüstü|Alov) * P(Alov) / P(Tüstü) Eyni vəziyyəti yağış və buludlarla da təsəvvür edə bilərsiniz.
+
+İndi Bayes teoremi və terminlərin mənası ilə tanış olduğumuz üçün onu hesablaya biləcəyimiz bir ssenariyə baxaq.
+
+**Bayes teorminin hesablanması üçün nümunə**
+
+Bayes teoremi ən yaxşı şəkildə hesablamaları nümayiş etdirmək üçün real ədədlərlə real işlənmiş nümunə ilə başa düşülür.
+
+Əvvəlcə bir ssenari müəyyən edəcəyik, sonra əl ilə hesablama, Python-da hesablama və ikili təsnifat sahəsindən sizə tanış ola biləcək şərtlərdən istifadə edərək hesablama üzərində işləyəcəyik.
+
+-   Diaqnostik Test Ssenarisi;
+-   Manual hesablama;
+-   Python kodunun hesablanması;
+-   İkili Klassifikator Terminologiyası;
+
+**Diaqnostik Test Ssenarisi**
+
+Bayes teoreminin faydasının əla və geniş istifadə olunan nümunəsi tibbi diaqnostik testin təhlilidir.
+
+Ssenari: Xərçəng ola bilən və ya olmayan insan populyasiyasını (Xərçəng Doğrudur və ya Yanlışdır) və xərçəngin aşkarlanması üçün müsbət və ya mənfi nəticə verən tibbi testi (Sınaq Müsbət və ya Mənfidir), məs. xərçəngi aşkar etmək üçün bir mamogram kimi.
+
+Problem: Təsadüfi seçilmiş bir xəstə testdən keçibsə və müsbət nəticə verirsə, xəstənin xərçəngə tutulma ehtimalı nədir?
+
+Manual hesablama Tibbi diaqnostik testlər mükəmməl deyil; onların xətası var.
+
+Bəzən xəstədə xərçəng olur, amma test onu aşkar etməyəcək. Testin xərçəngi aşkar etmək qabiliyyətinə həssaslıq və ya həqiqi müsbət nisbət deyilir.
+
+Bu halda, biz test üçün həssaslıq dəyərini hazırlayacağıq. Test yaxşı, lakin əla deyil, əsl müsbət nisbət və ya 85% həssaslıqla alınır. Yəni, xərçəng xəstəliyinə tutulmuş və yoxlanılan insanların 85%-i testdən müsbət nəticə alacaq.
+
+P(Test=Müsbət | Xərçəng=Doğru) = 0,85 Bu məlumatı nəzərə alsaq, intuisiyamız xəstənin xərçəngə tutulma ehtimalının 85% olduğunu söyləyərdi.
+
+**Ehtimal intuisiyalarımız səhvdir.**
+
+Ehtimalların şərhində bu tip səhvlər o qədər geniş yayılmışdır ki, onun öz adı var; ona baza dərəcəsi səhvi deyilir.
+
+O, belə bir ada malikdir, çünki hadisənin baş vermə ehtimalının təxminində səhvə baza dərəcəsinə məhəl qoymamaq səbəb olur. Yəni, diaqnostik testin nəticələrindən asılı olmayaraq, təsadüfi seçilmiş şəxsin xərçəng xəstəliyinə tutulma ehtimalına məhəl qoymur.
+
+Bu halda, xərçəngi ehtimalının aşağı olduğunu fərz edə bilərik və 5000-də bir nəfər və ya (0,0002) 0,02% üçün qoyulmuş baza dərəcəsi dəyərindən istifadə edə bilərik.
+
+P(Xərçəng=Doğru) = 0,02%. Bayes teoremindən istifadə edərək müsbət test nəticəsində xəstənin xərçəngə tutulma ehtimalını düzgün hesablaya bilərik.
+
+Ssenarimizi tənliyə uyğunlaşdıraq:
+
+P(A|B) = P(B|A) * P(A) / P(B) P(Xərçəng=Doğru | Test=Müsbət) = P(Test=Müsbət|Xərçəng=Doğru) * P(Xərçəng=Doğru) / P(Test=Müsbət) Xəstənin xərçəngi olduğunu nəzərə alsaq, testin müsbət olma ehtimalını bilirik 85% və biz baza dərəcəsini və ya müəyyən bir xəstənin xərçəngə tutulma ehtimalının 0,02% olduğunu bilirik. Bu dəyərləri daxil edə bilərik:
+
+P(Xərçəng=Doğru | Test=Müsbət) = 0,85 * 0,0002 / P(Test=Müsbət) P (Test=Müsbət) bilmirik, o, birbaşa verilmir.
+
+Bunun əvəzinə, biz bunu istifadə edərək təxmin edə bilərik:
+
+P(B) = P(B|A) * P(A) + P(B|A deyil) * P(A deyil) P(Test=Müsbət) = P(Test=Müsbət|Xərçəng=Doğru) * P(Xərçəng=Doğru) + P(Test=Müsbət|Xərçəng=Yanlış) * P(Xərçəng=Yanlış) Birincisi, biz artıq bildiyimiz P(Xərçəng=True) tamamlayıcısı kimi P(Xərçəng=Yanlış) hesablaya bilərik.
+
+P(Xərçəng=Yanlış) = 1 – P(Xərçəng=Doğru)= 1 – 0,0002 = 0,9998
+
+Əlimizdə olanı əlavə edək:
+
+Biz məlum dəyərlərimizi aşağıdakı kimi daxil edə bilərik:
+
+P(Test=Müsbət) = 0,85 * 0,0002 + P(Test=Müsbət|Xərçəng=Yanlış) * 0,9998 Xərçəng olmadığı halda müsbət test nəticəsinin olma ehtimalını hələ də bilmirik.
+
+Bu əlavə məlumat tələb edir.
+
+Xüsusilə, testin xərçəngi olmayan insanları düzgün müəyyən etməkdə nə qədər yaxşı olduğunu bilməliyik. Yəni, xəstədə xərçəng olmadığı zaman mənfi nəticənin (Test=Mənfi) test edilməsi (Xərçəng=Yanlış), həqiqi mənfi nisbət və ya spesifiklik adlanır.
+
+Biz 95%-lik uydurma spesifiklik dəyərindən istifadə edəcəyik.
+
+P(Test=Mənfi | Xərçəng=Yanlış) = 0,95 Bu son məlumat parçası ilə biz yalançı müsbət və ya yanlış həyəcan dərəcəsini həqiqi mənfi nisbətin tamamlayıcısı kimi hesablaya bilərik.
+
+P(Test=Müsbət|Xərçəng=Yanlış) = 1 – P(Test=Mənfi | Xərçəng=Yanlış)= 1 - 0,95 = 0,05
+
+Bu yanlış həyəcan dərəcəsini P (Test=Müsbət) hesablamamıza aşağıdakı kimi qoşa bilərik:
+
+P(Test=Müsbət) = 0,85 * 0,0002 + 0,05 * 0,9998 P(Test=Müsbət) = 0,00017 + 0,04999 P(Test=Müsbət) = 0,05016 Əla, buna görə də insanın xərçəng olub-olmamasından asılı olmayaraq testin müsbət nəticə vermə ehtimalı təxminən 5% təşkil edir.
+
+İndi Bayes teoremini hesablamaq və təsadüfi seçilmiş şəxsin müsbət test nəticəsində xərçəngə tutulma ehtimalını qiymətləndirmək üçün kifayət qədər məlumatımız var.
+
+P(Xərçəng=Doğru | Test=Müsbət) = P(Test=Müsbət|Xərçəng=Doğru) * P(Xərçəng=Doğru) / P(Test=Müsbət) P(Xərçəng=Doğru | Test=Müsbət) = 0,85 * 0,0002 / 0,05016 P(Xərçəng=Doğru | Test=Müsbət) = 0,00017 / 0,05016 P(Xərçəng=Doğru | Test=Müsbət) = 0,003389154704944
+
+Hesablamalar göstərir ki, əgər xəstəyə bu testlə xərçəng olduğu bildirilirsə, onda xərçəng olma ehtimalı yalnız 0,33% olur.
+
+Dəhşətli bir diaqnostik testdir!
+
+Nümunə də göstərir ki, şərti ehtimalın hesablanması kifayət qədər məlumat tələb edir.
+
+Məsələn, Bayes teoremində istifadə olunan dəyərlərə sahib olsaq, biz onları birbaşa istifadə edə bilərik.
+
+Bu, nadir hallarda olur və biz adətən ehtiyac duyduğumuz bitləri hesablamalı və bu vəziyyətdə etdiyimiz kimi onları birləşdirməliyik. Bizim ssenarimizdə bizə 3 məlumat verildi: baza dərəcəsi, həssaslıq (və ya həqiqi müsbət nisbət) və spesifiklik (və ya həqiqi mənfi nisbət).
+
+Həssaslıq: Xərçəngli insanların 85%-i müsbət test nəticəsi alacaq. Baza nisbəti: insanların 0,02% -i xərçəngdir. Spesifiklik: Xərçəngi olmayan insanların 95%-i mənfi test nəticəsi alacaq. Bizdə P(Test=Müsbət) yox idi, lakin biz artıq mövcud olanı nəzərə alaraq onu hesabladıq.
+
+Təsəvvür edə bilərik ki, Bayes teoremi bizə verilən ssenari haqqında daha da dəqiq olmağa imkan verir. Məsələn, əgər xəstə (məsələn, onların yaşı) və domen (məsələn, yaş diapazonları üçün xərçəng dərəcələri) haqqında daha çox məlumatımız olsaydı və öz növbəsində daha dəqiq ehtimal təxmini təklif edə bilərdik. Bu çox zəhmətli olardı.
+
+Python kodunun bir neçə sətirindən istifadə edərək bu dəqiq ssenarini necə hesablaya biləcəyimizə baxaq.
+
+**Python kodunun hesablanması**
+
+Bu nümunəni konkretləşdirmək üçün Python-da hesablama apara bilərik.
+
+Aşağıdakı nümunə eyni hesablamanı Python yerinə yetirir, sizə parametrlərlə oynamağa və müxtəlif ssenariləri sınaqdan keçirməyə imkan verir.
+
+**calculate the probability of cancer patient and diagnostic test**
+
+**calculate P(A|B) given P(A), P(B|A), P(B|not A)**
+
+def bayes_theorem(p_a, p_b_given_a, p_b_given_not_a):
+
+**calculate P(not A)**
+
+not_a = 1 - p_a
+
+**calculate P(B)**
+
+p_b = p_b_given_a * p_a + p_b_given_not_a * not_a
+
+**calculate P(A|B)**
+
+p_a_given_b = (p_b_given_a * p_a) / p_b
+
+return p_a_given_b
+
+**P(A)**
+
+p_a = 0.0002
+
+**P(B|A)**
+
+p_b_given_a = 0.85
+
+**P(B|not A)**
+
+p_b_given_not_a = 0.05
+
+**calculate P(A|B)**
+
+result = bayes_theorem(p_a, p_b_given_a, p_b_given_not_a)
+
+**summarize**
+
+print('P(A|B) = %.3f%%' % (result * 100))
+
+Nümunəni işlətməklə xəstənin xərçəng olması ehtimalı hesablanır ki, test bizim manual hesablamamıza uyğun müsbət nəticə verir.
+
+P(A|B) = 0.339%
+
+Bu, yeni ssenarilərə uyğunlaşmaq istəyə biləcəyiniz faydalı kiçik skriptdir.
+
+İndi ikili təsnifatın şərtlərindən istifadə edərək ssenari üçün Bayes teoreminin hesablanmasını təsvir etmək adi haldır. Problem haqqında düşünmək üçün çox intuitiv bir yol təqdim edir. Növbəti bölmədə biz bu şərtləri nəzərdən keçirəcəyik və onların teoremdəki ehtimallara necə uyğunlaşdığını və ssenarimizlə necə əlaqəli olduğunu görəcəyik.
+
+**İkili Klassifikator Terminologiyası**
+
+Xərçəng testi nümunəsi haqqında ikili (iki sinifli) təsnifatın ümumi şərtləri, yəni spesifiklik və həssaslıq anlayışlarının haradan gəldiyini düşünmək faydalı ola bilər.
+
+Şəxsən mən bu terminlərin hər şeyin məna kəsb etməsinə kömək etdiyini görürəm.
+
+Əvvəlcə qarışıq matrisini təyin edək:
+
+| Positive Class  | Negative Class
+
+Positive Prediction | True Positive (TP) | False Positive (FP) Negative Prediction | False Negative (FN) | True Negative (TN)
+
+Sonra qarışıqlıq matrisindən bəzi dərəcələri müəyyən edə bilərik:
+
+Həqiqi Müsbət Dərəcə (TPR) = TP / (TP + FN) Yanlış Müsbət Dərəcə (FPR) = FP / (FP + TN) Həqiqi Mənfi Dərəcə (TNR) = TN / (TN + FP) Yanlış Mənfi Dərəcə (FNR) = FN / (FN + TP) Bu terminlər dərəcələr adlanır, lakin onlar ehtimallar kimi də şərh edilə bilər.
+
+Bundan əlavə, diqqət yetirmək lazımdır:
+
+-   TPR + FNR = 1.0, və ya:
+
+-   FNR = 1.0 – TPR
+-   TPR = 1.0 – FNR
+
+-   TNR + FPR = 1.0, və ya:
+
+-   TNR = 1.0 – FPR
+-   FPR = 1.0 – TNR
+
+Xatırladaq ki, əvvəlki bölmədə həqiqi mənfi nisbətin tamamlayıcısı və ya FPR = 1.0 – TNR verilməklə yanlış müsbət nisbəti hesablamışdıq.
+
+Bu tariflərdən bəzilərinin xüsusi adları var, məsələn:
+
+Həssaslıq = TPR Xüsusiyyət = TNR
+
+Bu dərəcələri Bayes teoremindən tanış şərtlərlə əlaqələndirə bilərik:
+
+P(B|A): Həqiqi Müsbət Dərəcə (TPR). P(B deyil|A deyil): Həqiqi Mənfi Dərəcə (TNR). P(B|A deyil): Yanlış Müsbət Dərəcə (FPR). P(B|A deyil): Yanlış Mənfi Dərəcə (FNR). Biz həmçinin Bayes teoremindən tanış şərtlər əsasında vəziyyət (sinif) və müalicə (proqnozlaşdırma) üçün əsas tarifləri ala bilərik:
+
+P(A): Müsbət Sinfin (PC) ehtimalı. P(A deyil): Mənfi Sinfin (NC) ehtimalı. P(B): Müsbət proqnozlaşdırma ehtimalı (PP). P(B deyil): Mənfi proqnozlaşdırma ehtimalı (NP). İndi bu terminlərdən istifadə edərək Bayes teoremini nəzərdən keçirək:
+
+P(A|B) = P(B|A) * P(A) / P(B) P(A|B) = (TPR * PC) / PP Çox vaxt P(B) hesablaya bilmədiyimiz hallarda alternativdən istifadə edirik:
+
+P(B) = P(B|A) * P(A) + P(B|A deyil) * P(A deyil) P(B) = TPR * PC + FPR * NC
+
+İndi isə gəlin xərçəng ssenarimizə və xərçəng aşkarlama testinə baxaq.
+
+Sinif və ya vəziyyət "Xərçəng", müalicə və ya proqnoz isə "Test" olacaq.
+
+Əvvəlcə bütün tarifləri nəzərdən keçirək:
+
+Həqiqi müsbət nisbət (TPR): 85% Yanlış müsbət nisbət (FPR): 5% Həqiqi mənfi nisbət (TNR): 95% Yanlış mənfi nisbət (FNR): 15%
+
+Baza tarifləri haqqında bildiklərimizi də nəzərdən keçirək:
+
+Müsbət Sinif (PC): 0,02% Mənfi Sinif (NC): 99,98% Müsbət Proqnoz (PP): 5.016% Mənfi Proqnoz (NP): 94,984%
+
+Hər şeyi daxil edərək, müsbət test nəticəsinin (müsbət proqnoz) ehtimalını xərçənglə bağlı müsbət test nəticəsinin ehtimalını (əsl müsbət nisbət) xərçəng xəstəliyinə tutulma dərəcəsinə (müsbət sinif) vuraraq hesablaya bilərik. Xərçəng olmadığı təqdirdə müsbət test nəticəsinin olması ehtimalı (yanlış müsbət nisbət) üstəgəl xərçəng olmama ehtimalı (mənfi sinif) əldə etməl. Bu şərtlərlə hesablama aşağıdakı kimidir:
+
+P(B) = P(B|A) * P(A) + P(B|A olmayan) * P(A olmayan) P(B) = TPR * PC + FPR * NC P(B) = 85% * 0,02% + 5% * 99,98% P(B) = 5,016%
+
+Daha sonra ssenari üçün Bayes teoremini hesablaya bilərik, yəni müsbət test nəticəsi verildikdə xərçəng ehtimalı xərçənglə bağlı müsbət test nəticəsinin olma ehtimalı xərçəng olma ehtimalına vurulur, müsbət test nəticəsinin ehtimalına bölünür.
+
+Bu şərtlərlə hesablama aşağıdakı kimidir:
+
+P(A|B) = P(B|A) * P(A) / P(B) P(A|B) = TPR * PC / PP P(A|B) = 85% * 0,02% / 5,016% P(A|B) = 0,339% Belə çıxır ki, bu halda Bayes teoremi ilə hesabladığımız cari ehtimal qarışıq matrisin Pozitiv Proqnoz Dəyəri (PPV) də adlandırılan dəqiqliyinə ekvivalentdir:
+
+PPV = TP / (TP + FP)
+
+Və ya təsnifat şərtlərimizdə qeyd olunur:
+
+P(A|B) = PPV PPV = TPR * PC / PP
+
+Sınaqdan keçmiş və yoxlanılmamış həm xərçəngi olan, həm də olmayan insanlar üçün qarışıq matrisimiz yoxdur. Bunun əvəzinə, əlimizdə olan tək şey əhalimiz və testimizlə bağlı bəzi prioritetlər və ehtimallardır.
+
+Bu, hesablamadan praktikada istifadə etməyi seçə biləcəyimizi vurğulayır.
+
+Xüsusilə, baş verən hadisələrlə bağlı inancımız olduqda, lakin real dünyada misalları saymaqla hesablama apara bilmirik.
+
+**Fərziyyələrin Modelləşdirilməsi üçün Bayes teoremi**
+
+Bayes teoremi tətbiqi maşın öyrənməsində faydalı bir vasitədir. Verilənlər və model arasındakı əlaqə haqqında düşüncə tərzini təmin edir.
+
+Maşın öyrənmə alqoritmi və ya modeli verilənlərdəki strukturlaşdırılmış əlaqələr haqqında xüsusi düşünmə üsuludur. Bu şəkildə, bir model, giriş (X) və çıxış (y) arasındakı əlaqə kimi verilənlərdəki əlaqələr haqqında bir fərziyyə kimi düşünülə bilər. Tətbiqi maşın öyrənməsi təcrübəsi verilmiş verilənlər bazasında müxtəlif fərziyyələrin (modellərin) sınaqdan keçirilməsi və təhlilidir.
+
+Bayes teoremi verilənlər (D) və fərziyyə (h) arasındakı əlaqəni təsvir etmək üçün ehtimal modeli təqdim edir; misal üçün:
+
+P(h|D) = P(D|h) * P(h) / P(D)
+
+Müşahidə olunan bəzi məlumatlar nəzərə alınmaqla verilmiş bir fərziyyənin saxlanması və ya doğru olması ehtimalı, fərziyyə verilən məlumatların müşahidə edilməsi ehtimalının verilənlərdən asılı olmayaraq fərziyyənin doğru olma ehtimalına vurulması, məlumatların müşahidə olunma ehtimalına bölünməsi kimi hesablana bilər.
+
+Bayes teoremi bir fərziyyənin ehtimalını onun əvvəlki ehtimalına, fərziyyə əsasında verilmiş müxtəlif məlumatların müşahidə ehtimallarına və müşahidə edilən məlumatların özünə əsaslanaraq hesablamaq üçün bir yol təqdim edir.
+
+P(h|D): Fərziyyənin cari ehtimalı (hesablamaq istədiyimiz ehtimal). P(h): Fərziyyənin əvvəlki ehtimalı. Bu, maşın öyrənmə problemi haqqında düşünmək və modelləşdirmək üçün faydalıdır.
+
+Əgər fərziyyə haqqında bəzi əvvəlki domen biliklərimiz varsa, bu, əvvəlki ehtimalda tutulur. Bunu etməsək, bütün fərziyyələrin əvvəlki ehtimalı eyni ola bilər.
+
+Əgər P(D) verilənlərinin müşahidə olunma ehtimalı artırsa, o zaman P(h|D) verilənləri nəzərə alınmaqla fərziyyənin saxlanma ehtimalı azalır. Əksinə, əgər P(h) fərziyyəsinin ehtimalı və verilən fərziyyənin verilənlərin müşahidə edilməsi ehtimalı artırsa, P(h|D) verilənləri verilmiş fərziyyənin saxlanma ehtimalı artır.
+
+Tətbiqi maşın öyrənməsində verilənlər toplusunda müxtəlif modellərin sınaqdan keçirilməsi anlayışı, müşahidə edilən məlumatlar nəzərə alınmaqla hər bir fərziyyənin (h1, h2, h3, … H) doğru olma ehtimalını qiymətləndirmək kimi düşünülə bilər.
+
+Optimallaşdırma və ya modelləşdirmədə maksimum ehtimalla fərziyyənin axtarılması “maksimum a posteriori” və ya qısaca MAP adlanır.
+
+Bu cür maksimum ehtimal olunan hər hansı fərziyyə MAP fərziyyəsi adlanır. Hər kəs fərziyyənin cari ehtimalını hesablamaq üçün Bayes teoremindən istifadə edərək MAP fərziyyələrini müəyyən edə bilər.
+
+Burada verilənlərin (D) ehtimalı hər bir fərziyyənin qiymətləndirilməsində istifadə olunduğu üçün sabitdir. Buna görə də, sadələşdirilmiş normallaşdırılmamış qiymətləndirməni aşağıdakı kimi vermək üçün hesablamadan çıxarıla bilər:
+
+H-də maksimum h P(h|D) = P(D|h) * P(h)
+
+Əgər sınaqdan keçirilən fərziyyə haqqında əvvəlcədən məlumatımız yoxdursa, onlara vahid ehtimal təyin edilə bilər və bu termin də sabit olacaq və aşağıdakıları vermək üçün hesablamadan çıxarıla bilər:
+
+H-də maksimum h P(h|D) = P(D|h)
+
+Yəni, məqsəd müşahidə edilən məlumatları ən yaxşı izah edən fərziyyəni tapmaqdır.
+
+**Təsnifat üçün Bayes teoremi**
+
+Təsnifat müəyyən bir giriş məlumatı nümunəsinə etiket təyin etməyi əhatə edən proqnozlaşdırıcı modelləşdirmədir. Təsnifat üzrə proqnozlaşdırıcı modelləşdirmə problemi verilənlər nümunəsi verilmiş sinif etiketinin şərti ehtimalının hesablanması kimi başa düşülür, məsələn:
+
+P(sinif|məlumat) = (P(məlumat|sinif) * P(sinif)) / P(məlumat) Burada P(sinif|məlumat) verilənlər üçün sinif ehtimalıdır.
+
+Bu hesablama problemin hər bir sinif üçün aparıla bilər və ən böyük ehtimal təyin edilən sinif seçilərək daxil edilən məlumatlara təyin edilə bilər.
+
+Təcrübədə təsnifat üçün tam Bayes teoremini hesablamaq çox çətindir. Əgər verilənlər toplusu daha geniş problemin uyğunluğunu təmsil edirsə, sinif və verilənlər üçün prioritetləri təlim verilənlər toplusundan təxmin etmək asandır.
+
+Nümunələrin sayı çox olmadıqda, P sinfinə (məlumat|sinif) əsaslanan müşahidənin şərti ehtimalı mümkün deyil, məs. bütün müxtəlif mümkün birləşmələr üçün ehtimal paylanmasını effektiv qiymətləndirmək üçün kifayət qədər böyükdür.
+
+Beləliklə, dəyişənlərin və ya xüsusiyyətlərin sayı (n) artdıqca, Bayes teoreminin birbaşa tətbiqi də çətinləşir.
+
+**Sadə Bayes Təsnifatı**
+
+Şərti ehtimal təsnifatı modeli üçün Bayes teoremindən istifadə etməyin həlli hesablamanı sadələşdirməkdir.
+
+Bayes teoremi hər bir giriş dəyişəninin bütün digər dəyişənlərdən asılı olduğunu qəbul edir. Bu, hesablamada mürəkkəbliyin səbəbidir. Bu fərziyyəni aradan qaldıra və hər bir giriş dəyişənini bir-birindən asılı olmadığını hesab edə bilərik.
+
+Bu, modeli asılı şərti ehtimal modelindən müstəqil şərti ehtimal modelinə dəyişir və hesablamanı kəskin şəkildə asanlaşdırır. Bu o deməkdir ki, biz hər bir giriş dəyişəni üçün P(məlumat|sinif)-ı ayrıca hesablayırıq və nəticələri birlikdə yazırıq, məsələn:
+
+P(sinif | X1, X2, …, Xn) = P(X1|sinif) * P(X2|sinif) * … * P(Xn|sinif) * P(sinif) / P(məlumat)
+
+Bütün hesablamalar sabit olduğu üçün məlumatları müşahidə etmək ehtimalını da azalda bilərik, məsələn:
+
+P(sinif | X1, X2, …, Xn) = P(X1|sinif) * P(X2|sinif) * … * P(Xn|sinif) * P(sinif)
+
+Bayes teoreminin bu sadələşdirilməsi ümumidir və proqnozlaşdırıcı modelləşdirmə problemlərinin təsnifatı üçün geniş istifadə olunur və ümumiyyətlə sadə Bayes adlanır.
+
+**Optimal Bayes Təsnifatı**
+
+Bayes optimal klassifikatoru, təlim verilənlər toplusunu nəzərə alaraq, yeni bir nümunə üçün ən uyğun proqnozu verən ehtimal modelidir.
+
+Bu model həm də Bayes optimal öyrənən, Bayes təsnifatı, Bayes optimal qərar sərhəddi və ya Bayes optimal diskriminant funksiyası adlanır.
+
+Bayes Təsnifatçısı: Yeni nümunələr üçün ən çox ehtimal olunan proqnozu verən ehtimal modelidir. Xüsusilə, Bayes optimal təsnifatı aşağıdakı suala cavab verir:
+
+Təlim məlumatlarına əsasən yeni nümunənin ən çox ehtimal olunan təsnifatı hansıdır?
+
+Bu, ən çox ehtimal olunan fərziyyəni axtaran MAP`dan fərqlidir. Bunun əvəzinə, biz konkret proqnoz vermək istəyirik.
+
+Aşağıdakı tənlik fərziyyələr boşluğu (H) nəzərə alınmaqla, təlim məlumatı (D) əsasında yeni nümunə (vi) üçün şərti ehtimalın necə hesablanacağını nümayiş etdirir.
+
+P(vj | D) = cəmi {h ilə H} P(vj | hi) * P(hi | D)
+
+vj təsnif ediləcək yeni nümunə olduğu halda, H nümunənin təsnifatı üçün fərziyyələr toplusudur, hi verilmiş fərziyyədir, P(vj | hi) vi verilmiş hi fərziyyəsi üçün cari ehtimaldır və P(hi | D) D verilənləri nəzərə alınmaqla hi fərziyyənin cari ehtimalıdır.
+
+Nəticənin maksimum ehtimalla seçilməsi Bayes optimal təsnifatına bir nümunədir.
+
+Bu tənlikdən istifadə edərək nümunələri təsnif edən hər hansı bir model Bayes optimal təsnifatçısı adlanır və heç bir başqa model orta hesabla bu texnikadan üstün ola bilməz.
+
+Bayes klassifikatoru optimal olduğundan, Bayes xətası edilə biləcək minimum mümkün xətadır.
+
+Bayes Xətası: Proqnozlar edərkən edilə biləcək minimum mümkün səhvdir. Bu, nəzəri bir modeldir, lakin bizim həyata keçirmək istəyə biləcəyimiz bir idea kimi saxlanılır.
+
+**Maşın Öyrənməsində Bayes teoremindən geniş istifadə**
+
+Təsnifat modellərinin hazırlanması maşın öyrənməsində Bayes teoreminin ən çox yayılmış tətbiqi ola bilər.
+
+Buna baxmayaraq, bir çox başqa tətbiqlər var. İki mühüm nümunə optimallaşdırma və səbəb modelləri ola bilər.
+
+**Bayes Optimizasiyası**
+
+Qlobal optimallaşdırma müəyyən bir məqsəd funksiyasının minimum və ya maksimum dəyəri ilə nəticələnən bir giriş tapmaq üçün çətin bir problemdir.
+
+Tipik olaraq, məqsəd funksiyasının forması mürəkkəbdir və təhlil etmək çətin olur və çox vaxt qeyri-qabarıq, qeyri-xətti, yüksək ölçülü, səs-küylü və qiymətləndirmək üçün hesablama baxımından bahalıdır.
+
+Bayes Optimizasiyası səmərəli və effektiv qlobal optimallaşdırma probleminin axtarışını istiqamətləndirmək üçün Bayes teoreminə əsaslanan prinsipial bir texnika təqdim edir. O, daşıyıcı funksiya adlanan məqsəd funksiyasının ehtimal modelini qurmaqla işləyir, sonra real məqsəd funksiyası üzrə qiymətləndirmə üçün namizəd nümunələri seçilməzdən əvvəl əldəetmə funksiyası ilə səmərəli şəkildə axtarılır.
+
+Bayes Optimizasiyası tez-tez təsdiqləmə verilənlər bazasında verilmiş yaxşı işləyən modelin hiperparametrlərini tənzimləmək üçün tətbiqi maşın öyrənməsində istifadə olunur.
+
+**Bayes şəbəkələri**
+
+Ehtimal modelləri dəyişənlər arasında əlaqələri müəyyən edə və ehtimalları hesablamaq üçün istifadə edilə bilər.
+
+Tam şərti modellər bütün mümkün halları əhatə etmək üçün çoxlu məlumat tələb edə bilər və ehtimalları praktikada hesablamaq çətin ola bilər. Bütün təsadüfi dəyişənlərin şərti müstəqilliyi kimi fərziyyələrin sadələşdirilməsi, məsələn, Sadə Bayes-də olduğu kimi, təsirli ola bilər, baxmayaraq ki, bu, sadələşdirən bir addımdır.
+
+Alternativ olaraq təsadüfi dəyişənlər arasında məlum şərti asılılığı və bütün digər hallarda şərti müstəqilliyi qoruyan modelin işlənib hazırlanmasıdır. Bayes şəbəkələri bir qrafik modelində istiqamətlənmiş kənarları ilə məlum şərti asılılığı açıq şəkildə tutan ehtimal qrafik modelidir. Bütün çatışmayan əlaqələr modeldəki şərti müstəqillikləri müəyyənləşdirir.
+
+Bu məqalənin hazırlanmasında Fidan Nağıyeva, Səidə Aslanzadə və Jalə Mehdiyeva iştirak etmişlər. 
