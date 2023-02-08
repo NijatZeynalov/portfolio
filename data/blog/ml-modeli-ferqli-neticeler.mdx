@@ -1,0 +1,170 @@
+---
+title: 'Niyə maşın öyrənməsində hər dəfə fərqli nəticə alıram?'
+date: '2022-12-29'
+tags: []
+draft: false
+summary: 'Maşın öyrənmə alqoritmlərində fərqli nəticələr əldə edirsiniz?'
+images: ['/static/blogs/ml-ferqli-neticeler/ml-model-ferqli-neticeler.png']
+authors: ['default']
+---
+Maşın öyrənmə alqoritmlərində fərqli nəticələr əldə edirsiniz?
+
+Ola bilər ki, hər hansı təlimata baxıb, yazılan alqoritmi təkrarlamısınız, lakin nəticəniz bu təlimatdakı nəticədən fərqlidir və ya, modelinizə hər dəfə eyni giriş verilənləri daxil etdiyiniz halda, hər dəfə fərqli proqnozları verir.
+
+Bu xəta deyil, alqoritmin gözlənilən nəticəsi ola bilər. Elə məqaləmizdə də, bu mövzuya toxunacağıq, biləcəyik ki, nəyə görə maşın öyrənmə alqoritmlərinin nəticəsi hər dəfə fərqli alınır. Eyni zamanda, aşağıdakı mövzulara da toxunacağıq.
+
+Giriş verilənləri dəyişdirilərsə, maşın öyrənmə alqoritmlərini istifadə etməklə fərqli modellər öyrədilir.
+
+Stoxastik maşın öyrənmə alqoritmləri öyrənmə zamanı təsadüfilikdən istifadə edərək, hər dəfə fərqli bir modelin öyrədilməsini təmin edir.
+
+Proqram təminatının versiyalarını və ya CPU növlərinin fərqlilikləri nəzərə alındığı zaman proqnozlar və modellərdən alınan nəticələrin fərqli olmasının səbəbi yuvarlaqlaşdırma xətası da ola bilər.
+
+Məqaləmizi beş əsas hissəyə bölə bilərik:
+
+-   Niyə fərqli nəticələr alıram?
+-   Giriş verilənlərinin səbəb olduğu fərqlər.
+-   Öyrənmə alqoritminin səbəb olduğu fərqlər.
+-   Dəyərləndirmənin səbəb olduğu fərqlər.
+-   Platformaların səbəb olduğu fərqlər.
+
+Niyə fərqli nəticələr alıram?
+
+Əvvəlcə qeyd edək ki, buna görə narahat olmayın. Maşın öyrənmə alqoritmləri və ya modelləri fərqli nəticələr verə bilər. Bu sizin səvhiniz deyil, hətta bu səvh də deyil. Bu bir xüsusiyyətdir. Üzləşdiyiniz bu problemi aydın şəkildə qeyd edib, ətraflı izah edəcəyik. Əvvəlcə, əsas hissəni öyrənək.
+
+Maşın öyrənməsinin tətbiqində biz maşın öyrənmə alqoritminə giriş verilənləri daxil edərək, maşın öyrənməsi modeli qururuq. Bu model daha sonralar öyrətmə zamanı istifadə olunmayan giriş verilənləri əsasında istifadə edilir ki, bu da yeni proqnozların verilməsinə səbəb olur.
+
+Alqoritm: Model ilə nəticələnən və giriş verilənləri üzərində icra olunan prosedur.
+
+Model: Giriş verilənləri üzərində proqnozlar vermək üçün istifadə edilən struktur.
+
+Nəzarətli öyrənmə giriş və çıxış dəyərlərinə əsasən öyrənmədir. Bu zaman, bizim giriş və çıxış dəyərlərindən ibarət sütunlarımız və müxtəlif nümunələrdən təşkil olunmuş sətirlərimiz vardır. Lakin, giriş verilənlərinin nəticələrini proqnazlaşdırmaq üçün kod yaza bilmiriksə, əvvəlki nümunələrin giriş verilənlərindən çıxış verilənlərini proqnozlaşdırmağı öyrənmək üçün öyrənmə alqoritmindən istifadə edirik.
+
+Bu funksiyanın yaxınlaşması adlanır. Giriş və çıxış verilənlərindən təxmin edilən funksiyanı qururuq və bu funksiyanın performansı təsadüfi funksiyalardan daha yaxşı olmalıdır.
+
+Nəzarətli öyrənmə giriş verilənlərindən çıxış verilənlərinə çatmaq üçün işlədilən avtomatik öyrənmədir. Yəni, maşın öyrənmə modelini hansısa layihədə istifadə edəcəyiksə, o artıq alqoritmlər vasitəsilə nümunələrdən öyrənmiş avtomatik proqramdır. Belə proqramlar, çoxlu sayda yazılmış “if” şərtlərinə əsasən deyil, nümunələrdən öyrəndiyi üçün daha yaxşı hesab olunur.
+
+Maşın öyrənmə modeli əvvəlcədən verilən məlumatlardan öyrədilən proqramdır. Bu proqram, bizim bildiyimiz proqramlaşdırma anlayışından fərqlənərək, tamamilə deterministik olmaya da bilər.
+
+Maşın öyrənmə modelləri hər dəfə fərqli nəticə verə bilər. Deməli, bu modellərdən alınan müxtəlif proqnozların və qiymətlərin müəyyən dərəcədə dəqiqlik səviyyəsi vardır.
+
+Fərqli nəticələr əldə etməyimizə səbəb olan ən az dörd hal vardır, onlar aşağıdakılardır.
+
+1.  Giriş verilənlərinə əsasən alınan fərqli nəticələr;
+2.  Stoxastik öyrənmə alqoritmlərinə görə fərqli nəticələr;
+3.  Dəyərləndirmənin səbəb olduğu fərqli nəticələr;
+4.  Platformadakı fərqlərə görə yaranan fərqli nəticələr
+
+İndi hər bir halı ətraflı araşdıraq.
+
+Giriş verilənlərinin səbəb olduğu fərqlər
+
+Eyni alqoritmi fərqli giriş verilənləri üçün istifadə etdiyiniz halda, fərqli nəticələrlə üzləşəcəksiniz. Bu maşın öyrənməsi alqoritmlərinin variasiya adlanır. Variasiya sözü müxtəlifləşmə, dəyişmə mənasını verir.
+
+Maşın öyrənməsi sahəsində variasiya alqoritmin öyrətmə zamanı xüsusi məlumatlara qarşı nə qədər həssas olduğunu göstərən kəmiyyətdir. Alqoritm xüsusi məlumatlara qarşı nə qədər həssasdırsa, deməli o, bir o qədər böyük variasiyaya malikdir. Bu da, modelin daha böyük fərqlə nəticələnməsinə səbəb olacaqdır. Əksinə, daha az həssas alqoritm daha kiçik vasiasiyaya malikdir və bu modelin çıxış məlumatları daha az fərqlə nəticələnəcək, proqnozlar və modelin qiymətləndirilməsində daha az fərq olacaqdır.
+
+Yüksək variasiya: Alqoritm öyrətmə prosesi zamanı xüsusi məlumatlara qarşı daha həssasdır.
+
+Aşağı variasiya: Alqoritm öyrətmə prosesi zamanı xüsusi məlumatlara qarşı daha az həssasdır.
+
+Bütün maşın öyrənmə alqoritmlərində müəyyən fərqlər olacaqdır, hətta bəzi çox istifadə edilən alqoritmlər yüksək variasiyaya malik olacaqdır.
+
+Yüksək variasiyaya malik alqoritmlər daha az variasiyaya malik olan alqoritmlərdən daha çox giriş məlumatı tələb edir. Böyük ədədlər qanununa əsasən, giriş məlumatlarından funksiyanın nəticəsinin alınması prosesində yüksək variasiyaya malik alqoritmlər daha az variasiyaya malik olan alqoritmlərdən daha çox giriş məlumatı tələb etməsi normal haldır.
+
+Buna baxmayaraq, maşın öyrənmə alqoritmləri fərqli giriş məlumatları əsasında öyrədilən zaman fərqli əməliyyatları yerinə yetirən modellər alınacaq. Deməli, müxtəlif giriş verilənləri fərqli proqnozlar verən və fərqli performans qiymətləndirməsi (məsələn, xəta və ya dəqiqlik) yerinə yetirən modellər verəcəkdir.
+
+Nəticələrdəki fərqin miqdarı hər bir model üçün giriş məlumatlarının nə qədər fərqli olduğuna, seçdiyimiz modelin konfiqurasiyasının fərqliliyi ilə bağlıdır.
+
+Bəs, nə etməliyik?
+
+Çox vaxt alqoritmin parametrini dəyişərək modelin variasiyasını azalda bilərik. Məsələn, k, k-ya ən yaxın qonşu alqoritmin variasiyasına nəzarət edir, burada k=1 kimi kiçik dəyərlər yüksək variasiya ilə nəticələnir, k=21 kimi böyük dəyərlər aşağı dispersiya ilə nəticələnir.
+
+Həmçinin, alqoritmin özünü dəyişərək variasiyanı azaltmaq mümkündür. Məsələn, xətti reqressiya kimi sadə alqoritm digər alqoritm növlərinə nəzərən daha az variasiyaya malikdir.
+
+Biz giriş məlumatlarının sayını artırmaqla da yüksək variasiyalı alqoritmin variasiyasını azalda bilərik. Amma, burada daha çox məlumat toplamaq lazım olacaqdır.
+
+Öyrənmə alqoritminin səbəb olduğu fərqlər
+
+Öyrənmə alqoritminin xarakterinə görə eyni alqoritm eyni verilənlər üzərində işlədikdə müxtəlif nəticələr əldə edə bilərik.
+
+Eyni verilənlərlə eyni kodu işlədirsiniz və hər dəfə fərqli proqnozlar verən və ya fərqli performansa malik model əldə edirsiniz və bunun səhv və ya başqa bir şey olduğunu düşünürsünüz?
+
+Bu səhv deyil, xüsusiyyətdir.
+
+Bəzi maşın öyrənmə alqoritmləri deterministikdir. Yəni, eynilə öyrəşdiyiniz proqramlaşdırma kimi alqoritmə eyni verilənlər daxil edildikdə, o, hər dəfə eyni modeli öyrənir, məsələn, xətti reqressiya alqoritmi.
+
+Bəzi alqoritmlər isə deterministik deyil. Yəni, onlar stoxastikdirlər. Bu o deməkdir ki, onların nəticələrində müəyyən təsadüfilik vardır.
+
+Stoxastik təsadüfi demək deyil, stoxastik maşın öyrənmə alqoritmləri təsadüfi bir modeli öyrənmir. Bu alqoritmlər əvvəlcədən daxil edilən məlumatlar əsasında bir modeli öyrənirlər. Bu zaman, öyrənmə prosesi zamanı alqoritm tərəfindən qəbul edilən qərarlar təsadüfi olaraq dəyişə bilər. Stoxastik maşın öyrənmə alqoritmi hər dəfə eyni verilənlər üzərində işlədikdə, o bir qədər fərqli modelləri öyrənir. Model bir qədər fərqli proqnozlar verə bilər.
+
+Neyron şəbəkəsi də öyrənmə zamanı təsadüfilikdən istifadə edir və bu, iki şəkildə olur:
+
+1.  Təsadüfi ilkin çəkilər;
+2.  Nümunələrin təsadüfi qarışdırılması dövrləri;
+
+Alqoritm tərəfindən qəbul edilən bəzi qərarlara təsadüfiliyin əlavə edilməsi çətin problemlərdə performansı yaxşılaşdıra bilər. Verilənlər üzərində işləmək üçün ən yaxşı funksiyanı tapmaq bir növ axtarış problemidir. Buna görə biz müxtəlif alqoritmləri və test konfiqurasiyasını sınaqdan keçiririk.
+
+Təsadüfiliyin əlavə edilməsi axtarılan sahədə yaxşı həllər tapmağa kömək edir. Onlar modelə öyrənmə alqoritminin əldə edə biləcəyi lokal minimum nöqtədən qaçmağa imkan verir. Hətta, qlobal minimumu tapmağa kömək edir.
+
+Neyron şəbəkələri (dərin öyrənmə) stoxastik maşın öyrənmə alqoritmidir. Təsadüfi ilkin çəkilər modelə hər bir alqoritmin işlədiyi axtarış məkanında fərqli başlanğıc nöqtəsindən öyrənməyə cəhd etməyə imkan verir və öyrənmə alqoritminə öyrənmə zamanı “simmetriyanı pozmağa” imkan verir. Öyrətmə zamanı misalların təsadüfi qarışdırılması çəkilərin qiymətinin bir qədər fərqli olmasını təmin edir
+
+Başqa bir nümunəyə baxsaq, “bagging” alqoritmi kimi ansambl maşın öyrənməsi alqoritmi də stoxastik sayılır.
+
+Təsadüfilik, ansamblda iştirak edən hər bir fərqli qərar ağacının hazırlanmasını təmin edən giriş verilənlərinin seçilməsi zamanı istifadə olunur. Ansambl öyrənməsində bu, ansambl müxtəlifliyi adlanır.
+
+Bəs, nə etməliyik?
+
+Öyrənmə alqoritmlərinin istifadə etdiyi təsadüfiliyə nəzarət etmək olar.
+
+Ümumiyyətlə, maşın öyrənməsi alqoritmlərinin müxtəlif yanaşmaları vardır. Deyə bilərik ki, bu, onun stoxastik olmasını göstərir.
+
+İlkin verilənlər üçün tək bir model olmadığı halda, problem üçün müxtəlif modellər yarada bilən stoxastik proseslər vardır. Biz bu modellərin performansını gözlənilən xəta, dəqiqlik və ya müəyyən sapma ilə paylanma kimi ümumiləşdirə bilərik.
+
+Daha sonra biz giriş verilənlərinə əsaslanan birdən çox son model yerləşdirməklə və yeni məlumatlar üzrə proqnoz vermək lazım gəldikdə onların proqnozlarının orta qiymətini çıxarmaqla modellərin orta performansını tapa bilərik.
+
+Dəyərləndirmənin səbəb olduğu fərqlər
+
+Dəyərləndirməyə görə eyni alqoritmi eyni verilənlərlə işləyərkən fərqli nəticələr əldə edə bilər. Ən çox yayılmış iki dəyərləndirmələrə misal olaraq, təlim-sınaq bölgüsü və k-qat çarpaz doğrulamasını qeyd edə bilərik.
+
+Təlim-sınaq bölgüsü ya modeli öyrətmək, ya da əvvəlcədən təyin edilmiş təlim və test qruplarına uyğun modeli qiymətləndirmək üçün istifadə ediləcək sıraların təsadüfi təyin edilməsini əhatə edir.
+
+K-qat çarpaz doğrulama isə toplanmış məlumat qruplarının k sayda üst-üstə düşməyən bölgülərə bölünməsini və bir qatın test qatı, qalan qatların isə öyrətmə qatı kimi istifadə edilməsini əhatə edir. Model məşq dəstinə uyğunlaşdırılır və tutacaq qatında qiymətləndirilir, beləliklə, sıra ilə hər bir qat tutacaq qatı olur, k sayda bölgü olduğundan, bu proses k dəfə təkrarlanır.
+
+Bu dəyərləndirmələrin hər ikisi stoxastik prosedur hesab olunur. Yenə də bu, onların təsadüfi olması demək deyil; bu o deməkdir ki, prosesdə qəbul edilən verilənlərin alt çoxluğuna hansı sətirlərin təyin edilməsi seçimi kimi kiçik qərarlar təsadüfidir. Bu formada istifadə edilən təsadüfilik səvh deyil, xüsusiyyətdir.
+
+Beləliklə, xətti reqressiya kimi deterministiik maşın öyrənməsi alqoritminin dəyərləndirilməsi gözlənilən dəqiqlik və ya xəta verə bilər.
+
+Bəs, nə etməliyik?
+
+Bu problemin həlli stoxastik öyrənmə alqoritmləri üçün olduğu kimidirş Stokastik öyrənmə alqoritmlərindən fərqli olaraq, hər iki həll olduqca çox istifadə olunur.
+
+Burada təsadüfiliyi qəbul edə bilərik. Bu, qiymətləndirmə prosedurunun dəfələrlə təkrarlanmasını və orta və standart kənarlaşma kimi performans xallarının paylanmasının xülasəsini bildirməyi nəzərdə tutur.
+
+Təkrar qiymətləndirmə üçün təkrarlanan k-qat çarpaz doğrulamadan istifadə etmək olardı, məsələn, ümumi olan 10 qat ilə üç təkrar (3×10) və ya iki qatla beş təkrar (5×2). Bu üsuldan, adətən, alqoritmləri statistik fərziyyə testləri ilə müqayisə edərkən istifadə olunur.
+
+Platformadakı fərqlərə görə yaranan fərqli nəticələr
+
+Fərqli kompüterlərdə eyni verilənlər üzərində eyni alqoritmi işlədərkən fərqli nəticələr əldə edə bilərik.
+
+Bu, hətta öyrənmə alqoritmi və qiymətləndirmə prosedurunun stoxastik təbiətini həll etmək üçün təsadüfi ədədlərin də baş verə bilər.
+
+Bu halda səbəb nümunəni işə salmaq üçün istifadə edilən platforma və ya inkişaf mühitidir və nəticələr çox vaxt kiçik yollarla fərqli olur, lakin həmişə deyil.
+
+Fərqlərə nümunə olaraq aşağıdakıları deyə bilərik:
+
+Sistem arxitekturasındakı fərqlər, məsələn. CPU və ya GPU. Əməliyyat sistemindəki fərqlər, məsələn. MacOS və ya Linux. Əsas riyaziyyat kitabxanalarındakı fərqlər, məsələn. LAPACK və ya BLAS. Python versiyasında fərqlər, məs. 3.6 və ya 3.7. Kitabxana versiyasında fərqlər, məs. scikit-learn 0.22 və ya 0.23. …
+
+Əlavə olaraq, kitabxanaların versiyasındakı fərqlər səhvlərin düzəldilməsi və funksionallığın dəyişdirilməsi demək ola bilər ki, bu da müxtəlif nəticələrlə nəticələnə bilər.
+
+Maşın öyrənmə alqoritmləri ədədi hesablamanın bir növüdür.
+
+Bundan əlavə, bu, R və Python kimi müxtəlif dillər tərəfindən həyata keçirilən eyni maşında eyni alqoritm üçün niyə fərqli nəticələr əldə edəcəyinizi də izah edir. Tətbiqdə kiçik fərqlər və/yaxud istifadə edilən əsas riyaziyyat kitabxanalarındakı fərqlər nəticədə yaranan modeldə və həmin model tərəfindən edilən proqnozlarda fərqlərə səbəb olacaq.
+
+Bəs, nə etməliyik?
+
+Bu o demək deyil ki, platformanın özü hiperparametr kimi nəzərdən keçirilə və proqnozlaşdırılan modelləşdirmə probleminə uyğunlaşdırıla bilər.
+
+Bunun əvəzinə, bu o deməkdir ki, platforma maşın öyrənməsi alqoritmlərini qiymətləndirərkən mühüm amildir və inkişafdan istehsala keçərkən və ya akademik tədqiqatlarda performans barədə hesabat verərkən tam təkrarlanmanı təmin etmək üçün sabit və ya tam təsvir edilməlidir.
+
+Bir yanaşma, layihə üçün tam təkrarlanmanın vacib olduğu halda, mühitin sabit saxlanılmasını təmin etmək üçün docker və ya virtual maşın nümunəsi kimi virtuallaşdırmadan istifadə etmək ola bilər.
+
+Düzünü desəm, əsas proqram versiyaları yaxşı və ya kifayət qədər yaxın uyğunluq təşkil etdikcə, praktikada təsir çox vaxt çox kiçik olur.
