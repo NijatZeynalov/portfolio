@@ -16,6 +16,7 @@ export interface Course {
 export const courseSlugMap = {
   go: 'Deep Learning with TensorFlow',
   'system-design': 'Machine Learning with Python',
+  'aws':' AWS for Machine Learning',
 };
 
 export const courses: Course[] = [
@@ -302,6 +303,97 @@ export const courses: Course[] = [
   {
     title: 'Deep Learning with TensorFlow',
     slug: 'go',
+    banner: '/static/courses/go/deep-learning.png',
+    description:
+      'In this course, we will talk about the basics of neural networks and deep learning, how to use deep learning ConvNets, transfer learning, transformers -  a deep learning architecture that has revolutionized the traditional NLP.',
+    content: [
+      {
+        name: 'Getting Started',
+        content: [
+          {
+            name: 'Welcome to the course',
+            slug: 'welcome-to-the-course',
+          },
+          {
+            name: 'What is Go?',
+            slug: 'what-is-go',
+          },
+          {
+            name: 'Why learn Go?',
+            slug: 'why-learn-go',
+          },
+          {
+            name: 'Installation and Setup',
+            slug: 'installation-and-setup',
+          },
+        ],
+      },
+      {
+        name: 'Chapter I',
+        content: [
+          { name: 'Hello world', slug: 'hello-world' },
+          {
+            name: 'Variables and Data Types',
+            slug: 'variables-and-data-types',
+          },
+          { name: 'String Formatting', slug: 'string-formatting' },
+          { name: 'Flow Control', slug: 'flow-control' },
+          { name: 'Functions', slug: 'functions' },
+          { name: 'Modules', slug: 'modules' },
+          { name: 'Packages', slug: 'packages' },
+          { name: 'Workspaces', slug: 'workspaces' },
+          { name: 'Useful Commands', slug: 'useful-commands' },
+          { name: 'Build', slug: 'build' },
+        ],
+      },
+      {
+        name: 'Chapter II',
+        content: [
+          { name: 'Pointers', slug: 'pointers' },
+          { name: 'Structs', slug: 'structs' },
+          { name: 'Methods', slug: 'methods' },
+          { name: 'Arrays and Slices', slug: 'arrays-and-slices' },
+          { name: 'Maps', slug: 'maps' },
+        ],
+      },
+      {
+        name: 'Chapter III',
+        content: [
+          { name: 'Interfaces', slug: 'interfaces' },
+          { name: 'Errors', slug: 'errors' },
+          { name: 'Panic and Recover', slug: 'panic-and-recover' },
+          { name: 'Testing', slug: 'testing' },
+          { name: 'Generics', slug: 'generics' },
+        ],
+      },
+      {
+        name: 'Chapter IV',
+        content: [
+          { name: 'Concurrency', slug: 'concurrency' },
+          { name: 'Goroutines', slug: 'goroutines' },
+          { name: 'Channels', slug: 'channels' },
+          { name: 'Select', slug: 'select' },
+          { name: 'Sync Package', slug: 'sync-package' },
+          {
+            name: 'Advanced Concurrency Patterns',
+            slug: 'advanced-concurrency-patterns',
+          },
+          { name: 'Context', slug: 'context' },
+        ],
+      },
+      {
+        name: 'Appendix',
+        content: [
+          { name: 'Next Steps', slug: 'next-steps' },
+          { name: 'References', slug: 'references' },
+        ],
+      },
+    ],
+  },
+
+{
+    title: 'AWS for Machine Learning',
+    slug: 'aws',
     banner: '/static/courses/go/deep-learning.png',
     description:
       'In this course, we will talk about the basics of neural networks and deep learning, how to use deep learning ConvNets, transfer learning, transformers -  a deep learning architecture that has revolutionized the traditional NLP.',
