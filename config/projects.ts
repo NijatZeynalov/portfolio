@@ -23,7 +23,6 @@ export interface Project {
   description: string;
   shortDescription?: string;
   repository: Maybe<string>;
-  dimensions?: Tuple<number>; // Tuple of [height, width]
   deployment: Deployment;
   subProjects: SubProject[];
 }
