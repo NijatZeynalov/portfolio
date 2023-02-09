@@ -39,38 +39,10 @@ export default function Project({
     description,
     shortDescription,
     banner,
-    dimensions,
     deployment,
     subProjects,
   } = project;
 
-  const [height, width] = dimensions ?? defaultDimensions;
-
-  const renderScreenShotList = useCallback(
-    (screenshot: string) => {
-      const style: React.CSSProperties = {
-        height,
-        width,
-      };
-
-      return (
-        <div
-          className='mr-2 flex-shrink-0 overflow-hidden rounded bg-placeholder-light dark:bg-placeholder-dark'
-          style={style}
-        >
-          <Image
-            loading='eager'
-            src={screenshot}
-            height={height}
-            width={width}
-            objectFit='cover'
-            alt=''
-          />
-        </div>
-      );
-    },
-    [height, width],
-  );
 
   const renderSubProjectList = useCallback(
     ({ title, deployment, description }: SubProject) => (
