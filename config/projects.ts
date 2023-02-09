@@ -41,7 +41,7 @@ export const projects: Project[] = [
     shortDescription:
       '',
     repository: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
-    stack: ['Cosine Similarity','Temporal Fusion Transformer']
+    stack: ['Cosine Similarity','Temporal Fusion Transformer'],
     screenshots: [],
     deployment: {
       web: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
