@@ -1,7 +1,6 @@
 import Conditional from '@/components/Conditional';
 import { H1, H2, H3 } from '@/components/Form';
 import DeploymentList from '@/components/list/DeploymentList';
-import StackList from '@/components/list/StackList';
 import { PageSEO } from '@/components/SEO';
 import config from 'config';
 import type { Project, SubProject } from 'config/projects';
