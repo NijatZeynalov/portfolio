@@ -4,7 +4,7 @@ import { PageSEO } from '@/components/SEO';
 import config from 'config';
 import { InferGetStaticPropsType } from 'next';
 
-const SLUG = 'aws-ml';
+const SLUG = 'aws';
 
 export function getStaticProps() {
   const course = config.courses.find(course => course.slug === SLUG);
