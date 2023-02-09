@@ -1,6 +1,7 @@
 import Conditional from '@/components/Conditional';
 import { H1, H2, H3 } from '@/components/Form';
 import DeploymentList from '@/components/list/DeploymentList';
+import StackList from '@/components/list/StackList';
 import { PageSEO } from '@/components/SEO';
 import config from 'config';
 import type { Project, SubProject } from 'config/projects';
@@ -39,10 +40,40 @@ export default function Project({
     description,
     shortDescription,
     banner,
+    dimensions,
+    stack,
     deployment,
+    screenshots,
     subProjects,
   } = project;
 
+  const [height, width] = dimensions ?? defaultDimensions;
+
+  const renderScreenShotList = useCallback(
+    (screenshot: string) => {
+      const style: React.CSSProperties = {
+        height,
+        width,
+      };
+
+      return (
+        <div
+          className='mr-2 flex-shrink-0 overflow-hidden rounded bg-placeholder-light dark:bg-placeholder-dark'
+          style={style}
+        >
+          <Image
+            loading='eager'
+            src={screenshot}
+            height={height}
+            width={width}
+            objectFit='cover'
+            alt=''
+          />
+        </div>
+      );
+    },
+    [height, width],
+  );
 
   const renderSubProjectList = useCallback(
     ({ title, deployment, description }: SubProject) => (
@@ -58,6 +89,7 @@ export default function Project({
   );
 
   const hasDeployments = !!deployment;
+  const hasScreenshots = !!screenshots.length;
   const hasSubProjects = !!subProjects.length;
 
   return (
@@ -71,6 +103,9 @@ export default function Project({
         {title}
       </H1>
       <p className='mb-4 font-light'>{description}</p>
+
+      <H2>Stack</H2>
+      <StackList stack={stack} />
 
       <Conditional condition={hasDeployments}>
         <H2>Deployments</H2>
