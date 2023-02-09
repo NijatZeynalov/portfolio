@@ -1,5 +1,4 @@
 import { Maybe, Tuple } from '../types';
-import { Stack } from './stack';
 
 export type Deployment = {
   web?: string;
