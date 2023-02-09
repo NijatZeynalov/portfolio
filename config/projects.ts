@@ -124,7 +124,7 @@ export const projects: Project[] = [
     slug: 'Satellite Images to real maps with Deep Learning (and reverse)',
     banner: '/static/projects/velvet-live/satellite.png',
     website: 'https://boom.london',
-    description: `In this project, I developed a Pix2Pix generative adversarial network for image-to-image translation. I have used the so-called maps dataset used in the Pix2Pix paper.`,
+    description: `In this project, I developed a Pix2Pix generative adversarial network for image-to-image translation. I have used the so-called maps dataset used in the Pix2Pix paper. The Pix2Pix model is a type of conditional GAN, or cGAN, where the generation of the output image is conditional on an input, in this case, a source image. The image translation problem involves converting satellite photos to Google maps format, or the reverse, Google maps images to Satellite photos.`,
     repository: 'https://github.com/NijatZeynalov/Satellite-images-to-real-maps-with-Deep-Learning',
     stack: [
       Stack.javascript,
@@ -149,13 +149,13 @@ export const projects: Project[] = [
     subProjects: [],
   },
   {
-    title: 'Stewards',
-    slug: 'stewards',
-    website: 'https://stewards.app',
-    repository: null,
-    banner: '/static/projects/stewards/banner.png',
+    title: 'Identifiyng and solving Concept Drift detection with two approaches',
+    slug: 'Identifiyng and solving Concept Drift detection with two approaches',
+    website: 'https://github.com/NijatZeynalov/concept-drift-adversarial-validation',
+    repository: 'https://github.com/NijatZeynalov/concept-drift-adversarial-validation',
+    banner: '/static/projects/stewards/conceptdrift.png',
     description:
-      'Mobile ordering solution with robot delivery. Stewards also provides variety of tools like staff application to manage orders, self checkout solution and admin dashboard.',
+      'Data can change over time. This can result in poor and degrading predictive performance in predictive models that assume a static relationship between input and output variables. This problem of the changing underlying relationships in the data is called concept drift in the field of machine learning. In the project, I have detected concept drift by using adversarial validation and Kolmogorov-Smirnov test which can also be used in the deployed system.',
     stack: [
       Stack.javascript,
       Stack.react,
@@ -174,48 +174,18 @@ export const projects: Project[] = [
       'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fstewards%2Fscreenshots%2Fscreenshot-8.png?alt=media&token=9733914a-61a9-41ed-b715-3334ca425588',
     ],
     deployment: {
-      web: 'https://stewards.app',
-      android:
-        'https://play.google.com/store/apps/details?id=app.stewards.customer',
-      ios: 'https://apps.apple.com/in/app/stewards-order-to-your-desk/id1479412118',
+      web: 'https://github.com/NijatZeynalov/concept-drift-adversarial-validation',
     },
-    subProjects: [
-      {
-        title: 'Staff Management',
-        repository: null,
-        description:
-          'Staff app for stewards restaurant staff, easily update menu, product availability and take live orders from customers.',
-        deployment: {
-          android:
-            'https://play.google.com/store/apps/details?id=app.stewards.staff&hl=en',
-        },
-      },
-      {
-        title: 'Admin Dashboard',
-        repository: null,
-        description:
-          'Staff administration app for stewards restaurant partners. This helps restaurant administrators to easily manage orders, receipts, tables, restaurant info etc.',
-        deployment: {
-          web: 'https://manage.stewards.app',
-        },
-      },
-      {
-        title: 'Self Checkout',
-        repository: null,
-        description:
-          "Stewards self checkout solution for customers who don't like waiting. Available on demand for iPad and tablets.",
-        deployment: {},
-      },
-    ],
+    subProjects: [],
   },
   {
-    title: 'Celebrify',
-    slug: 'celebrify',
-    website: 'https://celebrify.in',
-    banner: '/static/projects/celebrify/banner.jpeg',
+    title: 'mT5-small based Azerbaijani News Summarization',
+    slug: 'mT5-small based Azerbaijani News Summarization',
+    website: 'https://github.com/NijatZeynalov/mT5-based-azerbaijani-news-summarize',
+    banner: '/static/projects/celebrify/mt5.png',
     description:
-      'Get personalized videos from your favorite celebrities at just one click. Request personalized video messages for your friends, family, loved ones or even yourself. Be it a doubt or even a special wish from your favorite celebrity.',
-    repository: null,
+      'In this model, Google Multilingual T5-small is fine-tuned on Azerbaijani News Summary Dataset for Summarization downstream task. The model is trained with 3 epochs, 64 batch size and 10e-4 learning rate. It took almost 12 hours on GPU instance with Ubuntu Server 20.04 LTS image in Microsoft Azure. The max news length is kept as 2048 and max summary length is determined as 128.',
+    repository: 'https://github.com/NijatZeynalov/mT5-based-azerbaijani-news-summarize',
     stack: [Stack.react, Stack.reactnative, Stack.django, Stack.aws],
     dimensions: [450, 270],
     screenshots: [
@@ -227,20 +197,16 @@ export const projects: Project[] = [
       'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fcelebrify%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=7794ae58-7e3a-45c5-a47a-6c86b909e423',
     ],
     deployment: {
-      web: 'https://celebrify.in',
-      android:
-        'https://play.google.com/store/apps/details?id=com.celebrify.app',
-      ios: 'https://apps.apple.com/us/app/celebrify-app/id1469588198',
-    },
+      web: 'https://github.com/NijatZeynalov/mT5-based-azerbaijani-news-summarize',},
     subProjects: [],
   },
   {
-    title: 'KCards',
-    slug: 'kcards',
-    banner: '/static/projects/kcards/banner.jpeg',
+    title: `Norvig's Spell Checker Algorithm for Azerbaijani Language`,
+    slug: `Norvig's Spell Checker Algorithm for Azerbaijani Language`,
+    banner: '/static/projects/kcards/spell.png',
     description:
-      'KCards is your one-stop replacement for paper cards. KCards help you to easily share your cards with other users and get real-time analytics on the shared cards.',
-    repository: 'https://github.com/karanpratapsingh/KCards',
+      `The purpose of this project is to prepare a spell checker for Azerbaijani language by implementing a Azerbaijani corpus to Norvig’s algorithm. In general, Spell checking tools train through a corpus, train themselves on the correct spelling of words, and in the future, if the word is misspelled, take the correct word in the corpus as a reference. Choosing the right corpus is very important in spell checking, for this purpose I tried several corpuses in the Azerbaijani language available on the Internet, but most of the corpus itself contained such incorrect spelling words. I decided to create a new corpus based on several books written in Azerbaijani. Because, existing corpuses are crawled data and errors may exist. The corpus I created consists of 1478667 words collected from 47 books in 6 fields (biology, geography, detective, literature, encyclopedia, novel).`,
+    repository: 'https://github.com/NijatZeynalov/Norvig-s-Spell-Checker-Algorithm-for-Azerbaijani-Language',
     stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
     dimensions: [450, 270],
     screenshots: [
@@ -252,11 +218,9 @@ export const projects: Project[] = [
       'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
     ],
     deployment: {
-      web: 'https://kcards-server.herokuapp.com',
-      android: 'https://play.google.com/store/apps/details?id=com.kcards',
-      ios: 'https://itunes.apple.com/us/app/kcards/id1461733524',
+      web: 'https://github.com/NijatZeynalov/Norvig-s-Spell-Checker-Algorithm-for-Azerbaijani-Language',
     },
-    website: 'https://kcards-server.herokuapp.com',
+    website: 'https://github.com/NijatZeynalov/Norvig-s-Spell-Checker-Algorithm-for-Azerbaijani-Language',
     subProjects: [],
   },
 ];
