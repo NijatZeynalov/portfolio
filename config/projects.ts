@@ -33,17 +33,36 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: 'New product demand forecasting via Content based learning for multi-branch stores: Ali and Nino Use Case',
-    slug: 'ali-nino-product-demand',
-    banner: '/static/projects/hypertrade/ali-nino.png',
-    website: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
-    description: 'Forecasting sales is a challenging task when you are forecasting sales of a new product because you have no past performance on which to base your estimates. The proposed work is based on Ali and Nino multi-branch book store sales data. Dataset is contains 23.345 books with over 90k unique customers per month and more than 170 orders per day. Although sales dataset was generated artifically, the approach can be apply to real cases and even small improvement in forecast accuracy can lead to significant increase of company profit and customers can buy quicker and at lower price.',
-    shortDescription: '',
-    repository: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
-    stack: ['Cosine Similarity','Temporal Fusion Transformer'],
-    screenshots: [],
+    title: 'HyperTrade',
+    slug: 'hypertrade',
+    banner: '/static/projects/hypertrade/banner.png',
+    website: 'https://github.com/karanpratapsingh/HyperTrade',
+    description:
+      'Ready to deploy, distributed cryptocurrency trading bot. The idea of this project originally came from a script I used to automate buying and selling of fiat assets. I was curious and wanted to scale it into a real system which can execute trades for me. I had a lot of fun building this. I got to play with lots of different technologies while growing my financial knowledge.',
+    shortDescription:
+      'Ready to deploy, distributed cryptocurrency trading bot.',
+    repository: 'https://github.com/karanpratapsingh/HyperTrade',
+    stack: [
+      Stack.nats,
+      Stack.go,
+      Stack.typescript,
+      Stack.react,
+      Stack.python,
+      Stack.kubernetes,
+      Stack.docker,
+    ],
+    dimensions: [360, 640],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fcharts.png?alt=media&token=62c42939-9371-4413-b85d-f2dd3b4534ca',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fdataframe.png?alt=media&token=f2e6523c-c9de-4fde-8fb3-434c74eb20d8',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fportfolio.png?alt=media&token=8f4e3da1-2dc2-4382-9fc8-1fbc18a98146',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fconfig.png?alt=media&token=f619b1da-47d5-4c33-b4d0-368adaead1c8',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fconfig-strategy.png?alt=media&token=68693230-4fce-420b-b419-d211a9568dc5',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fcharts-indicators.png?alt=media&token=21c7875f-5abe-4ceb-8057-4d7a70b67d33',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Ftelegram.png?alt=media&token=110874dd-fb96-4dd2-b299-12a62b092a04',
+    ],
     deployment: {
-      web: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
+      web: 'https://github.com/karanpratapsingh/HyperTrade',
     },
     subProjects: [],
   },
