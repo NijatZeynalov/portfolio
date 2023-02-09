@@ -10,7 +10,7 @@ export default function FourZeroFour() {
       </div>
       <div className='max-w-md'>
         <p className='mb-4 text-xl font-bold leading-normal md:text-2xl'>
-          Sorry! You don't have an access to course content. 
+          Sorry! You don't have an access to course content. Lessons, supplemental materials, assignments, projects, and other resources will only be shared with students in live classes.
         </p>
         <p className='mb-8'>
           Lessons, supplemental materials, assignments, projects, and other resources will only be shared with students in live classes.
