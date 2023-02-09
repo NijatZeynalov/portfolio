@@ -52,7 +52,7 @@ export const courses: Course[] = [
           },
           {
             name: 'TCP and UDP',
-            slug: 'tcp-and-udp',
+            slug: 'yoxlama',
           },
           {
             name: 'Domain Name System (DNS)',
