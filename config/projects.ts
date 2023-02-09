@@ -223,4 +223,100 @@ export const projects: Project[] = [
     website: 'https://github.com/NijatZeynalov/Norvig-s-Spell-Checker-Algorithm-for-Azerbaijani-Language',
     subProjects: [],
   },
+    {
+    title: `Generate Synthetic Images with DCGANs in Keras`,
+    slug: `Generate Synthetic Images with DCGANs in Keras`,
+    banner: '/static/projects/dgans/dgan.png',
+    description:
+      `In our GAN setup, we want to be able to sample from a complex, high-dimensional training distribution of the Fashion MNIST images. However, there is no direct way to sample from this distribution. The solution is to sample from a simpler distribution, such as Gaussian noise. We want the model to use the power of neural networks to learn a transformation from the simple distribution directly to the training distribution that we care about.
+
+The GAN consists of two adversarial players: a discriminator and a generator. We’re going to train the two players jointly in a minimax game theoretic formulation.`,
+    repository: 'https://github.com/NijatZeynalov/Generate-Synthetic-Images-with-DCGANs-in-Keras',
+    stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
+    dimensions: [450, 270],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-1.png?alt=media&token=5de462e1-7368-49fd-843f-abd4cccb3317',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-2.png?alt=media&token=30061b0b-5bed-47d5-bf43-16c44cf076e0',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-3.png?alt=media&token=350180a1-f559-45e7-b887-dafd2cf9eb78',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-4.png?alt=media&token=574212b2-cf17-4e11-b8c0-a3a81473aeec',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-5.png?alt=media&token=ecff0737-b3b5-45cc-8d85-97b684f9c4b7',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
+    ],
+    deployment: {
+      web: 'https://github.com/NijatZeynalov/Generate-Synthetic-Images-with-DCGANs-in-Keras',
+    },
+    website: 'https://github.com/NijatZeynalov/Generate-Synthetic-Images-with-DCGANs-in-Keras',
+    subProjects: [],
+  },
+    {
+    title: `Easy Recipes bot`,
+    slug: `Easy Recipes bot`,
+    banner: '/static/projects/bot/bot.png',
+    description:
+      `Just write down your ingredients and this bot instantly finds the matching recipes! This telegram bot recommends easy recipes in Azerbaijani using ingredients you already have in the kitchen. I have used text similarity method in order to determine how ‘close’ user message and our text. The big idea is that we represent documents as vectors of features, and compare documents by measuring the distance between these features. I have tried a few similarity methods, but after some experiments, I have chosen Cosine similarity method. As a dataset, I have fully scraped dadli.az website (2400 + recip.). You can find whole dataset in data folder.`,
+    repository: 'https://github.com/NijatZeynalov/Easy-Recipes-bot',
+    stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
+    dimensions: [450, 270],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-1.png?alt=media&token=5de462e1-7368-49fd-843f-abd4cccb3317',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-2.png?alt=media&token=30061b0b-5bed-47d5-bf43-16c44cf076e0',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-3.png?alt=media&token=350180a1-f559-45e7-b887-dafd2cf9eb78',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-4.png?alt=media&token=574212b2-cf17-4e11-b8c0-a3a81473aeec',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-5.png?alt=media&token=ecff0737-b3b5-45cc-8d85-97b684f9c4b7',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
+    ],
+    deployment: {
+      web: 'https://github.com/NijatZeynalov/Easy-Recipes-bot',
+    },
+    website: 'https://github.com/NijatZeynalov/Easy-Recipes-bot',
+    subProjects: [],
+  },
+    {
+    title: `Azerbaijani News Summary Dataset`,
+    slug: `Azerbaijani News Summary Dataset`,
+    banner: '/static/projects/news/news.png',
+    description:
+      `I present az-news-summary, a comprehensive and diverse dataset comprising 143k (143,448) Azerbaijani news articles extracted using a set of carefully designed heuristics. The dataset covers common topics for news reports include war, government, politics, education, health, the environment, economy, business, fashion, entertainment, and sport, as well as quirky or unusual events.
+
+The dataset is prepared for Abstractive/Extractive summarization tasks. It can also be used in other scopes like Text Generation, Title Generation and etc.`,
+    repository: 'https://github.com/NijatZeynalov/azerbaijani-multi-news-dataset',
+    stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
+    dimensions: [450, 270],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-1.png?alt=media&token=5de462e1-7368-49fd-843f-abd4cccb3317',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-2.png?alt=media&token=30061b0b-5bed-47d5-bf43-16c44cf076e0',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-3.png?alt=media&token=350180a1-f559-45e7-b887-dafd2cf9eb78',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-4.png?alt=media&token=574212b2-cf17-4e11-b8c0-a3a81473aeec',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-5.png?alt=media&token=ecff0737-b3b5-45cc-8d85-97b684f9c4b7',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
+    ],
+    deployment: {
+      web: 'https://github.com/NijatZeynalov/azerbaijani-multi-news-dataset',
+    },
+    website: 'https://github.com/NijatZeynalov/azerbaijani-multi-news-dataset',
+    subProjects: [],
+  },
+  {
+    title: `Supermarket sales dataset`,
+    slug: `Supermarket sales dataset`,
+    banner: '/static/projects/supermarket/supermarket.png',
+    description:
+      `You have started working as a data analyst in a company with a large supermarket chain in Baku and you are participating in the first meeting. Your task is to perform the tasks mentioned to you in a meeting attended by several people from each department. They will say that they understand the tasks - in simple language, and you should come up with the most optimal result. In order to make the simulation of a real business meeting more believable, all the tasks are designed in the form of dialogue and have no relation to reality. The dataset contains data on 438,826 Azerbaijani products purchased by 80,000 customers in 20 branches of the supermarket in 2019. `,
+    repository: 'https://www.academia.edu/42561999/Data_Analitikası_tapşırıqları',
+    stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
+    dimensions: [450, 270],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-1.png?alt=media&token=5de462e1-7368-49fd-843f-abd4cccb3317',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-2.png?alt=media&token=30061b0b-5bed-47d5-bf43-16c44cf076e0',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-3.png?alt=media&token=350180a1-f559-45e7-b887-dafd2cf9eb78',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-4.png?alt=media&token=574212b2-cf17-4e11-b8c0-a3a81473aeec',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-5.png?alt=media&token=ecff0737-b3b5-45cc-8d85-97b684f9c4b7',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
+    ],
+    deployment: {
+      web: 'https://www.academia.edu/42561999/Data_Analitikası_tapşırıqları',
+    },
+    website: 'https://www.academia.edu/42561999/Data_Analitikası_tapşırıqları',
+    subProjects: [],
+  },
 ];
