@@ -41,7 +41,6 @@ export default function Project({
     shortDescription,
     banner,
     dimensions,
-    stack,
     deployment,
     screenshots,
     subProjects,
@@ -103,9 +102,6 @@ export default function Project({
         {title}
       </H1>
       <p className='mb-4 font-light'>{description}</p>
-
-      <H2>Stack</H2>
-      <StackList stack={stack} />
 
       <Conditional condition={hasDeployments}>
         <H2>Deployments</H2>
