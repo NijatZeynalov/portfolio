@@ -38,8 +38,7 @@ export const projects: Project[] = [
     banner: '/static/projects/hypertrade/ali-nino.png',
     website: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
     description: 'Forecasting sales is a challenging task when you are forecasting sales of a new product because you have no past performance on which to base your estimates. The proposed work is based on Ali and Nino multi-branch book store sales data. Dataset is contains 23.345 books with over 90k unique customers per month and more than 170 orders per day. Although sales dataset was generated artifically, the approach can be apply to real cases and even small improvement in forecast accuracy can lead to significant increase of company profit and customers can buy quicker and at lower price.',
-    shortDescription:
-      '',
+    shortDescription: '',
     repository: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
     stack: ['Cosine Similarity','Temporal Fusion Transformer'],
     screenshots: [],
