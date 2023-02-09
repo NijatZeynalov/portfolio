@@ -20,7 +20,7 @@ export const courseSlugMap = {
 
 export const courses: Course[] = [
   {
-    title: 'System Design',
+    title: 'Machine Learning with Python',
     slug: 'system-design',
     banner: '/static/courses/system-design/machine-learning-python-2.png',
     description:
