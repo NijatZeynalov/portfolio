@@ -22,7 +22,7 @@ export const courses: Course[] = [
   {
     title: 'Machine Learning with Python',
     slug: 'system-design',
-    banner: '/static/courses/system-design/machine-learning-python-2.png',
+    banner: '/static/courses/system-design/machine-learning-python-3.png',
     description:
       'Learn how to design systems at scale and prepare for system design interviews',
     content: [
