@@ -41,7 +41,6 @@ export default function Project({
     banner,
     dimensions,
     deployment,
-    screenshots,
     subProjects,
   } = project;
 
@@ -87,7 +86,6 @@ export default function Project({
   );
 
   const hasDeployments = !!deployment;
-  const hasScreenshots = !!screenshots.length;
   const hasSubProjects = !!subProjects.length;
 
   return (
@@ -105,16 +103,6 @@ export default function Project({
       <Conditional condition={hasDeployments}>
         <H2>Deployments</H2>
         <DeploymentList deployment={deployment} />
-      </Conditional>
-
-      <Conditional condition={hasScreenshots}>
-        <H2 className='my-4'>Screenshots</H2>
-        <ScrollContainer
-          className='list mt-4 mb-1 flex overflow-auto'
-          hideScrollbars={false}
-        >
-          {React.Children.toArray(screenshots.map(renderScreenShotList))}
-        </ScrollContainer>
       </Conditional>
 
       <Conditional condition={hasSubProjects}>
