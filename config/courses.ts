@@ -14,7 +14,7 @@ export interface Course {
 }
 
 export const courseSlugMap = {
-  go: 'Learn Go',
+  go: 'Deep Learning with TensorFlow',
   'system-design': 'Machine Learning with Python',
 };
 
@@ -300,11 +300,11 @@ export const courses: Course[] = [
     ],
   },
   {
-    title: 'Learn Go',
+    title: 'Deep Learning with TensorFlow',
     slug: 'go',
-    banner: '/static/courses/go/banner.png',
+    banner: '/static/courses/go/deep-learning.png',
     description:
-      'Master the fundamentals and advanced features of the Go programming language',
+      'In this course, we will talk about the basics of neural networks and deep learning, how to use deep learning ConvNets, transfer learning, transformers -  a deep learning architecture that has revolutionized the traditional NLP.',
     content: [
       {
         name: 'Getting Started',
