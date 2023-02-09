@@ -15,14 +15,14 @@ export interface Course {
 
 export const courseSlugMap = {
   go: 'Learn Go',
-  'system-design': 'System Design',
+  'system-design': 'Machine Learning with Python',
 };
 
 export const courses: Course[] = [
   {
     title: 'System Design',
     slug: 'system-design',
-    banner: '/static/courses/system-design/banner.png',
+    banner: '/static/courses/system-design/machine-learning-python-2.png',
     description:
       'Learn how to design systems at scale and prepare for system design interviews',
     content: [
@@ -31,11 +31,11 @@ export const courses: Course[] = [
         content: [
           {
             name: 'Welcome to the course',
-            slug: 'welcome-to-the-course',
+            slug: 'welcome-sehife',
           },
           {
             name: 'What is system design?',
-            slug: 'what-is-system-design',
+            slug: 'haqqimda-sehifesi',
           },
         ],
       },
