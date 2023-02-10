@@ -374,6 +374,10 @@ export const courses: Course[] = [
             name: 'Next Steps',
             slug: 'next-steps',
           },
+          {
+            name: 'References',
+            slug: 'references',
+          },
         ],
       },
     ],
