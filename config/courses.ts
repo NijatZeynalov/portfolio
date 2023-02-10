@@ -816,7 +816,7 @@ export const courses: Course[] = [
         content: [
           {
             name: 'What will you get from the course?',
-            slug: 'what-is-course',
+            slug: 'welcome-to-the-course',
           },
         ],
       },
