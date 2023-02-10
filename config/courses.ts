@@ -637,6 +637,20 @@ export const courses: Course[] = [
 
         ],
       },
+      
+        {
+        name: 'Getting Started',
+        content: [
+          {
+            name: 'Welcome to the course',
+            slug: 'test',
+          },
+          {
+            name: 'What will you get from the course?',
+            slug: 'what-is-system-design',
+          },
+        ],
+      },
     ],
   },
   {
