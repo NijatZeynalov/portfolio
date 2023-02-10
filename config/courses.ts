@@ -25,263 +25,345 @@ export const courses: Course[] = [
     slug: 'system-design',
     banner: '/static/courses/system-design/machine-learning-python-3.png',
     description:
-      'Learn how to design systems at scale and prepare for system design interviews',
+      'Machine Learning is broad and fast-growing sub-field of Artificial Intelligence. This course introduces students to the basic concepts and techniques of Machine Learning that make students to more skilled.',
     content: [
       {
         name: 'Getting Started',
         content: [
           {
             name: 'Welcome to the course',
-            slug: 'welcome-sehife',
+            slug: 'welcome-page-ml',
           },
           {
-            name: 'What is system design?',
-            slug: 'haqqimda-sehifesi',
-          },
-        ],
-      },
-      {
-        name: 'Chapter I',
-        content: [
-          {
-            name: 'IP',
-            slug: 'ip',
-          },
-          {
-            name: 'OSI Model',
-            slug: 'osi-model',
-          },
-          {
-            name: 'TCP and UDP',
-            slug: 'tcp-and-udp',
-          },
-          {
-            name: 'Domain Name System (DNS)',
-            slug: 'domain-name-system',
-          },
-          {
-            name: 'Load Balancing',
-            slug: 'load-balancing',
-          },
-          {
-            name: 'Clustering',
-            slug: 'clustering',
-          },
-          {
-            name: 'Caching',
-            slug: 'caching',
-          },
-          {
-            name: 'Content Delivery Network (CDN)',
-            slug: 'content-delivery-network',
-          },
-          {
-            name: 'Proxy',
-            slug: 'proxy',
-          },
-          {
-            name: 'Availability',
-            slug: 'availability',
-          },
-          {
-            name: 'Scalability',
-            slug: 'scalability',
-          },
-          {
-            name: 'Storage',
-            slug: 'storage',
+            name: 'What will you get from the course??',
+            slug: 'course-benefits',
           },
         ],
       },
       {
-        name: 'Chapter II',
+        name: 'Python fundamentals',
         content: [
           {
-            name: 'Databases and DBMS',
-            slug: 'databases-and-dbms',
+            name: 'Introduction to Python',
+            slug: 'test',
           },
           {
-            name: 'SQL databases',
-            slug: 'sql-databases',
+            name: 'Data Structures in Python',
+            slug: 'test',
           },
           {
-            name: 'NoSQL databases',
-            slug: 'nosql-databases',
+            name: 'Python operators',
+            slug: 'test',
           },
           {
-            name: 'SQL vs NoSQL databases',
-            slug: 'sql-vs-nosql-databases',
+            name: 'Loops (for, while)',
+            slug: 'test',
           },
           {
-            name: 'Database Replication',
-            slug: 'database-replication',
+            name: 'Functions',
+            slug: 'test',
           },
           {
-            name: 'Indexes',
-            slug: 'indexes',
+            name: 'Web scraping',
+            slug: 'test',
           },
           {
-            name: 'Normalization and Denormalization',
-            slug: 'normalization-and-denormalization',
+            name: 'Regular expressions',
+            slug: 'test',
           },
           {
-            name: 'ACID and BASE consistency models',
-            slug: 'acid-and-base-consistency-models',
+            name: 'Writing and reading files',
+            slug: 'test',
           },
           {
-            name: 'CAP theorem',
-            slug: 'cap-theorem',
-          },
-          {
-            name: 'PACELC Theorem',
-            slug: 'pacelc-theorem',
-          },
-          {
-            name: 'Transactions',
-            slug: 'transactions',
-          },
-          {
-            name: 'Distributed Transactions',
-            slug: 'distributed-transactions',
-          },
-          {
-            name: 'Sharding',
-            slug: 'sharding',
-          },
-          {
-            name: 'Consistent Hashing',
-            slug: 'consistent-hashing',
-          },
-          {
-            name: 'Database Federation',
-            slug: 'database-federation',
+            name: 'Introduction to OOP',
+            slug: 'test',
           },
         ],
       },
       {
-        name: 'Chapter III',
+        name: 'Foundational math, probability, statistics',
         content: [
           {
-            name: 'N-tier architecture',
-            slug: 'n-tier-architecture',
+            name: 'Linear Algebra: Introduction to Linear Algebra',
+            slug: 'test',
           },
           {
-            name: 'Message Brokers',
-            slug: 'message-brokers',
+            name: 'Linear Algebra: Numpy arrays',
+            slug: 'test',
           },
           {
-            name: 'Message Queues',
-            slug: 'message-queues',
+            name: 'Linear Algebra: Vectors and Vector Arithmetic',
+            slug: 'test',
           },
           {
-            name: 'Publish-Subscribe',
-            slug: 'publish-subscribe',
+            name: 'Linear Algebra: Matrices and Matrix Arithmetic',
+            slug: 'test',
           },
           {
-            name: 'Enterprise Service Bus (ESB)',
-            slug: 'enterprise-service-bus',
+            name: 'Linear Algebra: Types of Matrices',
+            slug: 'test',
           },
           {
-            name: 'Monoliths and Microservices',
-            slug: 'monoliths-microservices',
+            name: 'Linear Algebra: Matrix Operations',
+            slug: 'test',
           },
           {
-            name: 'Event-Driven Architecture (EDA)',
-            slug: 'event-driven-architecture',
+            name: 'Probability: Basics of Probability Theory',
+            slug: 'test',
           },
           {
-            name: 'Event Sourcing',
-            slug: 'event-sourcing',
+            name: 'Probability: Joint, Marginal, and Conditional Probability',
+            slug: 'test',
           },
           {
-            name: 'Command and Query Responsibility Segregation (CQRS)',
-            slug: 'command-and-query-responsibility-segregation',
+            name: 'Probability: Bayes Theorem',
+            slug: 'test',
           },
           {
-            name: 'API Gateway',
-            slug: 'api-gateway',
+            name: 'Statistics: Introduction to Statistics',
+            slug: 'test',
           },
           {
-            name: 'REST, GraphQL, gRPC',
-            slug: 'rest-graphql-grpc',
+            name: 'Statistics: Descriptive Statistics',
+            slug: 'test',
           },
           {
-            name: 'Long polling, WebSockets, Server-Sent Events (SSE)',
-            slug: 'long-polling-websockets-server-sent-events',
+            name: 'Statistics: Overview of statistical concepts',
+            slug: 'test',
+          },
+          {
+            name: 'Wrap-Up',
+            slug: 'test',
           },
         ],
       },
       {
-        name: 'Chapter IV',
+        name: 'Data cleaning and manipulating with pandas',
         content: [
           {
-            name: 'Geohashing and Quadtrees',
-            slug: 'geohashing-and-quadtrees',
+            name: 'pandas: Data Structures',
+            slug: 'test',
           },
           {
-            name: 'Circuit breaker ',
-            slug: 'circuit-breaker',
+            name: 'pandas: Essential Functionality',
+            slug: 'test',
           },
           {
-            name: 'Rate Limiting',
-            slug: 'rate-limiting',
+            name: 'pandas: Reading and Writing Data',
+            slug: 'test',
           },
           {
-            name: 'Service Discovery',
-            slug: 'service-discovery',
+            name: 'pandas: Data Wrangling',
+            slug: 'test',
           },
           {
-            name: 'SLA, SLO, SLI',
-            slug: 'sla-slo-sli',
+            name: 'pandas: Plotting Functions',
+            slug: 'test',
           },
           {
-            name: 'Disaster recovery',
-            slug: 'disaster-recovery',
-          },
-          {
-            name: 'Virtual Machines (VMs) and Containers',
-            slug: 'virtual-machines-and-containers',
-          },
-          {
-            name: 'OAuth 2.0 and OpenID Connect (OIDC)',
-            slug: 'oauth2-and-openid-connect',
-          },
-          {
-            name: 'Single Sign-On (SSO)',
-            slug: 'single-sign-on',
-          },
-          {
-            name: 'SSL, TLS, mTLS',
-            slug: 'ssl-tls-mtls',
+            name: 'Aggregation functions',
+            slug: 'test',
           },
         ],
       },
       {
-        name: 'Chapter V',
+        name: 'Basic SQL commands for Machine Learning',
         content: [
           {
-            name: 'System Design Interviews',
-            slug: 'system-design-interviews',
+            name: 'Introduction to SQL',
+            slug: 'test',
           },
           {
-            name: 'URL Shortener',
-            slug: 'url-shortener',
+            name: 'Querying and filtering data in SQL',
+            slug: 'test',
           },
           {
-            name: 'WhatsApp',
-            slug: 'whatsapp',
+            name: 'Simple aggregations in SQL',
+            slug: 'test',
           },
           {
-            name: 'Twitter',
-            slug: 'twitter',
+            name: 'Grouping, filtering, and sorting',
+            slug: 'test',
+          },
+        ],
+      },
+      {
+        name: 'Feature Engineering',
+        content: [
+          {
+            name: 'Variable Problems When Building ML Models',
+            slug: 'test',
           },
           {
-            name: 'Netflix',
-            slug: 'netflix',
+            name: 'Imputing Missing Data: Performing mean or median imputation',
+            slug: 'test',
           },
           {
-            name: 'Uber',
-            slug: 'uber',
+            name: 'Imputing Missing Data: Mode or frequent category imputation',
+            slug: 'test',
+          },
+          {
+            name: 'Imputing Missing Data: Adding a missing value indicator variable',
+            slug: 'test',
+          },
+          {
+            name: 'Imputing Missing Data: Performing multivariate imputation by chained equations',
+            slug: 'test',
+          },
+          {
+            name: 'Imputing Missing Data: Assembling an imputation pipeline',
+            slug: 'test',
+          },
+          
+          {
+            name: 'Encoding Categorical Variables: Creating binary variables through one-hot encoding',
+            slug: 'test',
+          },
+          {
+            name: 'Encoding Categorical Variables: Replacing categories with counts or frequency of observations',
+            slug: 'test',
+          },
+          {
+            name: 'Encoding Categorical Variables: Encoding with the mean of the target',
+            slug: 'test',
+          },
+          {
+            name: 'Encoding Categorical Variables: Encoding with the Weight of Evidence',
+            slug: 'test',
+          },
+          {
+            name: 'Encoding Categorical Variables: Grouping rare or infrequent categories',
+            slug: 'test',
+          },
+          {
+            name: 'Encoding Categorical Variables: Performing binary encoding, feature hashing',
+            slug: 'test',
+          },
+                    {
+            name: 'Transforming Numerical Variables: Transforming variables with the logarithm',
+            slug: 'test',
+          },
+          
+          {
+            name: 'Transforming Numerical Variables: Transforming variables with the reciprocal function',
+            slug: 'test',
+          },
+          {
+            name: 'Transforming Numerical Variables: Using square and cube root to transform variables',
+            slug: 'test',
+          },
+          {
+            name: 'Transforming Numerical Variables: Using power transformations on numerical variables',
+            slug: 'test',
+          },
+          {
+            name: 'Transforming Numerical Variables: Performing Box-Cox transformation on numerical variables',
+            slug: 'test',
+          },
+          {
+            name: 'Transforming Numerical Variables: Performing Yeo-Johnson transformation on numerical variables',
+            slug: 'test',
+          },
+          {
+            name: 'Performing Variable Discretization: Dividing the variable into intervals of equal width',
+            slug: 'test',
+          },
+                   {
+            name: 'Performing Variable Discretization: Sorting the variable values in intervals of equal frequency,
+            slug: 'test',
+          },
+          {
+            name: 'Performing Variable Discretization: Performing discretization followed by categorical encoding',
+            slug: 'test',
+          },
+          {
+            name: 'Performing Variable Discretization: Allocating the variable values in arbitrary intervals',
+            slug: 'test',
+          },
+          {
+            name: 'Performing Variable Discretization: Performing discretization with k-means clustering',
+            slug: 'test',
+          },
+          {
+            name: 'Performing Variable Discretization: Using decision trees for discretization',
+            slug: 'test',
+          },
+          {
+            name: 'Working with Outliers: Trimming outliers from the dataset',
+            slug: 'test',
+          },
+                    {
+            name: 'Working with Outliers: Performing winsorization',
+            slug: 'test',
+          },
+          {
+            name: 'Working with Outliers: Capping the variable at arbitrary maximum and minimum values',
+            slug: 'test',
+          },
+          {
+            name: 'Working with Outliers: Performing zero-coding – capping the variable values at zero',
+            slug: 'test',
+          },
+          {
+            name: 'Deriving Features from Dates and Time Variables: Extracting date and time parts from a datetime variable',
+            slug: 'test',
+          },
+                    {
+            name: 'Deriving Features from Dates and Time Variables: Capturing the elapsed time between datetime variables',
+            slug: 'test',
+          },
+          {
+            name: 'Performing Feature Scaling: Standardizing the features',
+            slug: 'test',
+          },
+                    {
+            name: 'Performing Feature Scaling: Performing mean normalization',
+            slug: 'test',
+          },
+          {
+            name: 'Performing Feature Scaling: Implementing maximum absolute scaling',
+            slug: 'test',
+          },
+          {
+            name: 'Performing Feature Scaling: Scaling to vector unit length',
+            slug: 'test',
+          },
+          {
+            name: 'Building New Features Applying Mathematical Computations: Combining multiple features with statistical operations',
+            slug: 'test',
+          },
+                   {
+            name: 'Building New Features Applying Mathematical Computations: Combining pairs of features with mathematical functions',
+            slug: 'test',
+          },
+          {
+            name: 'Building New Features Applying Mathematical Computations: Performing polynomial expansion',
+            slug: 'test',
+          },
+          {
+            name: 'Building New Features Applying Mathematical Computations: Deriving new features with decision trees',
+            slug: 'test',
+          },
+                    {
+            name: 'Building New Features with Transactional and Time Series Data: Aggregating transactions with mathematical operations',
+            slug: 'test',
+          },
+          {
+            name: 'Building New Features Applying Mathematical Computations: Aggregating transactions in a time window',
+            slug: 'test',
+          },
+                   {
+            name: 'Building New Features Applying Mathematical Computations: Determining the number of local maxima and minima',
+            slug: 'test',
+          },
+          {
+            name: 'Building New Features Applying Mathematical Computations: Deriving time elapsed between time-stamped events',
+            slug: 'test',
+          },
+          {
+            name: 'Building New Features Applying Mathematical Computations: Creating features from transactions with Featuretools',
+            slug: 'test',
           },
         ],
       },
@@ -291,10 +373,6 @@ export const courses: Course[] = [
           {
             name: 'Next Steps',
             slug: 'next-steps',
-          },
-          {
-            name: 'References',
-            slug: 'references',
           },
         ],
       },
