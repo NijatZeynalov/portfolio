@@ -127,7 +127,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Linear Algebra: Introduction to Linear Algebra',
+            name: 'Introduction to Linear Algebra',
 
             slug: 'test',
 
@@ -135,7 +135,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Linear Algebra: Numpy arrays',
+            name: 'Numpy arrays',
 
             slug: 'test',
 
@@ -143,7 +143,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Linear Algebra: Vectors and Vector Arithmetic',
+            name: 'Vectors and Vector Arithmetic',
 
             slug: 'test',
 
@@ -151,7 +151,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Linear Algebra: Matrices and Matrix Arithmetic',
+            name: 'Matrices and Matrix Arithmetic',
 
             slug: 'test',
 
@@ -159,7 +159,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Linear Algebra: Types of Matrices',
+            name: 'Types of Matrices',
 
             slug: 'test',
 
@@ -167,7 +167,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Linear Algebra: Matrix Operations',
+            name: 'Matrix Operations',
 
             slug: 'test',
 
@@ -175,7 +175,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Probability: Basics of Probability Theory',
+            name: 'Basics of Probability Theory',
 
             slug: 'test',
 
@@ -183,7 +183,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Probability: Joint, Marginal, and Conditional Probability',
+            name: 'Joint, Marginal, and Conditional Probability',
 
             slug: 'test',
 
@@ -191,7 +191,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Probability: Bayes Theorem',
+            name: 'Bayes Theorem',
 
             slug: 'test',
 
@@ -199,7 +199,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Statistics: Introduction to Statistics',
+            name: 'Introduction to Statistics',
 
             slug: 'test',
 
@@ -207,7 +207,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Statistics: Descriptive Statistics',
+            name: 'Descriptive Statistics',
 
             slug: 'test',
 
@@ -215,7 +215,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Statistics: Overview of statistical concepts',
+            name: 'Overview of statistical concepts',
 
             slug: 'test',
 
@@ -284,7 +284,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Imputing Missing Data: Performing mean or median imputation',
+            name: 'Performing mean or median imputation',
 
             slug: 'test',
 
@@ -292,7 +292,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Imputing Missing Data: Mode or frequent category imputation',
+            name: 'Mode or frequent category imputation',
 
             slug: 'test',
 
@@ -300,7 +300,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Imputing Missing Data: Adding a missing value indicator variable',
+            name: 'Adding a missing value indicator variable',
 
             slug: 'test',
 
@@ -308,7 +308,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Imputing Missing Data: Performing multivariate imputation by chained equations',
+            name: 'Performing multivariate imputation by chained equations',
 
             slug: 'test',
 
@@ -316,7 +316,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Imputing Missing Data: Assembling an imputation pipeline',
+            name: 'Assembling an imputation pipeline',
 
             slug: 'test',
 
@@ -326,7 +326,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Encoding Categorical Variables: Creating binary variables through one-hot encoding',
+            name: 'Creating binary variables through one-hot encoding',
 
             slug: 'test',
 
@@ -334,7 +334,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Encoding Categorical Variables: Replacing categories with counts or frequency of observations',
+            name: 'Replacing categories with counts or frequency of observations',
 
             slug: 'test',
 
@@ -342,7 +342,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Encoding Categorical Variables: Encoding with the mean of the target',
+            name: 'Encoding with the mean of the target',
 
             slug: 'test',
 
@@ -350,7 +350,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Encoding Categorical Variables: Encoding with the Weight of Evidence',
+            name: 'Encoding with the Weight of Evidence',
 
             slug: 'test',
 
@@ -358,7 +358,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Encoding Categorical Variables: Grouping rare or infrequent categories',
+            name: 'Grouping rare or infrequent categories',
 
             slug: 'test',
 
@@ -366,7 +366,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Encoding Categorical Variables: Performing binary encoding, feature hashing',
+            name: 'Performing binary encoding, feature hashing',
 
             slug: 'test',
 
@@ -381,7 +381,7 @@ export const courses: Course[] = [
 
       content: [ {
 
-            name: 'Transforming Numerical Variables: Transforming variables with the logarithm',
+            name: 'Transforming variables with the logarithm',
 
             slug: 'test',
 
@@ -391,7 +391,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Transforming Numerical Variables: Transforming variables with the reciprocal function',
+            name: 'Transforming variables with the reciprocal function',
 
             slug: 'test',
 
@@ -399,7 +399,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Transforming Numerical Variables: Using square and cube root to transform variables',
+            name: 'Using square and cube root to transform variables',
 
             slug: 'test',
 
@@ -407,7 +407,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Transforming Numerical Variables: Using power transformations on numerical variables',
+            name: 'Using power transformations on numerical variables',
 
             slug: 'test',
 
@@ -415,7 +415,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Transforming Numerical Variables: Performing Box-Cox transformation on numerical variables',
+            name: 'Performing Box-Cox transformation on numerical variables',
 
             slug: 'test',
 
@@ -423,7 +423,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Transforming Numerical Variables: Performing Yeo-Johnson transformation on numerical variables',
+            name: 'Performing Yeo-Johnson transformation on numerical variables',
 
             slug: 'test',
 
@@ -431,7 +431,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Variable Discretization: Dividing the variable into intervals of equal width',
+            name: 'Dividing the variable into intervals of equal width',
 
             slug: 'test',
 
@@ -439,7 +439,7 @@ export const courses: Course[] = [
 
                    {
 
-            name: 'Performing Variable Discretization: Sorting the variable values in intervals of equal frequency',
+            name: 'Sorting the variable values in intervals of equal frequency',
 
             slug: 'test',
 
@@ -447,7 +447,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Variable Discretization: Performing discretization followed by categorical encoding',
+            name: 'Performing discretization followed by categorical encoding',
 
             slug: 'test',
 
@@ -455,7 +455,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Variable Discretization: Allocating the variable values in arbitrary intervals',
+            name: 'Allocating the variable values in arbitrary intervals',
 
             slug: 'test',
 
@@ -463,7 +463,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Variable Discretization: Performing discretization with k-means clustering',
+            name: 'Performing discretization with k-means clustering',
 
             slug: 'test',
 
@@ -471,7 +471,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Variable Discretization: Using decision trees for discretization',
+            name: 'Using decision trees for discretization',
 
             slug: 'test',
 
@@ -479,7 +479,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Working with Outliers: Trimming outliers from the dataset',
+            name: 'Trimming outliers from the dataset',
 
             slug: 'test',
 
@@ -487,7 +487,7 @@ export const courses: Course[] = [
 
                     {
 
-            name: 'Working with Outliers: Performing winsorization',
+            name: 'Performing winsorization',
 
             slug: 'test',
 
@@ -495,7 +495,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Working with Outliers: Capping the variable at arbitrary maximum and minimum values',
+            name: 'Capping the variable at arbitrary maximum and minimum values',
 
             slug: 'test',
 
@@ -503,7 +503,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Working with Outliers: Performing zero-coding – capping the variable values at zero',
+            name: 'Performing zero-coding – capping the variable values at zero',
 
             slug: 'test',
 
@@ -511,7 +511,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Deriving Features from Dates and Time Variables: Extracting date and time parts from a datetime variable',
+            name: 'Extracting date and time parts from a datetime variable',
 
             slug: 'test',
 
@@ -519,7 +519,7 @@ export const courses: Course[] = [
 
                     {
 
-            name: 'Deriving Features from Dates and Time Variables: Capturing the elapsed time between datetime variables',
+            name: 'Capturing the elapsed time between datetime variables',
 
             slug: 'test',
 
@@ -527,7 +527,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Feature Scaling: Standardizing the features',
+            name: 'Standardizing the features',
 
             slug: 'test',
 
@@ -535,7 +535,7 @@ export const courses: Course[] = [
 
                     {
 
-            name: 'Performing Feature Scaling: Performing mean normalization',
+            name: 'Performing mean normalization',
 
             slug: 'test',
 
@@ -543,7 +543,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Feature Scaling: Implementing maximum absolute scaling',
+            name: 'Implementing maximum absolute scaling',
 
             slug: 'test',
 
@@ -551,7 +551,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Performing Feature Scaling: Scaling to vector unit length',
+            name: 'Scaling to vector unit length',
 
             slug: 'test',
 
@@ -565,7 +565,7 @@ export const courses: Course[] = [
         content: [
 {
 
-            name: 'Building New Features Applying Mathematical Computations: Combining multiple features with statistical operations',
+            name: 'Combining multiple features with statistical operations',
 
             slug: 'test',
 
@@ -573,7 +573,7 @@ export const courses: Course[] = [
 
                    {
 
-            name: 'Building New Features Applying Mathematical Computations: Combining pairs of features with mathematical functions',
+            name: 'Combining pairs of features with mathematical functions',
 
             slug: 'test',
 
@@ -581,7 +581,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Building New Features Applying Mathematical Computations: Performing polynomial expansion',
+            name: 'Performing polynomial expansion',
 
             slug: 'test',
 
@@ -589,7 +589,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Building New Features Applying Mathematical Computations: Deriving new features with decision trees',
+            name: 'Deriving new features with decision trees',
 
             slug: 'test',
 
@@ -597,7 +597,7 @@ export const courses: Course[] = [
 
                     {
 
-            name: 'Building New Features with Transactional and Time Series Data: Aggregating transactions with mathematical operations',
+            name: 'Aggregating transactions with mathematical operations',
 
             slug: 'test',
 
@@ -605,7 +605,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Building New Features Applying Mathematical Computations: Aggregating transactions in a time window',
+            name: 'Aggregating transactions in a time window',
 
             slug: 'test',
 
@@ -613,7 +613,7 @@ export const courses: Course[] = [
 
                    {
 
-            name: 'Building New Features Applying Mathematical Computations: Determining the number of local maxima and minima',
+            name: 'Determining the number of local maxima and minima',
 
             slug: 'test',
 
@@ -621,7 +621,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Building New Features Applying Mathematical Computations: Deriving time elapsed between time-stamped events',
+            name: 'Deriving time elapsed between time-stamped events',
 
             slug: 'test',
 
@@ -629,7 +629,7 @@ export const courses: Course[] = [
 
           {
 
-            name: 'Building New Features Applying Mathematical Computations: Creating features from transactions with Featuretools',
+            name: 'Creating features from transactions with Featuretools',
 
             slug: 'test',
 
@@ -639,10 +639,10 @@ export const courses: Course[] = [
       },
       
         {
-        name: 'Introduction to Machine Learning',
+        name: 'Machine Learning',
         content: [
           {
-            name: 'What is Data Leakage? Data Preparation without Data Leakage',
+            name: 'Data Preparation without Data Leakage',
             slug: 'test',
           },
           {
@@ -723,7 +723,7 @@ export const courses: Course[] = [
             slug: 'test',
           },
           { name: 'The perceptron and multi-layer perceptron', slug: 'test' },
-          { name: 'A real example: recognizing handwritten digits', slug: 'test' },
+          { name: 'Recognizing handwritten digits', slug: 'test' },
           { name: 'Activation functions', slug: 'test' },
           { name: 'Backpropagation', slug: 'test' },
           { name: 'Regularization methods', slug: 'test' },
@@ -733,18 +733,17 @@ export const courses: Course[] = [
         name: 'Regression and Classification',
         content: [
           { name: 'Regression with TF', slug: 'test' },
-          { name: 'Classification using the TensorFlow Keras API', slug: 'test' },
-          { name: 'Applying logistic regression to identify handwritten digits', slug: 'test' },
-          { name: 'Applying linear regression to estimate the price of a house and Slices', slug: 'test' },
+          { name: 'Classification using the TensorFlow', slug: 'test' },
+          { name: 'Logistic regression to identify handwritten digits', slug: 'test' },
+          { name: 'Linear regression to estimate the price of a house', slug: 'test' },
         ],
       },
       {
         name: 'Convolutional Neural Networks',
         content: [
           { name: 'Deep convolutional neural networks', slug: 'test' },
-          { name: 'ConvNets in TensorFlow: The math behind CNN', slug: 'test' },
-          { name: 'An example of a deep convolutional neural network', slug: 'test' },
-          { name: 'Deep convolutional networks for large-scale image recognition', slug: 'test' },
+          { name: 'ConvNets in TensorFlow', slug: 'test' },
+          { name: 'DNNs for large-scale image recognition', slug: 'test' },
           { name: 'Deep Inception V3 networks for transfer learning', slug: 'test' },
           { name: 'Other CNN architectures', slug: 'test' },
         ],
@@ -772,17 +771,17 @@ export const courses: Course[] = [
           { name: 'Encoder-decoder architectures – seq2seq', slug: 'test' },
           { name: 'Attention mechanism', slug: 'test' },
           { name: 'Text cleaning', slug: 'test' },
-          { name: 'Azerbaijani novel generation using Recurrent Neural Networks', slug: 'test' },
-          { name: 'uilding seq2seq network with/without attention mechanism for machine translation (Az - Eng)', slug: 'test' },
+          { name: 'Novel generation using Recurrent Neural Networks', slug: 'test' },
+          { name: 'Building seq2seq network with/without attention mechanism', slug: 'test' },
         ],
       },
             {
         name: 'Transformers',
         content: [
           { name: 'Transformers: Understanding architecture', slug: 'test' },
-          { name: 'Language models: BERT, Reformer, GPT-2,3, RoBERTa, ELECTRA and etc.', slug: 'test' },
+          { name: 'Language models: BERT, Reformer, GPTs and etc.', slug: 'test' },
           { name: 'Using Hugging Face models', slug: 'test' },
-          { name: 'Applying BERT models to variety of tasks (Text summarization, Text similarity, Paraphrasing and etc)', slug: 'test' },
+          { name: 'Applying BERT models to variety of tasks', slug: 'test' },
         ],
       },
             {
@@ -830,11 +829,11 @@ export const courses: Course[] = [
         content: [
           { name: 'What is AWS?', slug: 'test' },
           {
-            name: 'Exploring AWS Accounts, Multi-Account Strategy, and AWS Organizations',
+            name: 'Exploring AWS Accounts',
             slug: 'test',
           },
           { name: 'AWS Identity and Access Management', slug: 'test' },
-          { name: 'Overview of AWS Services (Storage, Compute, Database)', slug: 'test' },
+          { name: 'Overview of AWS Services ', slug: 'test' },
           { name: 'Analytics on AWS', slug: 'test' },
           { name: 'Security in AWS', slug: 'test' },
           { name: 'Billing and Pricing', slug: 'test' },
@@ -845,25 +844,23 @@ export const courses: Course[] = [
         name: 'AWS for Machine Learning',
         content: [
           { name: 'AWS Machine Learning Tech-Stack', slug: 'test' },
-          { name: 'AWS services for ingesting data (Amazon Database Migration Service (DMS),  Amazon Kinesis)', slug: 'test' },
+          { name: 'AWS services for ingesting data', slug: 'test' },
           { name: 'Detailed overview of AWS S3', slug: 'test' },
-          { name: 'Use case: Migrating Oracle database to AWS using DMS', slug: 'test' },
-          { name: 'AWS services for transforming data (Lambda, Glue, Amazon EMR)', slug: 'test' },
-          { name: 'Use case: Data preprocessing with AWS Glue', slug: 'test' },
-          { name: 'AWS services for consuming data (Amazon Athena, Amazon QuickSight)', slug: 'test' },
-          { name: 'Use case: Uploading dataset to S3, querying it with Amazon Athena', slug: 'test' },
-          { name: 'Exploring the Amazon SageMaker, setting up Amazon SageMaker on local machine', slug: 'test' },
-          { name: 'AWS services for consuming data (Amazon Athena, Amazon QuickSight)', slug: 'test' },
-          { name: 'Use case: Uploading dataset to S3, querying it with Amazon Athena', slug: 'test' },
-          { name: 'Exploring the Amazon SageMaker, setting up Amazon SageMaker on local machine', slug: 'test' },
-                    { name: 'Amazon SageMaker Autopilot', slug: 'test' },
+          { name: 'Migrating Oracle database to AWS using DMS', slug: 'test' },
+          { name: 'AWS services for transforming data', slug: 'test' },
+          { name: 'Data preprocessing with AWS Glue', slug: 'test' },
+          { name: 'AWS services for consuming data', slug: 'test' },
+          { name: 'Uploading dataset to S3, querying it with Amazon Athena', slug: 'test' },
+          { name: 'Exploring the Amazon SageMaker', slug: 'test' },
+          { name: 'AWS services for consuming data ', slug: 'test' },
+          { name: 'Amazon SageMaker Autopilot', slug: 'test' },
           { name: 'Built-in algorithms in Amazon SageMaker', slug: 'test' },
           { name: 'Training models on AWS Sagemaker', slug: 'test' },
-          { name: 'Use case: Training Computer Vision Models on AWS Sagemaker', slug: 'test' },
-          { name: 'Use case: Training NLP Models on AWS Sagemaker', slug: 'test' },
+          { name: 'Training Computer Vision Models on AWS Sagemaker', slug: 'test' },
+          { name: 'Training NLP Models on AWS Sagemaker', slug: 'test' },
                     { name: 'Training and deploying custom algorithms on AWS Sagemaker ', slug: 'test' },
           { name: 'Scaling training jobs with pipe mode and distributed training', slug: 'test' },
-          { name: 'Deploying Machine Learning Models: working with model artifacts', slug: 'test' },
+          { name: 'Deploying Machine Learning Models', slug: 'test' },
           { name: 'Monitoring models with Amazon SageMaker Model Monitor', slug: 'test' },
           { name: 'Deploying models to container services', slug: 'test' },
           { name: 'Optimizing Prediction Cost and Performance', slug: 'test' },
