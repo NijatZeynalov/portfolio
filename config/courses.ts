@@ -439,7 +439,7 @@ export const courses: Course[] = [
 
                    {
 
-            name: 'Performing Variable Discretization: Sorting the variable values in intervals of equal frequency,
+            name: 'Performing Variable Discretization: Sorting the variable values in intervals of equal frequency',
 
             slug: 'test',
 
