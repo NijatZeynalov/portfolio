@@ -372,15 +372,13 @@ export const courses: Course[] = [
 
           },
 
-                    {
+          {
 
             name: 'Transforming Numerical Variables: Transforming variables with the logarithm',
 
             slug: 'test',
 
           },
-
-          
 
           {
 
@@ -430,7 +428,7 @@ export const courses: Course[] = [
 
           },
 
-                   {
+           {
 
             name: 'Performing Variable Discretization: Sorting the variable values in intervals of equal frequency,
 
@@ -465,158 +463,6 @@ export const courses: Course[] = [
           {
 
             name: 'Performing Variable Discretization: Using decision trees for discretization',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Working with Outliers: Trimming outliers from the dataset',
-
-            slug: 'test',
-
-          },
-
-                    {
-
-            name: 'Working with Outliers: Performing winsorization',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Working with Outliers: Capping the variable at arbitrary maximum and minimum values',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Working with Outliers: Performing zero-coding – capping the variable values at zero',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Deriving Features from Dates and Time Variables: Extracting date and time parts from a datetime variable',
-
-            slug: 'test',
-
-          },
-
-                    {
-
-            name: 'Deriving Features from Dates and Time Variables: Capturing the elapsed time between datetime variables',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Performing Feature Scaling: Standardizing the features',
-
-            slug: 'test',
-
-          },
-
-                    {
-
-            name: 'Performing Feature Scaling: Performing mean normalization',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Performing Feature Scaling: Implementing maximum absolute scaling',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Performing Feature Scaling: Scaling to vector unit length',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Building New Features Applying Mathematical Computations: Combining multiple features with statistical operations',
-
-            slug: 'test',
-
-          },
-
-                   {
-
-            name: 'Building New Features Applying Mathematical Computations: Combining pairs of features with mathematical functions',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Building New Features Applying Mathematical Computations: Performing polynomial expansion',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Building New Features Applying Mathematical Computations: Deriving new features with decision trees',
-
-            slug: 'test',
-
-          },
-
-                    {
-
-            name: 'Building New Features with Transactional and Time Series Data: Aggregating transactions with mathematical operations',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Building New Features Applying Mathematical Computations: Aggregating transactions in a time window',
-
-            slug: 'test',
-
-          },
-
-                   {
-
-            name: 'Building New Features Applying Mathematical Computations: Determining the number of local maxima and minima',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Building New Features Applying Mathematical Computations: Deriving time elapsed between time-stamped events',
-
-            slug: 'test',
-
-          },
-
-          {
-
-            name: 'Building New Features Applying Mathematical Computations: Creating features from transactions with Featuretools',
 
             slug: 'test',
 
