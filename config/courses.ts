@@ -121,70 +121,118 @@ export const courses: Course[] = [
         ],
       },
       {
-        name: 'Chapter II',
+ name: 'Foundational math, probability, statistics',
+
         content: [
+
           {
-            name: 'Databases and DBMS',
-            slug: 'databases-and-dbms',
+
+            name: 'Linear Algebra: Introduction to Linear Algebra',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'SQL databases',
-            slug: 'sql-databases',
+
+            name: 'Linear Algebra: Numpy arrays',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'NoSQL databases',
-            slug: 'nosql-databases',
+
+            name: 'Linear Algebra: Vectors and Vector Arithmetic',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'SQL vs NoSQL databases',
-            slug: 'sql-vs-nosql-databases',
+
+            name: 'Linear Algebra: Matrices and Matrix Arithmetic',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Database Replication',
-            slug: 'database-replication',
+
+            name: 'Linear Algebra: Types of Matrices',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Indexes',
-            slug: 'indexes',
+
+            name: 'Linear Algebra: Matrix Operations',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Normalization and Denormalization',
-            slug: 'normalization-and-denormalization',
+
+            name: 'Probability: Basics of Probability Theory',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'ACID and BASE consistency models',
-            slug: 'acid-and-base-consistency-models',
+
+            name: 'Probability: Joint, Marginal, and Conditional Probability',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'CAP theorem',
-            slug: 'cap-theorem',
+
+            name: 'Probability: Bayes Theorem',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'PACELC Theorem',
-            slug: 'pacelc-theorem',
+
+            name: 'Statistics: Introduction to Statistics',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Transactions',
-            slug: 'transactions',
+
+            name: 'Statistics: Descriptive Statistics',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Distributed Transactions',
-            slug: 'distributed-transactions',
+
+            name: 'Statistics: Overview of statistical concepts',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Sharding',
-            slug: 'sharding',
+
+            name: 'Wrap-Up',
+
+            slug: 'test',
+
           },
-          {
-            name: 'Consistent Hashing',
-            slug: 'consistent-hashing',
-          },
-          {
-            name: 'Database Federation',
-            slug: 'database-federation',
-          },
+
         ],
+
       },
+
       {
         name: 'Chapter III',
         content: [
