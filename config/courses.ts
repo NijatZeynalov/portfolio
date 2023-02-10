@@ -5,6 +5,7 @@ export type CourseContent = {
   content?: CourseContent[];
 };
 
+
 export interface Course {
   title: string;
   slug: string;
