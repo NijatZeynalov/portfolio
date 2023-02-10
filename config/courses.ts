@@ -270,7 +270,7 @@ export const courses: Course[] = [
         ],
       },
       {
-      name: 'Feature Engineering',
+      name: 'Feature Engineering I',
 
         content: [
 
@@ -377,33 +377,260 @@ export const courses: Course[] = [
       },
 
       {
-        name: 'Chapter V',
-        content: [
-          {
-            name: 'System Design Interviews',
-            slug: 'system-design-interviews',
+      name: 'Feature Engineering II',
+
+      content: [ {
+
+            name: 'Transforming Numerical Variables: Transforming variables with the logarithm',
+
+            slug: 'test',
+
           },
+
+          
+
           {
-            name: 'URL Shortener',
-            slug: 'url-shortener',
+
+            name: 'Transforming Numerical Variables: Transforming variables with the reciprocal function',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'WhatsApp',
-            slug: 'whatsapp',
+
+            name: 'Transforming Numerical Variables: Using square and cube root to transform variables',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Twitter',
-            slug: 'twitter',
+
+            name: 'Transforming Numerical Variables: Using power transformations on numerical variables',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Netflix',
-            slug: 'netflix',
+
+            name: 'Transforming Numerical Variables: Performing Box-Cox transformation on numerical variables',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Uber',
-            slug: 'uber',
+
+            name: 'Transforming Numerical Variables: Performing Yeo-Johnson transformation on numerical variables',
+
+            slug: 'test',
+
           },
+
+          {
+
+            name: 'Performing Variable Discretization: Dividing the variable into intervals of equal width',
+
+            slug: 'test',
+
+          },
+
+                   {
+
+            name: 'Performing Variable Discretization: Sorting the variable values in intervals of equal frequency,
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Performing discretization followed by categorical encoding',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Allocating the variable values in arbitrary intervals',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Performing discretization with k-means clustering',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Using decision trees for discretization',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Working with Outliers: Trimming outliers from the dataset',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Working with Outliers: Performing winsorization',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Working with Outliers: Capping the variable at arbitrary maximum and minimum values',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Working with Outliers: Performing zero-coding – capping the variable values at zero',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Deriving Features from Dates and Time Variables: Extracting date and time parts from a datetime variable',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Deriving Features from Dates and Time Variables: Capturing the elapsed time between datetime variables',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Feature Scaling: Standardizing the features',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Performing Feature Scaling: Performing mean normalization',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Feature Scaling: Implementing maximum absolute scaling',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Feature Scaling: Scaling to vector unit length',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Combining multiple features with statistical operations',
+
+            slug: 'test',
+
+          },
+
+                   {
+
+            name: 'Building New Features Applying Mathematical Computations: Combining pairs of features with mathematical functions',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Performing polynomial expansion',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Deriving new features with decision trees',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Building New Features with Transactional and Time Series Data: Aggregating transactions with mathematical operations',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Aggregating transactions in a time window',
+
+            slug: 'test',
+
+          },
+
+                   {
+
+            name: 'Building New Features Applying Mathematical Computations: Determining the number of local maxima and minima',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Deriving time elapsed between time-stamped events',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Creating features from transactions with Featuretools',
+
+            slug: 'test',
+
+          },
+
         ],
+
       },
       {
         name: 'Appendix',
