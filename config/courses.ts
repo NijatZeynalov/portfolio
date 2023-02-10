@@ -31,6 +31,20 @@ export const courses: Course[] = [
     {
         name: 'Getting Started',
         content: [
+                    {
+            name: 'Machine Learning with Python',
+            slug: 'what-is-system-design',
+          },
+                    {
+            name: 'Deep Learning with TensorFlow',
+            slug: 'what-is-system-design',
+          },
+                    },
+                    {
+            name: 'AWS for Machine Learning',
+            slug: 'what-is-aws-course',
+          },
+          
           {
             name: 'What will you get from these courses?',
             slug: 'what-is-system-design',
