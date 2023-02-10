@@ -702,19 +702,6 @@ export const courses: Course[] = [
       'In this course, we will talk about the basics of neural networks and deep learning, how to use deep learning ConvNets, transfer learning, transformers -  a deep learning architecture that has revolutionized the traditional NLP.',
     content: [
       {
-        name: 'Getting Started',
-        content: [
-          {
-            name: 'Welcome to the course',
-            slug: 'welcome-to-the-dl-course',
-          },
-          {
-            name: 'What will you get from the course?',
-            slug: 'what-will-you-get',
-          },
-        ],
-      },
-      {
         name: 'Neural Network Foundations with TF',
         content: [
           { name: 'What TensorFlow and Keras are?', slug: 'test' },
@@ -811,15 +798,6 @@ export const courses: Course[] = [
     description:
       'Specifically designed to help you prepare for the AWS Machine Learning  Specialty Certification, this learning path provides interactive content comprised of hands-on labs and lectures. ',
     content: [
-      {
-        name: 'Getting Started',
-        content: [
-          {
-            name: 'What will you get from the course?',
-            slug: 'welcome-to-the-course',
-          },
-        ],
-      },
       {
         name: 'AWS Cloud Concepts',
         content: [
