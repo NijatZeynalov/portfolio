@@ -23,7 +23,7 @@ export const courseSlugMap = {
 export const courses: Course[] = [
   {
     title: 'Machine Learning with Python',
-    slug: 'go',
+    slug: 'system-design',
     banner: '/static/courses/system-design/machine-learning-python-3.png',
     description:
       'Machine Learning is broad and fast-growing sub-field of Artificial Intelligence. This course introduces students to the basic concepts and techniques of Machine Learning that make students to more skilled.',
