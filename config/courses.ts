@@ -33,20 +33,20 @@ export const courses: Course[] = [
         content: [
           {
             name: 'Welcome to the course',
-            slug: 'welcome-to-the-course',
+            slug: 'test',
           },
           {
-            name: 'What is system design?',
+            name: 'What will you get from the course?',
             slug: 'what-is-system-design',
           },
         ],
       },
       {
-        name: 'Chapter I',
+        name: 'Python fundamentals',
         content: [
           {
-            name: 'IP',
-            slug: 'ip',
+            name: 'Introduction to Python',
+            slug: 'test',
           },
           {
             name: 'OSI Model',
