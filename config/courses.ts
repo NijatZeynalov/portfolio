@@ -32,7 +32,11 @@ export const courses: Course[] = [
         name: 'Getting Started',
         content: [
                     {
-            name: 'Machine Learning with Python',
+            name: 'Welcome to the course',
+            slug: 'welcome-to-the-course',
+          },
+          {
+            name: 'What will you get through these courses?',
             slug: 'what-is-system-design',
           },
         ],
