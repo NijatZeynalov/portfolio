@@ -42,7 +42,7 @@ export const courses: Course[] = [
                     },
                     {
             name: 'AWS for Machine Learning',
-            slug: 'what-is-aws-course',
+            slug: 'whatsapp',
           },
           
           {
