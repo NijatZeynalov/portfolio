@@ -43,55 +43,81 @@ export const courses: Course[] = [
       },
       {
         name: 'Python fundamentals',
+
         content: [
+
           {
+
             name: 'Introduction to Python',
+
             slug: 'test',
+
           },
+
           {
-            name: 'OSI Model',
-            slug: 'osi-model',
+
+            name: 'Data Structures in Python',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'TCP and UDP',
-            slug: 'tcp-and-udp',
+
+            name: 'Python operators',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Domain Name System (DNS)',
-            slug: 'domain-name-system',
+
+            name: 'Loops (for, while)',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Load Balancing',
-            slug: 'load-balancing',
+
+            name: 'Functions',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Clustering',
-            slug: 'clustering',
+
+            name: 'Web scraping',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Caching',
-            slug: 'caching',
+
+            name: 'Regular expressions',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Content Delivery Network (CDN)',
-            slug: 'content-delivery-network',
+
+            name: 'Writing and reading files',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Proxy',
-            slug: 'proxy',
+
+            name: 'Introduction to OOP',
+
+            slug: 'test',
+
           },
-          {
-            name: 'Availability',
-            slug: 'availability',
-          },
-          {
-            name: 'Scalability',
-            slug: 'scalability',
-          },
-          {
-            name: 'Storage',
-            slug: 'storage',
-          },
+
         ],
       },
       {
