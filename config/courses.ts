@@ -639,15 +639,56 @@ export const courses: Course[] = [
       },
       
         {
-        name: 'Getting Started',
+        name: 'Introduction to Machine Learning',
         content: [
           {
-            name: 'Welcome to the course',
+            name: 'What is Data Leakage? Data Preparation without Data Leakage',
             slug: 'test',
           },
           {
-            name: 'What will you get from the course?',
-            slug: 'what-is-system-design',
+            name: 'Bias–variance tradeoff',
+            slug: 'test',
+          },
+                   {
+            name: 'Building Simple Linear model from stratch',
+            slug: 'test',
+          },
+          {
+            name: 'Building Simple Logistic Regression model from stratch',
+            slug: 'test',
+          },          {
+            name: 'Classification and Regression Trees',
+            slug: 'test',
+          },
+          {
+            name: 'K-Nearest Neighbors',
+            slug: 'test',
+          },
+                             {
+            name: 'Support Vector Machines',
+            slug: 'test',
+          },
+          {
+            name: 'Unsupervised Learning',
+            slug: 'test',
+          },          {
+            name: 'Semi-supervised Learning algorithms',
+            slug: 'test',
+          },
+          {
+            name: 'Handling with imbalanced dataset',
+            slug: 'test',
+          },
+                    {
+            name: 'Feature selection methods',
+            slug: 'test',
+          },          {
+            name: 'Hyperparameter optimization (random search, grid search, halving)',
+            slug: 'test',
+          },
+          {
+            name: 'Hyperparameter optimization (Bayesian)',
+            slug: 'test',
           },
         ],
       },
