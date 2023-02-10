@@ -270,50 +270,362 @@ export const courses: Course[] = [
         ],
       },
       {
-        name: 'Chapter IV',
+      name: 'Feature Engineering',
+
         content: [
+
           {
-            name: 'Geohashing and Quadtrees',
-            slug: 'geohashing-and-quadtrees',
+
+            name: 'Variable Problems When Building ML Models',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Circuit breaker ',
-            slug: 'circuit-breaker',
+
+            name: 'Imputing Missing Data: Performing mean or median imputation',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Rate Limiting',
-            slug: 'rate-limiting',
+
+            name: 'Imputing Missing Data: Mode or frequent category imputation',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Service Discovery',
-            slug: 'service-discovery',
+
+            name: 'Imputing Missing Data: Adding a missing value indicator variable',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'SLA, SLO, SLI',
-            slug: 'sla-slo-sli',
+
+            name: 'Imputing Missing Data: Performing multivariate imputation by chained equations',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Disaster recovery',
-            slug: 'disaster-recovery',
+
+            name: 'Imputing Missing Data: Assembling an imputation pipeline',
+
+            slug: 'test',
+
           },
+
+          
+
           {
-            name: 'Virtual Machines (VMs) and Containers',
-            slug: 'virtual-machines-and-containers',
+
+            name: 'Encoding Categorical Variables: Creating binary variables through one-hot encoding',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'OAuth 2.0 and OpenID Connect (OIDC)',
-            slug: 'oauth2-and-openid-connect',
+
+            name: 'Encoding Categorical Variables: Replacing categories with counts or frequency of observations',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Single Sign-On (SSO)',
-            slug: 'single-sign-on',
+
+            name: 'Encoding Categorical Variables: Encoding with the mean of the target',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'SSL, TLS, mTLS',
-            slug: 'ssl-tls-mtls',
+
+            name: 'Encoding Categorical Variables: Encoding with the Weight of Evidence',
+
+            slug: 'test',
+
           },
+
+          {
+
+            name: 'Encoding Categorical Variables: Grouping rare or infrequent categories',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Encoding Categorical Variables: Performing binary encoding, feature hashing',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Transforming Numerical Variables: Transforming variables with the logarithm',
+
+            slug: 'test',
+
+          },
+
+          
+
+          {
+
+            name: 'Transforming Numerical Variables: Transforming variables with the reciprocal function',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Transforming Numerical Variables: Using square and cube root to transform variables',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Transforming Numerical Variables: Using power transformations on numerical variables',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Transforming Numerical Variables: Performing Box-Cox transformation on numerical variables',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Transforming Numerical Variables: Performing Yeo-Johnson transformation on numerical variables',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Dividing the variable into intervals of equal width',
+
+            slug: 'test',
+
+          },
+
+                   {
+
+            name: 'Performing Variable Discretization: Sorting the variable values in intervals of equal frequency,
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Performing discretization followed by categorical encoding',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Allocating the variable values in arbitrary intervals',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Performing discretization with k-means clustering',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Variable Discretization: Using decision trees for discretization',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Working with Outliers: Trimming outliers from the dataset',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Working with Outliers: Performing winsorization',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Working with Outliers: Capping the variable at arbitrary maximum and minimum values',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Working with Outliers: Performing zero-coding – capping the variable values at zero',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Deriving Features from Dates and Time Variables: Extracting date and time parts from a datetime variable',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Deriving Features from Dates and Time Variables: Capturing the elapsed time between datetime variables',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Feature Scaling: Standardizing the features',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Performing Feature Scaling: Performing mean normalization',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Feature Scaling: Implementing maximum absolute scaling',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Performing Feature Scaling: Scaling to vector unit length',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Combining multiple features with statistical operations',
+
+            slug: 'test',
+
+          },
+
+                   {
+
+            name: 'Building New Features Applying Mathematical Computations: Combining pairs of features with mathematical functions',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Performing polynomial expansion',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Deriving new features with decision trees',
+
+            slug: 'test',
+
+          },
+
+                    {
+
+            name: 'Building New Features with Transactional and Time Series Data: Aggregating transactions with mathematical operations',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Aggregating transactions in a time window',
+
+            slug: 'test',
+
+          },
+
+                   {
+
+            name: 'Building New Features Applying Mathematical Computations: Determining the number of local maxima and minima',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Deriving time elapsed between time-stamped events',
+
+            slug: 'test',
+
+          },
+
+          {
+
+            name: 'Building New Features Applying Mathematical Computations: Creating features from transactions with Featuretools',
+
+            slug: 'test',
+
+          },
+
         ],
+
       },
+
       {
         name: 'Chapter V',
         content: [
