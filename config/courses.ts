@@ -234,55 +234,38 @@ export const courses: Course[] = [
       },
 
       {
-        name: 'Chapter III',
+        name: 'Basic SQL commands for Machine Learning',
         content: [
-          {
-            name: 'N-tier architecture',
-            slug: 'n-tier-architecture',
+         {
+
+            name: 'Introduction to SQL',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Message Brokers',
-            slug: 'message-brokers',
+
+            name: 'Querying and filtering data in SQL',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Message Queues',
-            slug: 'message-queues',
+
+            name: 'Simple aggregations in SQL',
+
+            slug: 'test',
+
           },
+
           {
-            name: 'Publish-Subscribe',
-            slug: 'publish-subscribe',
-          },
-          {
-            name: 'Enterprise Service Bus (ESB)',
-            slug: 'enterprise-service-bus',
-          },
-          {
-            name: 'Monoliths and Microservices',
-            slug: 'monoliths-microservices',
-          },
-          {
-            name: 'Event-Driven Architecture (EDA)',
-            slug: 'event-driven-architecture',
-          },
-          {
-            name: 'Event Sourcing',
-            slug: 'event-sourcing',
-          },
-          {
-            name: 'Command and Query Responsibility Segregation (CQRS)',
-            slug: 'command-and-query-responsibility-segregation',
-          },
-          {
-            name: 'API Gateway',
-            slug: 'api-gateway',
-          },
-          {
-            name: 'REST, GraphQL, gRPC',
-            slug: 'rest-graphql-grpc',
-          },
-          {
-            name: 'Long polling, WebSockets, Server-Sent Events (SSE)',
-            slug: 'long-polling-websockets-server-sent-events',
+
+            name: 'Grouping, filtering, and sorting',
+
+            slug: 'test',
+
           },
         ],
       },
