@@ -13,7 +13,7 @@ export default function FourZeroFour() {
           Sorry! You don't have an access to course content. Lessons, supplemental materials, assignments, projects, and other resources will only be shared with students in live classes.
         </p>
         <p className='mb-8'>
-         The number of students in the group is limited. Take your first steps and register today. For registering, contact me via linkedin.
+         The number of students in the class is limited. Take your first steps and register today. For registering, contact me via linkedin.
         </p>
         <Link href='/'>
           <button className='focus:shadow-outline-blue inline rounded-lg border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium leading-5 text-white shadow transition-colors duration-150 hover:bg-blue-700 focus:outline-none dark:hover:bg-blue-500'>
