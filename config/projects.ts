@@ -345,7 +345,7 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     {
     title: `Developing a Neural Machine Translation Model (Azerbaijani - English)`,
     slug: `Developing a Neural Machine Translation Model (Azerbaijani - English)`,
-    banner: '/static/projects/supermarket/translate.png',
+    banner: '/static/projects/velvet-live/translate.png',
     description: `In this project, I have discovered how to develop a neural machine translation system for translating Azerbaijani phrases to English. I use a dataset of Azerbaijani to English terms used as the basis for flashcards for language learning. The dataset is available from the ManyThings.org website, with examples drawn from the Tatoeba Project. After cleaning text data, it will be ready for modeling and defining. I have used an encoder-decoder LSTM model on this problem.`
     repository: 'https://github.com/NijatZeynalov/Neural-Machine-Translation-Model',
     stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
@@ -367,7 +367,7 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     {
     title: `Supermarket sales dataset`,
     slug: `Supermarket sales dataset`,
-    banner: '/static/projects/supermarket/translate-2.png',
+    banner: '/static/projects/velvet-live/translate-2.png',
     description: `The goal of most sentiment tasks is to identify the overall sentiment polarity of the documents in question, i.e. is the sentiment of the document positive or negative? For our case, we will enter sentence in Azerbaijani and model will predict its sentiment. In order to perform this sentiment task, we use a mixture of baseline machine learning models and deep learning models to learn and predict the sentiment of binary reviews.`
     repository: 'https://github.com/NijatZeynalov/SENTIMENT-ANALYZER-FOR-AZERBAIJANI-SENTENCES.',
     stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
