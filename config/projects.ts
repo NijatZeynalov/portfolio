@@ -365,8 +365,8 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     subProjects: [],
   },
     {
-    title: `Supermarket sales dataset`,
-    slug: `Supermarket sales dataset`,
+    title: `SENTIMENT ANALYZER FOR AZERBAIJANI SENTENCES`,
+    slug: `SENTIMENT ANALYZER FOR AZERBAIJANI SENTENCES`,
     banner: '/static/projects/velvet-live/translate-2.png',
     description: `The goal of most sentiment tasks is to identify the overall sentiment polarity of the documents in question, i.e. is the sentiment of the document positive or negative? For our case, we will enter sentence in Azerbaijani and model will predict its sentiment. In order to perform this sentiment task, we use a mixture of baseline machine learning models and deep learning models to learn and predict the sentiment of binary reviews.`
     repository: 'https://github.com/NijatZeynalov/SENTIMENT-ANALYZER-FOR-AZERBAIJANI-SENTENCES.',
@@ -381,9 +381,9 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
       'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
     ],
     deployment: {
-      web: 'https://github.com/NijatZeynalov/SENTIMENT-ANALYZER-FOR-AZERBAIJANI-SENTENCES.',
+      web: 'https://github.com/NijatZeynalov/SENTIMENT-ANALYZER-FOR-AZERBAIJANI-SENTENCES',
     },
-    website: 'https://github.com/NijatZeynalov/SENTIMENT-ANALYZER-FOR-AZERBAIJANI-SENTENCES.',
+    website: 'https://github.com/NijatZeynalov/SENTIMENT-ANALYZER-FOR-AZERBAIJANI-SENTENCES',
     subProjects: [],
   },
 ];
