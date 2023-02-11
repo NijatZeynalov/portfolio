@@ -342,10 +342,10 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     subProjects: [],
   },
   {
-    title: `Developing a Neural Machine Translation Model (Azerbaijani - English)`,
-    slug: `Developing a Neural Machine Translation Model (Azerbaijani - English)`,
+    title: 'Developing a Neural Machine Translation Model (Azerbaijani - English)',
+    slug: 'Developing a Neural Machine Translation Model (Azerbaijani - English)',
     banner: '/static/projects/velvet-live/translate.png',
-    description: `In this project, I have discovered how to develop a neural machine translation system for translating Azerbaijani phrases to English. I use a dataset of Azerbaijani to English terms used as the basis for flashcards for language learning. The dataset is available from the ManyThings.org website, with examples drawn from the Tatoeba Project. After cleaning text data, it will be ready for modeling and defining. I have used an encoder-decoder LSTM model on this problem.`
+    description: `In this project, I have discovered how to develop a neural machine translation system for translating Azerbaijani phrases to English. I use a dataset of Azerbaijani to English terms used as the basis for flashcards for language learning.`
     repository: 'https://github.com/NijatZeynalov/Neural-Machine-Translation-Model',
     stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
     dimensions: [450, 270],
