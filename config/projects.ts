@@ -364,5 +364,4 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     website: 'https://github.com/NijatZeynalov/Neural-Machine-Translation-Model',
     subProjects: [],
   },
-
 ];
