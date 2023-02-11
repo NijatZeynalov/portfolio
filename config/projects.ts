@@ -342,5 +342,27 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     website: 'https://github.com/NijatZeynalov/Azerbaijani-Fake-News-Generator',
     subProjects: [],
   },
+  {
+    title: `Developing a Neural Machine Translation Model (Azerbaijani - English)`,
+    slug: `Developing a Neural Machine Translation Model (Azerbaijani - English)`,
+    banner: '/static/projects/velvet-live/translate.png',
+    description: `In this project, I have discovered how to develop a neural machine translation system for translating Azerbaijani phrases to English. I use a dataset of Azerbaijani to English terms used as the basis for flashcards for language learning. The dataset is available from the ManyThings.org website, with examples drawn from the Tatoeba Project. After cleaning text data, it will be ready for modeling and defining. I have used an encoder-decoder LSTM model on this problem.`
+    repository: 'https://github.com/NijatZeynalov/Neural-Machine-Translation-Model',
+    stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
+    dimensions: [450, 270],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-1.png?alt=media&token=5de462e1-7368-49fd-843f-abd4cccb3317',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-2.png?alt=media&token=30061b0b-5bed-47d5-bf43-16c44cf076e0',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-3.png?alt=media&token=350180a1-f559-45e7-b887-dafd2cf9eb78',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-4.png?alt=media&token=574212b2-cf17-4e11-b8c0-a3a81473aeec',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-5.png?alt=media&token=ecff0737-b3b5-45cc-8d85-97b684f9c4b7',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
+    ],
+    deployment: {
+      web: 'https://github.com/NijatZeynalov/Neural-Machine-Translation-Model',
+    },
+    website: 'https://github.com/NijatZeynalov/Neural-Machine-Translation-Model',
+    subProjects: [],
+  },
 
 ];
