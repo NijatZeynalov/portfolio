@@ -323,8 +323,7 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     title: `Azerbaijani Fake News Generator`,
     slug: `Azerbaijani Fake News Generator`,
     banner: '/static/projects/velvet-live/fakenews.png',
-    description:
-      `A language model can predict the probability of the next word in the sequence, based on the words already observed in the sequence. Neural network models are a preferred method for developing statistical language models because they can use a distributed representation where different words with similar meanings have similar representation and because they can use a large context of recently observed words when making predictions. `,
+    description: `A language model can predict the probability of the next word in the sequence, based on the words already observed in the sequence. Neural network models are a preferred method for developing statistical language models because they can use a distributed representation where different words with similar meanings have similar representation and because they can use a large context of recently observed words when making predictions. `,
     repository: 'https://github.com/NijatZeynalov/Azerbaijani-Fake-News-Generator',
     stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
     dimensions: [450, 270],
