@@ -345,7 +345,7 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     title: 'Developing a Neural Machine Translation Model (Azerbaijani - English)',
     slug: 'Developing a Neural Machine Translation Model (Azerbaijani - English)',
     banner: '/static/projects/velvet-live/translate.png',
-    description: `In this project, I have discovered how to develop a neural machine translation system for translating Azerbaijani phrases to English. I use a dataset of Azerbaijani to English terms used as the basis for flashcards for language learning.`
+    description: `In this project, I have discovered how to develop a neural machine translation system for translating Azerbaijani phrases to English. I use a dataset of Azerbaijani to English terms used as the basis for flashcards for language learning.`,
     repository: 'https://github.com/NijatZeynalov/Neural-Machine-Translation-Model',
     stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
     dimensions: [450, 270],
