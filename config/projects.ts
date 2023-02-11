@@ -319,4 +319,28 @@ The dataset is prepared for Abstractive/Extractive summarization tasks. It can a
     website: 'https://www.academia.edu/42561999/Data_Analitikası_tapşırıqları',
     subProjects: [],
   },
+  {
+    title: `Azerbaijani Fake News Generator`,
+    slug: `Azerbaijani Fake News Generator`,
+    banner: '/static/projects/velvet-live/fakenews.png',
+    description:
+      `A language model can predict the probability of the next word in the sequence, based on the words already observed in the sequence. Neural network models are a preferred method for developing statistical language models because they can use a distributed representation where different words with similar meanings have similar representation and because they can use a large context of recently observed words when making predictions. `,
+    repository: 'https://github.com/NijatZeynalov/Azerbaijani-Fake-News-Generator',
+    stack: [Stack.react, Stack.reactnative, Stack.node, Stack.mongo],
+    dimensions: [450, 270],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-1.png?alt=media&token=5de462e1-7368-49fd-843f-abd4cccb3317',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-2.png?alt=media&token=30061b0b-5bed-47d5-bf43-16c44cf076e0',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-3.png?alt=media&token=350180a1-f559-45e7-b887-dafd2cf9eb78',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-4.png?alt=media&token=574212b2-cf17-4e11-b8c0-a3a81473aeec',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-5.png?alt=media&token=ecff0737-b3b5-45cc-8d85-97b684f9c4b7',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fkcards%2Fscreenshots%2Fscreenshot-6.png?alt=media&token=b49f3f8e-6596-47ab-b3e6-872f5f67d7fe',
+    ],
+    deployment: {
+      web: 'https://github.com/NijatZeynalov/Azerbaijani-Fake-News-Generator',
+    },
+    website: 'https://github.com/NijatZeynalov/Azerbaijani-Fake-News-Generator',
+    subProjects: [],
+  },
+
 ];
