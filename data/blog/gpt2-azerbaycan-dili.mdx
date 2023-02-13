@@ -1,0 +1,37 @@
+---
+title: 'Azərbaycan dili üçün fine-tune edilmiş GPT-2 modeli'
+date: '2023-02-14'
+tags: []
+draft: false
+summary: 'GPT-2 modeli nədir və necə işləyir? Digər transformerlərdən fərqi nədir? Performansı necədir? azerbaijani-gpt2 modeli'
+images: ['/static/blogs/ml-ferqli-neticeler/ml-model-ferqli-neticeler.png']
+authors: ['default']
+---
+
+# Azərbaycan dili üçün fine-tune edilmiş GPT-2 modeli
+
+Bu məqalədə OpenAI şirkəti tərəfindən yaradılmış və NLP cəmiyyəti tərəfindən kifayət qədər marağa səbəb olmuş GPT ailəsinin ən çox danışılan üzvündən - GPT-2 modelindən bəhs edəcəm.
+Məqalə aşağıdakı hissələrdən ibarətdir:
+
+1. Dil modeli dedikdə nə başa düşək?
+2. Dil modeli üçün transformerlər
+4. GPT-2 necə işləyir?
+5. "azerbaijani-gpt2 modeli"-nin train olunması və performansı
+
+## Dil modeli dedikdə nə başa düşək?
+
+Dil modelinə belə bir tərif versək, cümlənin əvvəlini nəzərə alıb növbəti sözü proqnozlaşdıra bilən maşın öyrənmə modeli deyə bilərik. Nümunə olaraq, mobil telefonlarımızda olan avtomatik yazma xidmətini göstərə bilərik.
+
+![](https://1.bp.blogspot.com/-Oz-oMYfar8I/WSW90Jo866I/AAAAAAAAB1k/GO-9rpbpTcMhsfy3edD3lgcjXlLlTQjlwCLcB/s1600/image6.gif)
+
+Bu mənada deyə bilərik ki, GPT-2 əsasən klaviatura tətbiqinin növbəti söz proqnozlaşdırma xüsusiyyətidir, lakin telefonunuzda olduğundan daha böyük və daha mürəkkəbdir. 
+GPT-2, OpenAI tədqiqatçıları tərəfindən WebText adlı nəhəng 40GB verilənlər bazası üzərində train edilmişdir. Train edilmiş GPT-2-nin ən kiçik variantı bütün parametrlərini saxlamaq üçün 500MB yaddaş tutur. Ən böyük GPT-2 variantı isə bundan 13 dəfə böyükdür.
+GPT-2 1,5 milyard parametrə malikdir. Müqayisə üçün deyim ki, bu GPT-1-dən 10 dəfə çoxdur. (117M parametr)
+
+![](https://jalammar.github.io/images/gpt2/gpt2-sizes-hyperparameters-3.png)
+Original transformer modeli encoder və dekoder adlanan bloklardan ibarətdir. Bu arxitektura uzun müddət uğurlu hesab edilirdi, əsasən də tərcümə üçün istifadə olunan modellərdə çox uyğun idi. Lakin GPT ailəsindən olan modellər, original transformer arxitekturasının encoder hissəsini tələb etmir, enkoder blokları mövcud deyil, başqa şəkildə desək, dekoder enkoderə ekvivalentdir.
+Enkoder-dekoder arxitekturasından istifadə etdiyimiz hallar, adətən, bir mətnin digər mətnə çevrilməsi zamanı olur.(məsələn: azərbaycan dilindən ingilis dilinə tərcümə modeli)
+
+GPT-2 modeli isə Vikipediya məqalələri kimi mətnlər üzərində öyrədilib. Buna görə də, bu hallarda, yalnız dekoderdən istifadə etməyə daha çox üstünlük verilir.
+
+## "azerbaijani-gpt2 modeli"-nin train olunması və performansı
