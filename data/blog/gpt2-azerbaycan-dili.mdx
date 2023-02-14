@@ -35,3 +35,27 @@ Enkoder-dekoder arxitekturasından istifadə etdiyimiz hallar, adətən, bir mə
 GPT-2 modeli isə Vikipediya məqalələri kimi mətnlər üzərində öyrədilib. Buna görə də, bu hallarda, yalnız dekoderdən istifadə etməyə daha çox üstünlük verilir.
 
 ## "azerbaijani-gpt2 modeli"-nin train olunması və performansı
+
+Azərbaycan dili üçün GPT modelinin fine tune edilməsi ümumi olaraq aşağıdakı şəkildə göstərilmişdir.
+
+![](https://user-images.githubusercontent.com/31247506/218794844-dddeb35c-c1c4-4615-987b-e50ecb94bc0f.png)
+
+* Azərbaycan dilində məqalələrinin və GPT-2 model, tokenizerlərini yükləyirik;
+
+* Azərbaycan dili datası ilə GPT-2 tokenizerini train edirik;
+
+* Azərbaycan dili datası ilə GPT-2 modelini fine-tune edirik;
+
+İstifadə etdiyimiz wikipedia dataseti 130k-a yaxın məqalədən və təqribən 14M sözdən ibarətdir. Bu, GPT-2 modelinin üzərində train edildiyi WebText datasetindən 35 dəfəyə yaxın kiçikdir. Rəsmi məqalədə müəlliflər train dataset haqqında bunları qeyd ediblər:
+
+>The resulting dataset, WebText, contains the text subset of these 45 million links. To extract the text from HTML responses we use a combination of the Dragnet (Peters &Lecocq, 2013) and Newspaper content extractors. All results presented in this paper use a preliminary version of WebText which does not include links created after Dec 2017 and which after de-duplication and some heuristic based cleaning contains slightly over 8 million documents for a total of 40 GB of text. We removed all Wikipedia documents from WebText since it is a common data source for other datasets and could complicate analysis due to overlapping training data with test evaluation tasks.
+
+Azərbaycan dilində lüğətə malik GPT-2 tokenizer əldə etmək üçün 3 addımı həyata keçirməliyik:
+
+Transformers kitabxanasından (Hugging Face) əvvəlcədən hazırlanmış GPT-2 Tokenizer & Modelini (İngilis dili korpusu ilə hazırlanmış) yükləyirik. O, bizə lazım olan tokenizer strukturunu və əvvəlcədən öyrədilmiş model weightlərini verəcək. __GPT-2 modelini Azərbaycan train etmək üçün dilində GPT-2 modelimizi təsadüfi weightlərdən başlayaraq öyrənməkdənsə, başqa dildə öyrədilmiş weightlərdən başlayaraq öyrətmək daha məntiqlidir.__
+
+Tokenize etmək üçün Byte-level BPE (BBPE) Tokenizer istifadə etmişəm.
+
+## Nəticələr
+
+## İstifadə qaydası
