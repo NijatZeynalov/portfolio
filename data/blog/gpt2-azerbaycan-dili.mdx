@@ -17,7 +17,7 @@ Məqalə aşağıdakı hissələrdən ibarətdir:
 1. Dil modeli dedikdə nə başa düşək?
 2. Dil modeli üçün transformerlər
 4. GPT-2 necə işləyir?
-5. "gpt2-azerbaijani-small modeli"-nin train olunması və performansı
+5. "gpt2-azerbaijani-smallv0 modeli"-nin train olunması və performansı
 
 ## Dil modeli dedikdə nə başa düşək?
 
@@ -35,7 +35,7 @@ Enkoder-dekoder arxitekturasından istifadə etdiyimiz hallar, adətən, bir mə
 
 GPT-2 modeli isə Vikipediya məqalələri kimi mətnlər üzərində öyrədilib. Buna görə də, bu hallarda, yalnız dekoderdən istifadə etməyə daha çox üstünlük verilir.
 
-## "azerbaijani-gpt2 modeli"-nin train olunması və performansı
+## "azerbaijani-gpt2-smallv0 modeli"-nin train olunması və performansı
 
 Azərbaycan dili üçün GPT modelinin fine tune edilməsi ümumi olaraq aşağıdakı şəkildə göstərilmişdir.
 
@@ -67,14 +67,21 @@ Azərbaycan dili üçün GPT-2 modelinin train olunmasını, Microsoft Azure / G
 
 ## Limitlər
 
-Bu model GPT-2 modelinin Azərbaycan dilinə tətbiqi üçün araşdırma məqsədi ilə hazırlanmışdır və hazirki versiyadan kommersial layihələrdə istifadəsi tövsiyə edilmir.
+__Bu model GPT-2 modelinin Azərbaycan dilinə tətbiqi üçün araşdırma məqsədi ilə hazırlanmışdır və yaratdığı nəticələr resurs limitindən dolayı çox aşağı keyfiyyətlidir, hazirki versiyadan kommersial layihələrdə istifadəsi tövsiyə edilmir.__
 
-Mövcud resurslarım əlverişli olmadığı üçün, bu modelə yenidən qayıdacağam, nəticələri daha da yaxşılaşdırmaq üçün planlaşdırıram:
+Mövcud resurslarım əlverişli olmadığı üçün, bu modelə yenidən qayıdacağam, nəticələri yaxşılaşdırmaq üçün planlaşdırıram:
 
-* Azərbaycan dilində daha çox train data əlavə etmək (Ümumilikdə müxtəlif resurslardan istifadə edərək, 500k+ məqalə tapıb əlavə etmək mümükündür.)
-* Daha güclü GPU istifadə edərək fərqli eksperimentlər aparmaq
-* Epoch sayını artırmaq (Hazırki GPU ilə 1 epoch təqribən ~9 saat davam edir ($0.90/hr). Layihənin məqsədini və digər resursları nəzərə alıb, 3 epochda dayandırmağı məqbul görmüşəm.)
+* Azərbaycan dilində daha çox train data əlavə etmək; Təkcə vikipedia üzərindən yox, ümumilikdə müxtəlif resurslardan istifadə edərək, 500k+ məqalə tapıb əlavə etməyi planlaşdırıram.
+* Train dataseti daha yaxşı şəkildə təmizləmək; Hazırda resurs azlığından dolayı təmizləmə demək olar ki, edilmir.
+* Daha güclü GPU istifadə edərək fərqli eksperimentlər aparmaq. Fine tuning üçün yalnız 1cycle policy [Leslie N. Smith et al. in Super-Convergence: Very Fast Training of Neural Networks Using Large Learning Rates.](https://arxiv.org/abs/1708.07120) texnikası test edilib. 
+* Epoch sayını artırmaq; Hazırki GPU (GPU - 1 x NVIDIA Tesla K80) ilə 1 epoch təqribən ~9 saat davam edir ($0.90/hr). Layihənin məqsədini və digər resursları nəzərə alıb, 3 epochda dayandırmağı məqbul görmüşəm.
 
 Digər məsələ isə modelin biased nəticə verə bilməsidir. Buna səbəb, bütün train məlumatların vikipediyadan götürülməsidir və orada süzülməmiş, neytrallığı şübhə doğuran nüanslar ola bilər. OpenAI modelin məqaləsində də qeyd etdiyi kimi:
 
 >Because large-scale language models like GPT-2 do not distinguish fact from fiction, we don’t support use-cases that require the generated text to be true. Additionally, language models like GPT-2 reflect the biases inherent to the systems they were trained on, so we do not recommend that they be deployed into systems that interact with humans > unless the deployers first carry out a study of biases relevant to the intended use-case. We found no statistically significant difference in gender, race, and religious bias probes between 774M and 1.5B, implying all versions of GPT-2 should be approached with similar levels of caution around use cases that are sensitive to biases around human attributes.
+
+Bu qədər :) Azərbaycan dilində fine-tuned edilmiş GPT-2 modelinin sıfırıncı versiyasından bu qədər. Qeyd etdiyim kimi, yuxarıda qeyd olunan nüansları nəzərə alıb, bu layihəyə geri dönəcəm. Görüşərik!
+
+> Bura qədər gəlmişkən, bir məlumat vermək istəyirəm. Uzun fasilədən sonra, tədrisə yenidən başlayıram. Bu yaxınlarda Python proqramlaşdırma dilinin əsaslarından başlayaraq (yəni, sıfırdan), Machine Learning, SQL, Deep Learning, AWS, TensorFlow kimi önəmli biliklər əldə edə biləcəyiniz unikal sillabusla təlim proqramına başlayacam. Ümumi proqram 8 ay davam edir, ətraflı məlumat üçün buraya [klikləyin](https://www.nijatzeynalov.com/courses/system-design/welcome-to-the-course). Yerlər məhduddur.
+
+Hər birinizə uğurlar arzu edirəm!
