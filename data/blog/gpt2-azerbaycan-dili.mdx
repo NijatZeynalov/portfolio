@@ -10,13 +10,14 @@ authors: ['default']
 
 # Azərbaycan dili üçün fine-tune edilmiş GPT-2 modeli
 
-Bu məqalədə OpenAI şirkəti tərəfindən yaradılmış və NLP cəmiyyəti tərəfindən kifayət qədər marağa səbəb olmuş GPT ailəsinin ən çox danışılan üzvündən - GPT-2 modelindən bəhs edəcəm.
+Bu məqalədə OpenAI şirkəti tərəfindən yaradılmış və NLP cəmiyyəti tərəfindən kifayət qədər marağa səbəb olmuş GPT ailəsinin ən çox danışılan üzvündən - GPT-2 modelindən və Azərbaycan dili üçün fine-tune etdiyim __gpt2-azerbaijani-small__ modelindən bəhs edəcəm. 
+
 Məqalə aşağıdakı hissələrdən ibarətdir:
 
 1. Dil modeli dedikdə nə başa düşək?
 2. Dil modeli üçün transformerlər
 4. GPT-2 necə işləyir?
-5. "azerbaijani-gpt2 modeli"-nin train olunması və performansı
+5. "gpt2-azerbaijani-small modeli"-nin train olunması və performansı
 
 ## Dil modeli dedikdə nə başa düşək?
 
@@ -66,7 +67,9 @@ Azərbaycan dili üçün GPT-2 modelinin train olunmasını, Microsoft Azure / G
 
 ## Limitlər
 
-Bu model GPT ailəsinin Azərbaycan dilinə tətbiqi üçün araşdırma məqsədi ilə hazırlanmışdır. Mövcud resurslarım əlverişli olmadığı üçün, bu modelə yenidən qayıdacağam, nəticələri daha da yaxşılaşdırmaq üçün planlaşdırıram:
+Bu model GPT-2 modelinin Azərbaycan dilinə tətbiqi üçün araşdırma məqsədi ilə hazırlanmışdır və hazirki versiyadan kommersial layihələrdə istifadəsi tövsiyə edilmir.
+
+Mövcud resurslarım əlverişli olmadığı üçün, bu modelə yenidən qayıdacağam, nəticələri daha da yaxşılaşdırmaq üçün planlaşdırıram:
 
 * Azərbaycan dilində daha çox train data əlavə etmək (Ümumilikdə müxtəlif resurslardan istifadə edərək, 500k+ məqalə tapıb əlavə etmək mümükündür.)
 * Daha güclü GPU istifadə edərək fərqli eksperimentlər aparmaq
