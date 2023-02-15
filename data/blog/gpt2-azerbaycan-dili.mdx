@@ -58,4 +58,20 @@ Tokenize etmək üçün Byte-level BPE (BBPE) Tokenizer istifadə etmişəm.
 
 ## Nəticələr
 
+Azərbaycan dili üçün GPT-2 modelinin train olunmasını, Microsoft Azure / GPU - 1 x NVIDIA Tesla K80 üzərində həyata keçirmişəm. Ümumi eksperimentlər 28 saat davam edib,  yekun nəticələr: (epoches - 3, loss -  5.17, accuracy - 30.99%, perplexity - 43.88). Aşağıdakı qrafikdə ilk epochdan sonra alınan loss nəticələrini əlavə etmişəm.
+
+![download](https://user-images.githubusercontent.com/31247506/218971166-d7adf015-9d38-44cd-bfa7-893af1c18b2b.jpeg)
+
 ## İstifadə qaydası
+
+## Limitlər
+
+Bu model GPT ailəsinin Azərbaycan dilinə tətbiqi üçün araşdırma məqsədi ilə hazırlanmışdır. Mövcud resurslarım əlverişli olmadığı üçün, bu modelə yenidən qayıdacağam, nəticələri daha da yaxşılaşdırmaq üçün planlaşdırıram:
+
+* Azərbaycan dilində daha çox train data əlavə etmək (Ümumilikdə müxtəlif resurslardan istifadə edərək, 500k+ məqalə tapıb əlavə etmək mümükündür.)
+* Daha güclü GPU istifadə edərək fərqli eksperimentlər aparmaq
+* Epoch sayını artırmaq (Hazırki GPU ilə 1 epoch təqribən ~9 saat davam edir ($0.90/hr). Layihənin məqsədini və digər resursları nəzərə alıb, 3 epochda dayandırmağı məqbul görmüşəm.)
+
+Digər məsələ isə modelin biased nəticə verə bilməsidir. Buna səbəb, bütün train məlumatların vikipediyadan götürülməsidir və orada süzülməmiş, neytrallığı şübhə doğuran nüanslar ola bilər. OpenAI modelin məqaləsində də qeyd etdiyi kimi:
+
+>Because large-scale language models like GPT-2 do not distinguish fact from fiction, we don’t support use-cases that require the generated text to be true. Additionally, language models like GPT-2 reflect the biases inherent to the systems they were trained on, so we do not recommend that they be deployed into systems that interact with humans > unless the deployers first carry out a study of biases relevant to the intended use-case. We found no statistically significant difference in gender, race, and religious bias probes between 774M and 1.5B, implying all versions of GPT-2 should be approached with similar levels of caution around use cases that are sensitive to biases around human attributes.
