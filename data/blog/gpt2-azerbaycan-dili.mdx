@@ -35,7 +35,7 @@ Enkoder-dekoder arxitekturasından istifadə etdiyimiz hallar, adətən, bir mə
 
 GPT-2 modeli isə Vikipediya məqalələri kimi mətnlər üzərində öyrədilib. Buna görə də, bu hallarda, yalnız dekoderdən istifadə etməyə daha çox üstünlük verilir.
 
-## "azerbaijani-gpt2-smallv0 modeli"-nin train olunması və performansı
+## "gpt2-azerbaijani-smallv0 modeli"-nin train olunması və performansı
 
 Azərbaycan dili üçün GPT modelinin fine tune edilməsi ümumi olaraq aşağıdakı şəkildə göstərilmişdir.
 
@@ -64,6 +64,35 @@ Azərbaycan dili üçün GPT-2 modelinin train olunmasını, Microsoft Azure / G
 ![download](https://user-images.githubusercontent.com/31247506/218971166-d7adf015-9d38-44cd-bfa7-893af1c18b2b.jpeg)
 
 ## İstifadə qaydası
+
+Modeli opensource olaraq huggingface-də paylaşmışam, istifadə qaydası bu şəkildədir.
+
+```python
+import torch
+from transformers import GPT2LMHeadModel, AutoTokenizer, AutoModelWithLMHead
+
+tokenizer = AutoTokenizer.from_pretrained("nijatzeynalov/gpt2-azerbaijani-small")
+tokenizer.model_max_length=1024 
+
+model_state_dict = torch.load('GPT2_pt_3epoch_lr2e-3.pth', map_location=torch.device('cpu'))
+model = GPT2LMHeadModel.from_pretrained('gpt2', state_dict=model_state_dict)
+
+model.eval()
+
+text = "Your prompt here"
+inputs = tokenizer(text, return_tensors="pt")
+
+sample_outputs = model.generate(inputs.input_ids,
+                                pad_token_id=50256,
+                                do_sample=True, 
+                                max_length=20, 
+                                top_k=10,
+                                num_return_sequences=1)
+
+# generated sequence
+for i, sample_output in enumerate(sample_outputs):
+    print(">> Generated text {}\n\n{}".format(i+1, tokenizer.decode(sample_output.tolist())))
+```
 
 ## Limitlər
 
