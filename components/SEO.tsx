@@ -88,8 +88,8 @@ export const PageSEO = ({ title, description, imageUrl }: PageSEOProps) => {
 };
 
 export const TagSEO = ({ title, description }: PageSEOProps) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
+  const ogImageUrl = siteMetadata.siteUrl;
+  const twImageUrl = siteMetadata.siteUrl;
   const router = useRouter();
   return (
     <>
