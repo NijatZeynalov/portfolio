@@ -280,6 +280,15 @@ export const courses: Course[] = [
       name: 'Feature Engineering I',
 
         content: [
+          
+                    {
+
+            name: 'pandas',
+
+            slug: 'test',
+
+          },
+          
 
           {
 
