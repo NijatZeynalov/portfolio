@@ -10,7 +10,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/nijatzeynalov/portfolio',
   siteLogo: '/static/images/logo.png',
   image: '/static/327051479_840176820405446_1733367509828975296_n-2.jpg',
-  socialBanner: '/static/banner.png',
+  socialBanner: '/static/courses/system-design/machine-learning-python-2.png',
   email: 'nijatzeynalov98298@gmail.com',
   github: 'https://github.com/nijatzeynalov',
   twitter: 'https://twitter.com',
