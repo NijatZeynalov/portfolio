@@ -220,6 +220,13 @@ export const courses: Course[] = [
             slug: 'test',
 
           },
+                    {
+
+            name: 'Statistical hypothesis testing',
+
+            slug: 'test',
+
+          },
 
           {
 
