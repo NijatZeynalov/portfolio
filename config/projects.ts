@@ -62,7 +62,7 @@ export const projects: Project[] = [
       'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Ftelegram.png?alt=media&token=110874dd-fb96-4dd2-b299-12a62b092a04',
     ],
     deployment: {
-      web: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
+      web: 'https://github.com/NijatZeynalov/AzVoiceSent',
     },
     subProjects: [],
   },
