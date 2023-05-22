@@ -35,7 +35,7 @@ export const projects: Project[] = [
      {
     title: 'AzVoiceSent',
     slug: 'AzVoiceSent',
-    banner: '/static/projects/hypertrade/ali-nino.png',
+    banner: '/static/projects/hypertrade/gpt2.png',
     website: 'https://github.com/NijatZeynalov/AzVoiceSent',
     description:
       'The project aims to develop an automated system that can analyze voice recordings in Azerbaijani and classify the sentiment expressed by the speakers. By combining Automatic Speech Recognition (ASR) technology with advanced machine learning techniques, AzVoiceSent aims to provide valuable insights into sentiment analysis in Azerbaijani speech data.',
