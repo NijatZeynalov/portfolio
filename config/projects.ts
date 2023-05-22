@@ -32,6 +32,40 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+     {
+    title: 'AzVoiceSent',
+    slug: 'AzVoiceSent',
+    banner: '/static/projects/hypertrade/ali-nino.png',
+    website: 'https://github.com/NijatZeynalov/AzVoiceSent',
+    description:
+      'The project aims to develop an automated system that can analyze voice recordings in Azerbaijani and classify the sentiment expressed by the speakers. By combining Automatic Speech Recognition (ASR) technology with advanced machine learning techniques, AzVoiceSent aims to provide valuable insights into sentiment analysis in Azerbaijani speech data.',
+    shortDescription:
+      'AzVoiceSent is research project focused on sentiment classification from voice transcriptions in Azerbaijani. ',
+    repository: 'https://github.com/NijatZeynalov/AzVoiceSent',
+    stack: [
+      Stack.nats,
+      Stack.go,
+      Stack.typescript,
+      Stack.react,
+      Stack.python,
+      Stack.kubernetes,
+      Stack.docker,
+    ],
+    dimensions: [360, 640],
+    screenshots: [
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fcharts.png?alt=media&token=62c42939-9371-4413-b85d-f2dd3b4534ca',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fdataframe.png?alt=media&token=f2e6523c-c9de-4fde-8fb3-434c74eb20d8',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fportfolio.png?alt=media&token=8f4e3da1-2dc2-4382-9fc8-1fbc18a98146',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fconfig.png?alt=media&token=f619b1da-47d5-4c33-b4d0-368adaead1c8',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fconfig-strategy.png?alt=media&token=68693230-4fce-420b-b419-d211a9568dc5',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Fcharts-indicators.png?alt=media&token=21c7875f-5abe-4ceb-8057-4d7a70b67d33',
+      'https://firebasestorage.googleapis.com/v0/b/portfolio-8fa71.appspot.com/o/projects%2Fhypertrade%2Ftelegram.png?alt=media&token=110874dd-fb96-4dd2-b299-12a62b092a04',
+    ],
+    deployment: {
+      web: 'https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores',
+    },
+    subProjects: [],
+  },
   {
     title: 'New product demand forecasting',
     slug: 'NewProductDemandForecasting',
