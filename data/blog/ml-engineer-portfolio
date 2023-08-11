@@ -1,0 +1,98 @@
+---
+title: 'Machine Learning mühəndisi üçün portfolio önəmlidir mi?'
+date: '2023-08-12'
+tags: []
+draft: false
+summary: 'Bu yaxınlarda hamımızın izləmiş olduğu məşhur filmdə qarşılaşdığım __"nəzəriyyə yalnız bir yerə qədər aparar"__ fikrindən ilhamlanaraq çoxdandır yazmaq istədiyim bu məqalədə, sahəyə yeni başlayan Maşın öyrənmə mühəndisi olaraq, sizin niyə çox yaxşı portfolionuz olmalıdır sualına cavablandırmağa çalışacam.'
+images: ['/static/blogs/aws-localdan-s3e-yukleme/aws-s3e-yukleme.png']
+authors: ['default']
+
+---
+
+Bu yaxınlarda hamımızın izləmiş olduğu məşhur filmdə qarşılaşdığım __"nəzəriyyə yalnız bir yerə qədər aparar"__ fikrindən ilhamlanaraq çoxdandır yazmaq istədiyim bu məqalədə, sahəyə yeni başlayan Maşın öyrənmə mühəndisi olaraq, sizin niyə çox yaxşı portfolionuz olmalıdır sualına cavablandırmağa çalışacam. 
+
+Portfolio təkcə sizin texniki biliklərinizi nümayiş etdirmir, həm də problem həll etmək bacarıqlarınızı və real dünya layihələrinə yanaşmanızı vurğulayır. Bu yazıda biz maşın öyrənmə mühəndisi portfelinin əhəmiyyətini araşdıracağıq və onu təsirli etmək üçün nəzərə almalı olduğunuz nüansları müzakirə edəcəyik.
+
+
+## Machine Learning sahəsində uğurlu karyera qurmaq üçün nəzəriyyə kifayət deyil mi?
+
+
+
+Ümumiyyətlə, ML sahəsində uğurlu olmaq üçün nəzəri əsaslar üzrə dərin bilik vacibdir. Ancaq əgər akademik həyata yönəlməyəcəksiniszə, mənə görə praktiki təcrübə də ən azı eyni səviyyədə önəmlidir və praktiki bacarıqlarınızı nümayiş etdirməyin bir yolu çox yaxşı bir portfolio yaratmaqdır. Sizi işə götürməkdə maraqlı olan şirkətlər mütləq sizdən portfolio istəyəcəklər, çünki müasir bizneslər nəzəriyyəni nəzərəçarpacaq real həllərə çevirmək qabiliyyətinə malik olan mütəxəssislərə üstünlük verirlər. 
+
+
+__Nəzəriyə:__
+
+Hansı problem üzərində işləsək də, Maşın öyrənmə nəzəriyyəsində möhkəm təməl əvəzolunmaz fakt olaraq qalır. Nəzəri biliklər bizə alqoritmlərin, modellərin və maşın öyrənmənin əsasını qoyan statistik metodologiyaların incəliklərini dərk etmək imkanı verir. Bu biliklər innovativ həllərin qurulması üçün əsasdır.
+
+
+__Bununla belə, bu nəzəri bilikləri biznes yönümlü nəticələrə yönəltmək bacarığı əsl dəyərin yarandığı yerdir. Əgər sizin çox yaxşı nəzəri biliyiniz varsa ancaq praktiki təcrübəniz nəzərəçarpacaq şəkildə azdırsa, bu halda sizin korporativ arenada çox uğurlu olmağınız şübhəlidir. Nəzəriyyə və praktikanın ahəngdar vəhdəti çox vacibdir.__ 
+
+Müasir müəssisələr bu iki domeni biryerdə bacarıqla idarə edə bilən maşın öyrənmə mütəxəssisləri axtarırlar. Bacarıq, konkret biznes konteksti üçün uyğun modeli və ya alqoritmi ayırd etmək, onun məhdudiyyətlərini başa düşmək və biznes məqsədlərini həyata keçirən işlək həlləri ustalıqla tərtib etməkdən ibarətdir. __Biznesdə maşın öyrənməsi nəzəriyyəyə qarşı praktika demək deyil. Əksinə, simfoniyada hər iki elementin orkestridir.__
+
+
+
+
+## Niyə Machine Learning mühəndisi üçün portfolio önəmlidir?
+
+
+Təsəvvür edin ki, sizə bir tədbir üçün musiqiçi lazımdır. Siz musiqi nəzəriyyəsini təsirli şəkildə başa düşən bir musiqiçi ilə qarşılaşırsınız - o notlar, əsərlər, harmoniyalar barədə çox məharətlə danışır, nəzəri bilikləri geniş və mükəmməl görünür.
+
+Bununla belə, əsas məqam budur: bu musiqiçinin ifasını dinləməmisən. Onun musiqi nəzəriyyəsi üzrə dərin biliklərinə baxmayaraq, necə ifa etmək qabiliyyətinə dair heç bir konkret sübut yoxdur.
+
+Burada vəziyyət maşın öyrənmə mühəndisliyi sahəsini əks etdirir. Maşın öyrənməsində əsas nəzəriyyə və konsepsiyaları dərindən qavramaq, şübhəsiz ki, qiymətlidir – bu, musiqi notlarının incəliklərini bilmək kimidir. Bununla belə, təkcə nəzəri biliklər musiqiçinin gözəl musiqi yaratmaq qabiliyyətini təmin etmədiyi kimi, eyni prinsip maşın öyrənməsinə də aiddir.
+
+Yaxşı seçilmiş portfolio musiqiçinin istedadının səsli qeydi kimi xidmət edir. Eynilə, maşın öyrənmə mühəndisinin portfoliosu onun nəzəri bilikləri praktik tətbiqlərə çevirmək bacarığını nümayiş etdirir. Yəni, musiqiçi üçün musiqi notlarını başa düşmək əsas olsa da, uğurlu musiqiçi -  ifa etdiyi musiqilərlə tamaşaçıda emosiyalar oyadan və onları valeh edən adamdır. Eyni şəkildə, nəzəri biliklər maşın öyrənməsi mühəndisliyinin təməli olsa da, yaxşı seçilmiş portfel mühəndisin biznes və texnologiya sahəsində məlumatlara əsaslanan uğur simfoniyalarını təşkil etmək qabiliyyətini nümayiş etdirən maddi sübutdur.
+
+
+Yaxşı bir portfolionuzun olması bir neçə səbəbə görə sizin üçün önəmlidir. Birincisi,  potensial işəgötürənlər və ya müştərilər bacarıqlarınızı qiymətləndirmək və onların layihələri və ya təşkilatları üçün uyğun olub olmadığınızı müəyyən etmək üçün portfolionuzu nəzərdən keçirə bilərlər.
+
+İkincisi, portfolio sizə real dünya problemlərini həll etmək üçün maşın öyrənməsini tətbiq etmək bacarığınızı nümayiş etdirməyə imkan verir. Bu, innovativ həllər tapmaqda yaradıcılığınızı və mövcud modelləri xüsusi tələblərə uyğunlaşdırmaq üçün fərdiləşdirmək barədə anlayışınızı nümayiş etdirir.
+
+
+Portfolio sizə bu sahədə olan mütəxəssislərlə əlaqələr qurmağa da şərait yaradır.
+
+
+
+
+
+## Çox yaxşı portfolio, həm də nə deməkdir?
+
+
+İş tapmaq adətən portfolio yaratmağın əsas səbəbidir. Amma məncə bu xarici motivasiyadır, burada biz özümüz istədiyimiz üçün deyil, xarici mükafat (yəni iş) üçün bir şey edirik. Bu, daxili motivasiyanı azalda bilər və xarici mükafatlardan asılılığa səbəb ola bilər. Biz işi əldə etdikdən sonra dayana bilərik.
+
+Mənim fikrimcə, şəxsi layihələr üzərində işləmək üçün daxili səbəbləri də tapmalıyıq. Mənim əksər layihələrim bu səbəblərdən qaynaqlanıb. Səbəblərdən biri öyrənmək və məşq etməkdir. Mənim layihələrimdən [bəziləri](https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores)
+bəziləri real biznes caseləridir, mən bu layihələri təsadüfən fikirləşmişəm və həyata keçirmişəm. Səbəb -  bir gün belə bir problem qarşıma qoyulsa necə həll edərəm sualını cavablandırmaq. Bu kimi səbəblər, həmçinin motivasiyanın əsas amili ilə uyğunlaşır: Ustalıq, təkmilləşmə istəyi.
+
+"Öyrənmək hər yerdə sahibini izləyəcək bir xəzinədir." — Çin atalar sözü
+
+Başqa bir səbəb başqalarına kömək etməkdir. Mənim azcorpus adlı layihəm var, Azərbaycan dilində indiyə qədər hazırlanmış ən böyük open-source NLP korpusudur. Bu, başqa bir əsas motivasiya faktoru ilə üst-üstə düşür: Məqsəd, daha böyük şəkildə töhfə vermək istəyi.
+
+"Özünü qaldırmaq istəyirsənsə, başqasını qaldır." - Buker T. Vaşinqton
+
+
+
+Portfolio təkcə texniki bacarıqları nümayiş etdirmir - əksərən portfolio bacarıq və xüsusiyyətləri nümayiş etdirir. 
+Texniki bacarıqların nümayiş etdirilməsi asan və eyni zamanda ən çox müşahidə olunandır. Koda əsaslanan portfolio bizim işi görə bildiyimizi göstərir və CV-dən əlavə bir referansdır.
+
+
+__Ən əsası isə, şəxsi layihələrə sahib olmaq maraq və ehtiras nümayiş etdirir. Bu, təkbaşına nəyisə öyrənmək üçün maraqlı olduğunuzu göstərir. Boş vaxtlarınızda bunun üzərində işləmək insanların 99%-dən daha çox həvəsli olduğunuzu göstərir. Texnologiyanın, xüsusən də məlumatların və maşın öyrənməsinin sürətlə inkişaf etdiyini nəzərə alsaq, bu maraq effektiv qalmaq üçün vacibdir.__
+
+Bu, həm də öyrənmək istəyini və bacarığını göstərir. Layihələr üzərində işləmək kurslarda rast gəlinməyən problemləri ortaya qoyur. Bəzi mövzular heç bir bootcamplarda tədris edilmir; öyrənməyin yolu praktiki təcrübədən keçir.
+
+Nəhayət, portfolio əzmkarlığın sübutudur.
+
+
+
+
+
+
+## Sonda...
+
+Portfolionuzu daha cəlbedici etmək üçün real dünyada tətbiq oluna biləcək layihələri daxil edin. Sizi maraqlandıran domenləri və ya sahələri müəyyən edin və onların xüsusi problemlərini həll edən layihələr hazırlayın. Məsələn, siz e-ticarət platforması üçün tövsiyə sistemi yarada və ya bank üçün fırıldaqçılığın aşkarlanması modeli yarada bilərsiniz. Maşın öyrənməsini praktiki ssenarilərdə tətbiq etmək bacarığınızı göstərmək potensial işəgötürənlərin və ya müştərilərin diqqətini cəlb etmək şansınızı artırır.
+
+
+Fərdi layihələrə əlavə olaraq, əməkdaşlıq və komanda işi bacarıqlarınızı nümayiş etdirmək üçün faydalıdır. Əməkdaşlıq zamanı qarşılaşdığınız çətinlikləri və onların öhdəsindən necə gəldiyinizi iş müsahibəsində qeyd etməyiniz sizin şansınızı daha da artırır. Çünki bu, bir çox maşın öyrənmə mühəndisliyi rollarında vacib bir bacarıq olan komandada effektiv işləmək qabiliyyətinizi nümayiş etdirir.
+
+
+Sonda isə ümid edirəm ki, bu məqalə maşın öyrənmə portfolionuzun yaradılmasının sizə hansı üstünlükləri olacağı mövzusunda kömək oldu. 
