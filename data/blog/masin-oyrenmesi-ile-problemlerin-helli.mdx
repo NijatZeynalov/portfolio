@@ -1,0 +1,140 @@
+---
+title: 'Maşın Öyrənməsi ilə Real Dünya Problemlərinin Həlli: Problemlərin Tərtib edilməsi və Həll Dizaynı üçün Bələdçi'
+date: '2022-08-30'
+tags: []
+draft: false
+summary: 'Maşın Öyrənməsi ilə Real Dünya Problemlərinin Həlli: Problemlərin Tərtib edilməsi və Həll Dizaynı üçün Bələdçi'
+images: ['/static/blogs/alqoritm-yoxsa-model/alqoritm-model.png']
+authors: ['default']
+---
+**Maşın Öyrənməsi ilə Real Dünya Problemlərinin Həlli: Problemlərin Tərtib edilməsi və Həll Dizaynı üçün Bələdçi**
+
+İlk məqalədən sonra, mənə linkedində bir çox suallar gəldiyi üçün ikinci məqaləni yazmaq ehtiyyacı duydum. Ümumiyyətlə, uzun müddətdir diqqət edirəm ki portfolio yaratmaq istəyənlərin qarşılaşdığı ilk çətinlik layihənin necə seçilməsi ilə bağlı olur. Hər hansı bir layihədə ilk addım probleminizi müəyyənləşdirməkdir. Siz mövcud olan ən güclü  alqoritmlərdən istifadə edə bilərsiniz, lakin səhv problemi həll etsəniz, nəticələr mənasız olacaq.
+
+Bu yazıda siz işə başlamazdan əvvəl probleminiz haqqında dərindən düşünmə prosesini öyrənəcəksiniz. Bu, şübhəsiz ki, mənə görə maşın öyrənməsinin tətbiqinin ən vacib aspektidir.
+
+
+Maşın öyrənməsinin biznesə inteqrasiyası mürəkkəb real dünya problemləri üçün innovativ həllərin qapılarını açıb. Problemin formalaşdırılmasına və həllinin dizaynına sistemli yanaşmaya riayət etməklə, biz maşın öyrənməsinin gücündən bir zamanlar mümkünsüz hesab edilən problemlərin öhdəsindən gəlmək üçün istifadə edə bilərik. Bu məqalədə biz üç əsas sualı cavablandırmaqla real dünya problemlərinin həlli prosesini araşdıracağıq:
+
+
+## Sual 1: Həll etmək istədiyin problem nədir?
+
+İlk addım problemi müəyyənləşdirməkdir. İstənilən həllin mərkəzində dəqiq müəyyən edilmiş problem dayanır. Problemin mahiyyətini və incəliklərini aydın şəkildə başa düşmək vacibdir. Mənim portfoliomda olan əksər layihələr, süni yaradılmış dataset üzərində qurulan real biznes keyslərin həllidir.
+
+Ümumiyyətlə, layihənin əhatə dairəsini müəyyən etməzdən əvvəl, ilk növbədə başa düşməliyik ki:
+
+
+Problem nədir?
+Niyə problemi həll etmək lazımdır?
+Bu problem maşın öyrənməsi həllini tələb edirmi?
+Potensial həll necə istifadə edilə bilər?
+
+
+İlk olaraq, problemi müəyyənləşdirin və bunu mütləq şəkildə biznes baxımından reallığını müəyyənləşdirin, mümkün qədər konkret olun. Məsələn, mənim layihələrimdən [birində](https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores) Əli və Nino kitab mağazaları şəbəkəsi üçün yeni nəşr olunmuş kitabın hansı filiala neçəsini göndərməli olduğunu, hər filial üçün satış proqnozu problemini həll etmişdim. Yeni bir məhsulun satışını proqnozlaşdırarkən satışları proqnozlaşdırmaq çətin bir işdir, çünki təxminlərinizi əsaslandırmaq üçün keçmiş performansınız yoxdur.
+
+
+İstifadə etdiyim dataset isə, Əli və Nino çox filiallı kitab mağazasının satış məlumatlarına əsaslanırdı. Dataset ayda 90 min unikal müştəri və gündə 170-dən çox sifariş olan 23.345 kitabdan ibarət olub süni şəkildə yaradılsa da, yanaşma real hallara tətbiq oluna bilər və hətta proqnozun dəqiqliyindəki kiçik təkmilləşdirmə şirkət mənfəətinin əhəmiyyətli dərəcədə artmasına səbəb ola bilər.
+
+Ən əsası, şirkətin aşağıdakı suallarına cavab tapmağa kömək edəcək:
+
+* Daha əvvəl bu məhsulu satmamışam, tələbat necə olacaq?
+
+* Bu məhsulu sifariş etsəm, neçə ədəd hansı filiala göndərməliyəm?
+
+
+
+Məqsədlər hər bir biznes və ya istifadəçi üçün fərqlidir. Məsələn, bu, bir təşkilat üçün mənfəəti artırmaq və digəri üçün müştəri saxlamağı artırmaq ola bilər. Hər bir müştərinin və ya istifadəçinin məqsədlərini müəyyənləşdirməlisiniz. Problemi dəqiq başa düşdükdən sonra, verilən vaxt çərçivəsində layihənin əlçatanlığını təmin etmək üçün ümumi problemi daha kiçik iş parçalarına bölmək lazım ola bilər.
+
+
+
+### Oxşar həllər
+
+İkinci olaraq diqqət edin ki, bu problem üçün başqa hansı həlləri görmüsünüz və ya həll etməyə çalışdığınız problemin həlli kimi düşünə bilərsiniz. Bu sizə həllin texniki arxitekturasını qurarkən çox ehtiyac olacaq. Mütləq şəkildə, layihəyə başlamazdan öncə benchmark yaradılmalı, digər mühəndislərin problemə yanaşması müəyyənləşdirilməlidir. 
+
+
+## Sual 2: Niyə problemi həll etmək lazımdır?
+
+İkinci addım problemin həllini niyə istədiyiniz və ya ehtiyacınız olduğunu dərindən düşünməkdir. Problemin həllinin aktuallığı çox vaxt onun təsirlərindən və nəticələrindən irəli gəlir. Problemi həll etmək üçün motivasiyanızı nəzərdən keçirin. Problem həll olunanda hansı ehtiyac ödəniləcək? Yoxsa ancaq texniki bacarıqlarınızı inkişaf etdirmək üçün bu problemi həll etmək istəyirsiniz?
+
+
+Maşın öyrənməsi ilə real dünya problemlərinin həlli yalnız rəqəmlərin və alqoritmlərin tətbiqindən ibarət deyil; ideal halda həyat və təcrübələri yaxşılaşdırmaqdan ibarətdir. Bu prosesin əsas aspektlərindən biri son istifadəçiləri - gündəlik həyatları həll olunan problemlərdən təsirlənən fərdləri fəal şəkildə dinləməkdir.
+
+
+Aşağıdakı suallar maraqlı tərəflərin perspektivlərini başa düşmək üçün müzakirəyə rəhbərlik etməyə kömək edə bilər:
+
+* Gündəlik həyatınızda problemlə bağlı qarşılaşdığınız ən böyük çətinliklər hansılardır?
+
+
+* Hazırda problemin yaratdığı çətinliklərin öhdəsindən necə gəlirsiniz və ya onları idarə edirsiniz? Hazırladığınız həll yolları və ya strategiyalarınız varmı?
+
+
+* Problem ilə bağlı əsas məqsədləriniz və ya arzularınız hansılardır? Uğurlu nəticəni nə hesab edərdiniz?
+
+
+* Problemin ideal həllini necə təsəvvür edirsiniz? Bu həll hansı xüsusiyyətlərə və ya keyfiyyətlərə malik olacaq?
+
+
+
+## Sual 3: Problemi necə həll edə bilərəm?
+
+Bu üçüncü və son addımında problemi necə həll edəcəyinizi araşdırın. Əslində mənə görə ən önəmli addım da elə budur.
+ML layihələrinin (fərqi yoxdur, bu sizin sadəcə həvəs üçün işlədiyiniz layihədir yoxsa korperativ layihədir) vacib vəzifələrindən biri mümkün olan ən yüksək məlumat keyfiyyət standartlarını təmin etmək və saxlamaqdır. Dünyadakı şirkətlər məlumatların əldə edilməsi prosesi ilə məşğul olmaq üçün müxtəlif yanaşmalar tətbiq edirlər.
+
+Bununla belə, standart yanaşma 1999-cu ildə Brüsseldə təqdim edilən CRISP-DM metodudur.
+
+CRISP-DM metodologiyası aşağıdakı kimidir:
+
+* Biznes problemini başa düşmək
+* Əlimizdəki datanı başa düşmək
+* Datanı hazırlamaq
+* Modelləmə
+* Modelin performansını ölmə
+* Modeli deploy etmə
+
+
+
+Bu ümumiləşdirilmiş addımlara nəzər salaq.
+
+#### 1. Əlimizdəki datanı başa düşmək
+Bu, layihənin həyat dövrünün ilkin və ən sadə addımıdır. Bu addımın əsas məqsədi müxtəlif mənbələrdən dataları toplamaqdır. Siz artıq bilməlisiniz ki, istifadə edəcəyiniz data haradansa scraping olunmalıdır mı, süni şəkildə yaradılmalıdır mı, digər mənbədən mi gəlir və s.
+
+Ola bilər ki, sizin layihəniz üçün istifadə edə biləcəyiniz data haradasa mövcuddur. Məsələn mənim [bir](https://github.com/NijatZeynalov/azerbaijani-medical-question-classification) layihəm var; sağlamlığınızla bağlı şikayətinizi hansı həkimə ünvanlayacağınızı bilmədiyiniz halda, sualı yazırsız, model sizi uyğun həkimə yönləndirir. Təbii ki, hazırda Azərbaycan tibbi problemlərin təsnifatı üçün açıq məlumat toplusu yoxdur. Bu problemi həll etmək üçün istifadəçilər tərəfindən 19 tibb bölməsində 27k sualın verildiyi və tibbi ekspertlər tərəfindən cavablandırıldığı Python-dan istifadə edərək m.tibb.az saytını scrape etmişəm.
+
+
+
+#### 2. Datanı hazırlamaq
+
+Növbəti addım datanın təmizlənməsi və hazırlanmasıdır. Bu o deməkdir ki, əlinizdə olan datanın əhəmiyyətsiz və faydasız hissələrini təmizləməsəniz, model nəticələri dəqiq olmayacaq və heç bir məna daşımayacaq. Bu addım “Garbage in, garbage out” fəlsəfəsini əks etdirir.
+
+İlkin mərhələdə bütün datanı topladıqdan sonra əsas məqsəd əsas problemi həll etmək üçün hansı dataya ehtiyacınız olduğunu müəyyən etməkdir. Siz həmçinin datanı təmizləmək və filtrləməkdən başqa, onu mövcud formadan standart formata çevirməlisiniz.
+
+Yaxşı olar ki, datanın əhəmiyyətli tendensiyalarını və nümunələrini müəyyən etmək üçün vizuallaşdırılmanı həyata keçirin. Sadəcə olaraq datanın barchart və ya xətt diaqramı şəklində göstərmək sizə əlinizdəki datanın əhəmiyyətini və qarşılıqlı asılılığını daha yaxşı təsəvvür etməyə imkan verəcək.
+
+
+#### 3. Modelləmə
+
+Layihənin həyat dövrünün bu addımı ən maraqlı və vacibdir, çünki sehr burada baş verir :). Bir çox hallarda müxtəlif mənbələrdən data topladıqdan sonra birbaşa bu mərhələyə keçilir. Unutmayın ki, bu sizə dəqiq nəticə verməyəcək.
+
+
+Maşın öyrənmə modellərinin qurulmasında əsas addımlar bunlardır:
+
+* __1. Problem üçün ən yaxşı nəticə verən alqoritmin tapılması__
+
+Maşın öyrənmə modellərinin qurulması üçün bir neçə alqoritm var. Bununla belə, problemi ən yaxşı həll edən və datasetimizə uyğun gələn alqoritmdən istifadə etməlisiniz. Problemi həll edə biləcək əvvəlcədən hazırlanmış bir model ola bilər.
+
+Overfitting kimi ümumi problemlərin olmamasına xüsusi diqqət yetirilməlidir.
+
+
+* __2. Modelin yoxlanılması və sınaqdan keçirilməsi__
+
+Modelinizi train etdikdən sonra onun işlədiyinə əmin olmaq üçün test etməlisiniz. Bu, modeldə test datasetini sınaqdan keçirməklə edilə bilər.
+
+Burada modeli mümkün qədər çox  sınaqdan keçirin. Məqsəd modelin problemi həll etmək üçün kifayət qədər düzgün işlədiyini və hansı hallarda düzgün olub olmadığını müəyyən etmək olmalıdır. Model testi olduqca təkrarlanan və vaxt aparan ola bilər. Fərqli datasetlərlə ilə sınaqdan keçirərkən qeydləri saxlamalısınız. Mən Weights & Biases istifadə edirəm, bu kimi alətlər testlərinizi izləmək üçün əladır.
+
+
+Modelin deploy edilməsi ilə bağlı isə başqa məqalədə daha geniş danışmaq istəyirəm. :)
+
+
+Hər birinizə uğurlar arzulayıram, növbəti məqalələrdə görüşənədək!
+
+
