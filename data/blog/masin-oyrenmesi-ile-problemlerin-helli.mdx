@@ -30,7 +30,7 @@ Bu problem maşın öyrənməsi həllini tələb edirmi?
 Potensial həll necə istifadə edilə bilər?
 
 
-İlk olaraq, problemi müəyyənləşdirin və bunu mütləq şəkildə biznes baxımından reallığını müəyyənləşdirin, mümkün qədər konkret olun. Məsələn, mənim layihələrimdən [birində](https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores) Əli və Nino kitab mağazaları şəbəkəsi üçün yeni nəşr olunmuş kitabın hansı filiala neçəsini göndərməli olduğunu, hər filial üçün satış proqnozu problemini həll etmişdim. Yeni bir məhsulun satışını proqnozlaşdırarkən satışları proqnozlaşdırmaq çətin bir işdir, çünki təxminlərinizi əsaslandırmaq üçün keçmiş performansınız yoxdur.
+İlk olaraq, problemi müəyyənləşdirin və bunu mütləq şəkildə biznes baxımından reallığını müəyyənləşdirin, mümkün qədər konkret olun. Məsələn, mənim layihələrimdən [birində](https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores) Əli və Nino kitab mağazaları şəbəkəsi üçün yeni nəşr olunmuş kitabın hansı filiala neçəsini göndərməli olduğunu, hər filial üçün satış proqnozu problemini həll etmişdim. Yeni bir məhsulun satışını proqnozlaşdırmaq çətin bir işdir, çünki təxminlərinizi əsaslandırmaq üçün keçmiş performansınız yoxdur.
 
 
 İstifadə etdiyim dataset isə, Əli və Nino çox filiallı kitab mağazasının satış məlumatlarına əsaslanırdı. Dataset ayda 90 min unikal müştəri və gündə 170-dən çox sifariş olan 23.345 kitabdan ibarət olub süni şəkildə yaradılsa da, yanaşma real hallara tətbiq oluna bilər və hətta proqnozun dəqiqliyindəki kiçik təkmilləşdirmə şirkət mənfəətinin əhəmiyyətli dərəcədə artmasına səbəb ola bilər.
@@ -110,11 +110,37 @@ Növbəti addım datanın təmizlənməsi və hazırlanmasıdır. Bu o deməkdir
 
 Yaxşı olar ki, datanın əhəmiyyətli tendensiyalarını və nümunələrini müəyyən etmək üçün vizuallaşdırılmanı həyata keçirin. Sadəcə olaraq datanın barchart və ya xətt diaqramı şəklində göstərmək sizə əlinizdəki datanın əhəmiyyətini və qarşılıqlı asılılığını daha yaxşı təsəvvür etməyə imkan verəcək.
 
+Feature engineering adlandırdığımız bu addım əsas diqqət etməli olduğumuz hissədir. Məsələn, __Feature Engineering and Selection: A Practical Approach for Predictive Models__ kitabında __Kuhn və Johnson__ düzgün featureların müəyyən edilməsi, yaradılması və seçilməsi üçün çox yaxşı analitik perspektiv təqdim edirlər. Bu çərçivədə, onlar məlumatları yenidən strukturlaşdırmaq üçün riyazi və texniki mülahizələrdən istifadə edərək, feature engineeringə sistemli yanaşma təqdim edirlər. Xüsusilə, datasetdə bir çox featureda üzrə eyni məlumatın yaratdığı biasın müəyyən edilməsi və aradan qaldırılması üçün qeyd edilmiş nüanslara diqqət etməyinizi tövsiyə edirəm.
+
+Datanın alqoritmlərə təqdim edilməsi ilə bağlı texniki problemləri həll etməklə yanaşı, biz maşın üçün insan anlayışını və sağlam düşüncəni kodlaşdırmaq üçün feature engineerindən istifadə edə bilərik. Məsələn, (qriqorian təqvimi üçün) dekabrın ardınca yanvar gəlir və dekabrın 12, yanvarın isə 1 rəqəmi ilə təmsil olunduğunu güman etmək ağlabatan görünür. Məsələn, 12/30, 12/31 və 1/1, bir alqoritmin yanvarın ilk gününün dekabrın son günündən sonra gəldiyini başa düşməsini necə gözləmək olar?
+
+Başqa bir nümunə istiqaməti ehtiva edən, çox vaxt 0' və 360' arasında skalyar dəyər kimi və ya bəzən kompas istiqaməti və ya fərqli nöqtələr arasında əlaqə kimi təqdim olunan məlumatlarla əlaqədardır. Məsələn, miqyasın əks tərəflərində olan 359' və 1' dərəcələri yaxındırlar və hər ikisi demək olar ki, tam şimala (0'± 1') uyğundur. Bu sirkulyarlığı nəzərə almaq üçün məlumatları yenidən tərtib etsək, daha yaxşı nəticələr əldə edəcəyik.
+
+Feature engineering vaxt aparan və çətin tapşırıqdır. Yaxşı nəticələr əldə etmək üçün çoxlu təcrübə və domen anlayışı tələb olunur.
+
+#### Datanın artırılması
+
+Fərz edin ki, siz müxtəlif cinslərdə olan itləri klassifikasiya edən bir layihə üzərində işləyirsiniz. Siz it təsvirlərinin datasetini topladınız, lakin o, nisbətən kiçikdir və işıqlandırma şəraiti, bucaqlar və fonlar baxımından müxtəlifliyə malik deyil. Modelinizin geniş real dünya ssenariləri üçün yaxşı ümumiləşdirə bilməsini təmin etmək üçün siz datanın artırılması üsullarından istifadə etməlisiniz.
+
+Bu kimi problemləri həll etmək üçün Shorten və Khoshgoftaar tərəfindən data augmentation texnikası inkişaf etdirilib. Datanın artırılması trainingdə istifadə ediləcək əlavə nümunələr yaratmaq üçün mövcud nümunələrin dəyişdirilməsindən istifadə prosesidir. 
+
+
+Biz daha möhkəm və ümumi modellər etmək üçün aşağıdakı şəkildə göstərilən kimi artırma proseslərindən istifadə edirik. İdeya ondan ibarətdir ki, train datasetimizdə daha geniş müxtəliflik olarsa, model daha yaxşı nəticə göstərəcək.
+
+![](https://github-production-user-asset-6210df.s3.amazonaws.com/31247506/264643898-3638f18d-1543-4173-82f3-55f6d4ecdddb.png)
+
 
 #### 3. Modelləmə
 
 Layihənin həyat dövrünün bu addımı ən maraqlı və vacibdir, çünki sehr burada baş verir :). Bir çox hallarda müxtəlif mənbələrdən data topladıqdan sonra birbaşa bu mərhələyə keçilir. Unutmayın ki, bu sizə dəqiq nəticə verməyəcək.
 
+İlk olaraq bu suala cavab verək, ML modelini faydalı və ya faydasız edən nədir? ML ənənələri deyir ki, faydalı model yaxşı ümumiləşdirən modeldir: model öyrədilmədiyi və heç vaxt görmədiyi vəziyyətlərin öhdəsindən effektiv şəkildə gəlməlidir. Lakin, əslində, modelləri faydalı edən və ya yararsız edən bir sıra digər xüsusiyyətlər var.
+
+Faydalı bir model təqdim etmək üçün siz çoxlu sayda namizəd modelləri yaratmalı, onları düzgün qiymətləndirməli, ən yaxşı olanı seçməlisiniz. Bundan əlavə, ciddi qiymətləndirmə prosesi olmadan, modeliniz real istifadədə olduqda yararsız ola bilər və ya maraqlı tərəflərin model haqqında məsuliyyətli və düzgün seçimlər etdiyinizə inandırmaqda çətinlik çəkə bilərsiniz.
+
+Aşağıdakı şəkildə bütün maraqlı tərəflərin ehtiyaclarına uyğun modelləşdirmə işlərinin aparılması üçün lazımlı nüanslar qeyd olunub. __Əla nəticə sadəcə əla model deyil, başqalarının da əla olduğunu təsdiq edə biləcəyi bir modeldir.__
+
+![modeling](https://github.com/NijatZeynalov/New-product-demand-forecasting-via-Content-based-learning-for-multi-branch-stores/assets/31247506/8162bc0b-afe5-4362-9705-aff4b5b97a3c)
 
 Maşın öyrənmə modellərinin qurulmasında əsas addımlar bunlardır:
 
@@ -122,7 +148,7 @@ Maşın öyrənmə modellərinin qurulmasında əsas addımlar bunlardır:
 
 Maşın öyrənmə modellərinin qurulması üçün bir neçə alqoritm var. Bununla belə, problemi ən yaxşı həll edən və datasetimizə uyğun gələn alqoritmdən istifadə etməlisiniz. Problemi həll edə biləcək əvvəlcədən hazırlanmış bir model ola bilər.
 
-Overfitting kimi ümumi problemlərin olmamasına xüsusi diqqət yetirilməlidir.
+Overfitting, data leakage kimi ümumi problemlərin olmamasına xüsusi diqqət yetirilməlidir.
 
 
 * __2. Modelin yoxlanılması və sınaqdan keçirilməsi__
@@ -130,6 +156,20 @@ Overfitting kimi ümumi problemlərin olmamasına xüsusi diqqət yetirilməlidi
 Modelinizi train etdikdən sonra onun işlədiyinə əmin olmaq üçün test etməlisiniz. Bu, modeldə test datasetini sınaqdan keçirməklə edilə bilər.
 
 Burada modeli mümkün qədər çox  sınaqdan keçirin. Məqsəd modelin problemi həll etmək üçün kifayət qədər düzgün işlədiyini və hansı hallarda düzgün olub olmadığını müəyyən etmək olmalıdır. Model testi olduqca təkrarlanan və vaxt aparan ola bilər. Fərqli datasetlərlə ilə sınaqdan keçirərkən qeydləri saxlamalısınız. Mən Weights & Biases istifadə edirəm, bu kimi alətlər testlərinizi izləmək üçün əladır.
+
+Modelin performansını ölçərkən accuracy, f1_score, recall və s. kimi metriclərdən əlavə də diqqət etməli olduğunuz nüanslar var:
+
+* İzahat/şəffaflıq: Modelin proqnozları asan şəkildə maraqlı tərəflərə izah edilə bilir mi? Yoxsa qurduğunuz model blackbox həlldir. Yaxşı olar ki, məsələn customer churn modeli qurursunuzsa, istənilən halda modelin hər hansı şəxsin niyə şirkəti tərk edəcəyini proqnozlaşdırmasını izah edə biləsiniz. Bunun üçün bir neçə alət var, mən explainerdashboard istifadə edirəm.
+
+
+* Gecikmə: Modelin gecikmə müddəti biznes tələbinə uyğun olmalıdır. 
+
+* Xərc: Xərci mütləq şəkildə öncədən düşünməlisiniz, modeli işə salmaq üçün istifadə etdiyiniz infrastrukturun dəyəri çox yüksək ola bilər.
+
+* Datanın məxfiliyi/təhlükəsizliyi: Modeldə istifadə olunan məlumatlar tam şəkildə qorunur mu?
+
+
+* Productionda möhkəmlik: Yüksək tənzimlənmiş həll real dünyada necə deyərlər kövrək ola bilər ki, bu da öncədən bir neçə testlə yoxlanılmalıdır.
 
 
 Modelin deploy edilməsi ilə bağlı isə başqa məqalədə daha geniş danışmaq istəyirəm. :)
