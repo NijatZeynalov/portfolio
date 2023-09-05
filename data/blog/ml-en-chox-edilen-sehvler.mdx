@@ -1,0 +1,194 @@
+---
+title: 'Maşın Öyrənməsi modelləri qurarkən edilən 10 səhv'
+date: '2023-09-05'
+tags: []
+draft: false
+summary: 'Maşın Öyrənməsi modelləri qurarkən edilən 10 səhv'
+images: ['/static/blogs/alqoritm-yoxsa-model/alqoritm-model.png']
+authors: ['default']
+---
+
+Əlimizdə olan datalara əsaslanan proqnozlaşdırıcı modellər qurmaq səyahəti həyəcanverici bir macəradır. Bununla belə, hər bir səyahət kimi, bu da məyusedici nəticələr və xəyal qırıqlıqlarına səbəb ola biləcək səhvlərlə doludur. Bu məqaləni qələmə aldım ki, maşın öyrənmə xəyallarınızı kabusa çevirə biləcək gözdən qaçırdığınız səhvlərə daha fərqli yanaşasınız.
+
+Bu məqaləyə mənim indiyə qədər müxtəlif tələbə və mentorlarla söhbətim zamanı, github layihələrinə nəzər yetirdiyimdə gördüyüm səhvləri də daxil etmişəm. Beləliklə, maşın öyrənməsini modellərini qurarkən ən çox edilən səhvlər səyahətinə çıxırıq - təhlükəsizlik kəmərlərinizi bağlayın! :)
+
+
+## 1: Bu problem üçün doğurdan da Maşın öyrənməsi lazımdır mı?
+
+Sürətlə inkişaf edən texnologiya və maşın öyrənməsinin danılmaz cazibəsi dövründə hər problemin mürəkkəb alqoritmlər və mürəkkəb modellərlə həll oluna biləcəyini düşünmək tələsinə düşmək asandır. Bununla belə, həqiqət budur ki, hər problem maşın öyrənməsinin istifadəsini tələb etmir. Əslində, daha sadə qaydalara əsaslanan yanaşmaların kifayət qədər deyil, həm də daha praktik və effektiv olduğu hallar çoxdur. Mənə bəzən müxtəlif şirkətlərdən və şəxslərdən layihələr gəlir və görürəm ki, əslində bu problemi ML olmadan da həll etmək olar. Ona görə də, bu barədə yazmaq qərarına gəldim.
+
+Özünü idarə edən avtomobillərdən tutmuş təsvirin tanınması sistemlərinə qədər əsaslı süni intellekt nailiyyətlərinin hekayələrini hər gün eşidirik. Ancaq ilk olaraq, problemimizin ML problemi olub olmadığına baxmaq lazımdır. Sadəcə dəbdə olduğu və ya səs-küylü olduğu üçün maşın öyrənməsindən istifadə etmək istəyinə qarşı durmaq vacibdir. Necə deyərlər, “Əlində çəkic varsa, hər şey mismar kimi görünür”
+
+
+Maşın öyrənmə layihəsinə başlamazdan əvvəl daha sadə qaydalara əsaslanan həllin daha uyğun olub olmadığını qiymətləndirmək vacibdir. 
+
+
+1. **Kiçik Data:** Maşın öyrənməsi böyük dataset tələb edir. Məhdud datanız varsa, maşın öyrənmə modelinin qurulması overfittingə səbəb ola bilər, qaydalara əsaslanan sistem isə daha az data ilə yaxşı seçib ola bilər.
+
+2. **Yaxşı Müəyyən edilmiş Qaydalar:** Problem sahəsini dərindən başa düşdüyünüz zaman və onu idarə edən qaydaları və ya məntiqi ifadə edə bilsəniz, qaydalara əsaslanan yanaşma həm səmərəli, həm də faydalı ola bilər.
+
+3. **Resurs Məhdudiyyətləri:** Maşın öyrənmə modellərinin hazırlanması, öyrədilməsi və tətbiqi ciddi resurs tələb edir. Əgər məhdud  resurslarınız varsa, qaydalara əsaslanan sistem daha praktik seçim ola bilər.
+
+
+Əlbəttə ki, söhbət maşın öyrənməsinin dəyərli olub-olmamasından getmir - ML, şübhəsiz ki, dəyərlidir. Maşın öyrənməsi təbii dil emalından kompüter görməsinə qədər müxtəlif sahələrdə inqilab edir.
+
+Maşın öyrənmə səyahətinə başlamazdan əvvəl, datanın əlçatanlığı, şəffaflığı, şərh oluna bilməsi və resurs məhdudiyyətləri kimi amilləri nəzərə alaraq, mövcud problemi diqqətlə qiymətləndirin. Qaydalara əsaslanan həll məqsədlərinizə uyğun gəlirsə və istədiyiniz nəticələrə cavab verə bilirsə, onu tətbiq etməkdən çəkinməyin. Maşın öyrənməsi güclü bir vasitədir, lakin problem həqiqətən onun mürəkkəbliyini və imkanlarını təmin etdikdə istifadə edilməlidir.
+
+## 2. Exploratory Data Analysis (EDA) edilməyib:
+
+Klassikdən başlayaq. EDA bizim datamızın featurelarını və featurelar arasındakı əlaqələri anlamağa kömək edir, feature seçimində və model dizaynında kömək edir. Bu addıma məhəl qoymamaq, xəritə və ya naviqator olmadan tanımadığımız şəhərə səyahətə çıxmaq kimidir.
+
+EDA, model qurmağa başlamazdan əvvəl datamızı hərtərəfli yoxlamaq prosesidir. Bu, əsas statistiki göstəricilərə nəzər yetirmək, featureların paylanmasının vizuallaşdırılmasını və ya anomaliyaların müəyyən edilməsini əhatə edir. Bu addım olmadan, mahiyyətcə gözləriniz bağlı olursunuz, bu da datanızın mahiyyətini başa düşməyi demək olar ki, qeyri-mümkün edir. Həmçinin, yaxşı edilmiş EDA hansı featureların ən uyğun və ya lazımsız olduğunu müəyyən etməyə kömək edir.
+
+Siz eyni zamanda EDA ilə modelin performansını əhəmiyyətli dərəcədə yaxşılaşdıra bilən feature engineering üçün yaradıcı ideyalar əldə edə bilərsiniz. EDA sizə datanızdakı potensial biası, məsələn, az təmsil olunan və ya həddindən artıq təmsil olunan qrupları aşkar etməyə imkan verir. Bu biasın aradan qaldırılması maşın öyrənmə tətbiqlərində çox vacibdir.
+
+Xülasə, növbəti modelinizi qurmağa tələsməyin, EDA-nın sizi daha yaxşı qərarlar, daha dəqiq proqnozlar və datanızı daha dərindən dərk etməyə istiqamətləndirən kompasınız olduğunu unutmayın. 
+
+
+## 3: Data leakage yaranıb. (data train və test hissələrinə pre-processingdən sonra bölünüb)
+
+Adətən feature engineering zamanı etdiyimiz səhvlərdən dolayı data leakage yaranır. Ümumiyyətlə, Maşın öyrənməsində feature engineering bir incəsənətdir. Burada qısa desək xam datanın modeling üçün hazırlanmasını əhatə edirik. Bununla belə, qaranlıqda gizlənən gizli bir təhlükə var və buna “data sızması” deyilir. Bu təhlükəli fenomen modelinizin performansını poza bilər və ehtiyatlı olmasanız, proqnozlarınızı faydasız edə bilər.
+
+Data sızmasını nədir?
+
+Data sızması, modelinizə tamamilə görünməməli olan test datasetindəki data istəmədən train prosesinə daxil olduqda baş verir. Bu, dataseti train və test datasına bölməzdən əvvəl feature engineering aparıldıqda baş verə bilər.
+
+Bu niyə problemlidir:
+
+Təsəvvür edin ki, səhm qiymətlərini proqnozlaşdırmaq üçün bir model qurursunuz. Siz son 30 gün ərzində orta gündəlik ticarət həcmini göstərən feature yaratmağa qərar verdiniz. Bu feature-ı dataseti bölməzdən əvvəl hesablasanız, gələcək datanızı modelinizə sızdırmış olursunuz. Daha dəqiq desək, keçmişi proqnozlaşdırmaq üçün gələcək səhm qiyməti datalarından istifadə etməyə bərabər olardı - səbəbiyyət prinsipinin açıq şəkildə pozulması.
+
+
+Mən dərslərdə həmişə ilk olaraq dataseti train və test hissələrinə bölüb daha sonra missing value imputation, categorical encoding və s.  addımlarını həyata keçirməyi tövsiyyə edirəm.
+
+Çünki, bayaq da dediyim kimi biz test datasetini model tərəfdən görünməyən dataset kimi qəbul etməliyik. Buna görə də biz onu feature engineering üçün istifadə edə bilmərik. Biz bütün feature engineering addımlarını train dataset üzərində öyrədir (fit), test datasetə sadəcə tətbiq edirik (transform). 
+
+
+Proqnozlaşdırmada məlumat sızmasının model performansına mənfi təsirləri kifayət qədər aydındır:
+
+Satış gəlirlərinin proqnozlaşdırılmasını nəzərdən keçirək. Məsələn, "ümumi reklam xərcləri" adlı bir featuremız var. Proqnozlaşdırma kontekstində dataset çox vaxt zamana əsaslanaraq bölünür. Bu feature-i yaratmaq üçün həm train, həm də test datasetlərində istifadə edilərsə, biz keçmiş satışları proqnozlaşdırmaq üçün gələcək reklam xərclərini istifadə etmiş olarıq. Bu, data sızmasıdır.
+
+Bu problem barədə aşağıda yenə danışacağıq.
+
+
+## 4. Problem üçün istifadə olunan dataset həddindən artıq kiçikdir və ya böyükdür.
+
+Datasetin ölçüsü maşın öyrənmə modelinin hazırlanmasına əhəmiyyətli təsir göstərə bilər. Ümumiyyətlə, datasetimiz nə qədər böyükdürsə, model bir o qədər yaxşı performans göstərəcək. Bunun səbəbi, daha böyük dataset modelə datadadkı əlaqələr haqqında daha çox məlumat əldə etməyə imkan verir ki, bu da yeni, modelin görmədiyi halları daha yaxşı ümumiləşdirilməsinə səbəb olur.
+
+Bununla belə, qeyd etmək vacibdir ki, sadəcə olaraq böyük bir datasetə sahib olmaq kifayət deyil. Effektiv nəticə üçün datalar da yüksək keyfiyyətli və müxtəlif olmalıdır. Datanın çox olması, lakin onların keyfiyyətsiz olması və ya müxtəlif olmaması modelin performansını yaxşılaşdırmayacaq. Bundan əlavə, həddindən artıq data da problemlərə səbəb ola bilər.
+
+Həddindən artıq uyğunlaşdırma: Əgər dataset çox kiçikdirsə, model öyrənmək üçün kifayət qədər nümunəyə malik olmaya bilər. Bu o deməkdir ki, model train datasetdə yaxşı performans göstərəcək, lakin yeni, görmədiyi datalarda zəif çıxış edəcək. (overfitting)
+
+
+## 5. Training datamızda bütün hallar təmsil olunmayıb.
+
+Maşın öyrənmə həlləri yaradarkən, tez-tez nəzərdən qaçırılan ən vacib aspektlərdən biri train datamızın bütün mümkün halları təmsil edə bilməyidir, əks halda qurduğumuz model hər hansı bir sinfə və ya qrupa qarşı qərəzli olacaq.
+
+Beləliklə, qərəzli olmaqdan qorunmaq və heç bir drift olmadan dəqiq proqnozlar vermək üçün buna diqqət etməliyik. Bu problemi və həllini daha yaxşı başa düşmək üçün aşağıdakı nümunəyə baxaq. 
+
+
+Fərz edin ki, ev almaq üçün ipoteka müraciəti etmisiniz. Bir çox bank təşilatları kreditin təsdiqi prosesini avtomatlaşdırmaq üçün maşın öyrənmə alqoritmlərindən istifadə edir, lakin bu alqoritmlər train olunarkən istifadə olunan datasetdə hansısa qrup insanlar azlıq təşkil edərsə, model onlara qarşı ayrı-seçkilik edə bilər.
+
+
+Məsələn, modeldə istifadə olunan datasetdə son onillikdə kredit müraciətləri və təsdiqlər üzrə tarixi məlumatlardan istifadə edirlər. İndiyə qədər kredit verilən şəxslər adətən sabit gəlirli və müəyyən kredit keçmişi olan orta yaşlı şəxslərdən ibarətdir. Yəni, training datasetimiz gənc mütəxəssislər, təqaüdçülər və aşağı kredit balları olan şəxslər də daxil olmaqla bankın xidmət göstərdiyi müxtəlif demoqrafik qrupları adekvat şəkildə təmsil etmir.
+
+Bu halda nə baş verəcək? İlk olaraq, model train datasetdə üstünlük təşkil edən demoqrafik qrupun xeyrinə qərəzli ola bilər. Bu, həmin profilə uyğun gələn ərizəçilər üçün kreditin təsdiqlənməsi ehtimalının yüksək olmasına və digərləri üçün daha yüksək rədd edilmə ehtimalına səbəb ola bilər.
+
+Həmçinin, gənc mütəxəssislər və ya kredit tarixçəsi olmayan şəxslər kimi kifayət qədər təmsil olunmayan qruplardan olan ərizəçilər, hətta kredit qabiliyyətinə malik olsalar belə, kreditin təsdiqi prosesində sistematik çatışmazlıqlarla üzləşə bilərlər.
+
+
+
+Bu problemi həll etmək üçün:
+
+* Datanın müxtəlifliyinin artırılması: Yaş, gəlir səviyyələri və kredit balları daxil olmaqla, geniş çeşiddə demoqrafik göstəricilərdən kredit müraciəti məlumatlarını toplayın, daha çox təmsil olunan train dataset yaradılmalı;
+
+* Biasın Qiymətləndirilməsi: Kreditin təsdiqi alqoritmindəki qərəzli halları müəyyən etmək və azaltmaq üçün müvafiq metodlardan istifadə edilməli;
+
+
+* Müntəzəm Model Auditi: Ortaya çıxan qərəzləri aşkar etmək və düzəltmək üçün kreditin təsdiqi alqoritminə davamlı olaraq nəzarət edilməlidir.
+
+Bu real dünya nümunəsində kreditin təsdiqi alqoritmləri üçün qeyri-təmsilçi təlim məlumatları ədalətsiz və qərəzli kreditləşdirmə təcrübələri ilə nəticələnə bilər. O, demoqrafik xüsusiyyətlərindən asılı olmayaraq bütün ərizəçilər üçün maliyyə xidmətlərinə bərabər çıxışı təmin etmək üçün müxtəlif və təmsilçi məlumatlardan istifadənin vacibliyini vurğulayır.
+
+
+
+## 6. Outlier nümunələrlə düzgün davranılmayıb.
+
+Məsələ Outlierlərə məhəl qoymamaq və ya onları silmək deyil. Məsələ, nə vaxt outlierlərə məhəl qoymamaq olar, nə vaxt olmazdır. Bəzən outlierlər mühüm aspekt ola bilər və ya mövcud problemin kontekstindən asılı olaraq tamamilə göz ardı edilə bilər.
+
+Məsələn, əgər siz çirklənmə proqnozuna baxırsınızsa və bir növ sensor xətası nəticəsində yaranan bəzi sıçrayışlarla qarşılaşırsınızsa, onları təhlükəsiz şəkildə göz ardı edə və həmin dəyərləri datadan silə bilərsiniz.
+
+Maşın öyrənmə alqoritmləri haqqında danışarkən, onlardan bəziləri digərləri ilə müqayisədə outlierlərə daha həssasdır. Məsələn, Adaboost outlierlərə böyük weightlər qoysa da, Decision tree sadəcə olaraq outleri bir yanlış təsnifat kimi hesab edir.
+
+Beləliklə, kontekstdən asılı olaraq, outlierlərin vacib olduğuna və göz ardı edilə bilməyəcəyinə qərar verərsinizsə, onlara adekvat əhəmiyyət verən alqoritmlərdən/modellərdən istifadə etməlisiniz. Digər tərəfdən, əgər outlierlərə məhəl qoyula bilməyəcəyinə qərar verərsinizsə, onlara çox ağırlıq verməyən alqoritmlərdən/modellərdən istifadə edin.
+
+## 7. Model test edilərkən istifadə olunan datanı öncədən görüb.
+ 
+Bayaq da dediyim kimi, modeli sınaqdan keçirmək üçün artıq istifadə edilmiş datadan təkrar istifadə etməkdən çəkinmək lazımdır. Modelləri test edərkən eyni train datalarından istifadə modelin qərəzli olmasına və real datalarda çox da yaxşı performans göstərə bilməməyinə səbəb ola bilər. Beləliklə,  modelinizi sınaqdan keçirərkən, train üçün istifadə olunmayan yeni datadan istifadə edərək sınaqdan keçirmək çox vacibdir.
+
+Bəs, bu data sızmasının qarşısını necə almaq olar:
+
+
+* Çarpaz Validasiyadan istifadə edin: Modelin qiymətləndirilməsi və hiperparametrlərin tənzimlənməsi zamanı müxtəlif train və test datasetlərini təkrar seçərək data sızmasının qarşısını alan çarpaz doğrulama kimi üsullardan istifadə edin.
+
+* Time series datasına diqqət yetirin: time series datasında, keçmişi proqnozlaşdırmaq üçün gələcək datadan istifadə etməmək üçün train setinizin xronoloji olaraq test setindən əvvəl olmasını təmin edin.
+
+
+
+Data sızmasının nəticələri ağır ola bilər:
+
+* Şişirdilmiş Model Performansı: Modeliniz sınaq zamanı olduqca yaxşı performans göstərə bilər, çünki o, bilməməli olduğu test datasını təsadüfən öyrənmişdir. Bu, modelinizin imkanları haqqında yanlış təminat verir.
+
+* Qeyri-real gözləntilər: Modelinizi real dünya ssenarisində yerləşdirdiyiniz zaman o, gözlənildiyi kimi işləməyəcək.
+
+* Ümumiləşdirmədə çətinlik: Sızdırılmış datadan öyrənmiş modellər yeni, görmədiyi dataları ümumiləşdirmək üçün mübarizə aparır. Onlar test datasına mahiyyətcə “həddindən artıq uyğundur” ki, bu da maşın öyrənməsində istədiyinizin əksinədir.
+
+
+## 8. Overfitting və ya Underfitting yaranıb.
+
+
+Dəqiq maşın öyrənmə modellərini öyrətmək üçün iki nəhəng rəqiblə qarşılaşırıq: Overfitting və Underfitting. Bu əkiz problemlər tez-tez arxa planda gizlənir və düzgün həll edilmədikdə modelimizin performansını pozmağa hazırdır. 
+
+**Overfitting: Həddindən artıq uyğunlaşma**
+
+Overfitting, öz dilimizdə desək həddindən artıq uyğunlaşma maşın öyrənmə modeli train datasetimizdə əzbərlədikdə baş verir. Aşırı uyğun model train datasetində olduqca yaxşı, görmədiyi və ya yeni datalarda isə zəif çıxış edir. Əsas əlaqələri öyrənməkdənsə, train dataseti əzbərləyir. Overfit etmiş modellər ancaq train datası üçün xasdır və real dünya ssenarilərində və ya müxtəlif datasetlər ilə effektiv işləməyəcək.
+
+
+**Həddindən artıq uyğunlaşma ilə mübarizə:**
+1. **Tənzimləmə:** L1 və L2 kimi tənzimləmə üsulları mürəkkəb model parametrləri üçün cərimələr tətbiq edərək, həddindən artıq uyğunlaşmadan çəkindirir.
+
+2. **Cross-Validation:** Cross-Validation, modeli həddən artıq uyğunlaşdırmağa daha davamlı edir.
+
+3. **Datanın artırılması:** Train datasetinin artırılması və ya digər üsullar vasitəsilə süni şəkildə artırılması həddən artıq uyğunlaşmanı azalda bilər.
+
+**Underfitting: Problemin həddən artıq sadələşdirilməsi**
+
+Bu halda model həm train, həm də test datasetləri üzərində zəif işləyir. Bu problemin qarşısını almaq üçün, model çox sadədirsə, onun mürəkkəbliyini artırmaq kömək edə bilər. 
+
+Ümumiyyətlə, Overfitting və underfitting arasında düzgün tarazlığa nail olmaq çox vacibdir. Overfitting və ya Underfittingin təhlükələrini başa düşmək və müvafiq strategiyalardan istifadə etməklə, dəqiq və etibarlı proqnozlar verə bilərik.
+
+
+
+## 9. Feature engineering addımı üçün kifayət qədər zaman ayrılmayıb.
+
+
+Mən adətən müşahidə etdiyim budur ki, dataseti emal edib təmizləyəndən sonra, əksəriyyət insanlar verilmiş tapşırıq üzrə bəzi model parametrlərini optimallaşdırmağa başlayırlar. Tövsiyyə olunan odur ki, Feature Engineeringə daha çox vaxt ayrılsın.
+
+Fərz edək ki, siz ev qiymətlərini proqnozlaşdırmaq istəyirsiniz və featurelar arasında otaqların sayı və ümumi pəncərələrin sayı var. Faydalı və maraqlı ola biləcək əlavə featurelardan biri bu iki dəyişənin nisbətidir, yəni “ortalama otağa düşən pəncərə sayı”.
+
+Bayaq da dediyim kimi, bu özü bir sənətdir və problemdən və onun mürəkkəbliyindən çox asılıdır. Feature engineering, həmçinin tədqiqat, domen ekspertləri kimi tərəflərlə qarşılıqlı əlaqə tələb edə bilər.
+
+Nəzərə almaq lazımdır ki, maşın öyrənmə alqoritmləri artıq hazır istifadə oluna bilən məhsullardır və günün sonunda sabit və möhkəm həll çox ağıllı Feature engineeringdən asılıdır. Beləliklə, həll ən müasir modeli axtarmaqda yox, düzgün featuraların qurulmasında ola bilər.
+
+
+## 10. "Pulsuz nahar yoxdur" teoremi :)
+
+Bu teorem bir xatırlatma rolunu oynayır ki, müxtəlif real dünya problemlərini həll etmək üçün hər problemə uyğun bir alqoritm və ya universal ən yaxşı yanaşma yoxdur.
+
+
+1996-cı ildə David H. Wolpert tərəfindən icad edilən Pulsuz Nahar Yoxdur (NFL) teoremi mahiyyətcə təsdiq edir ki, heç bir tək maşın öyrənmə alqoritmi bütün mümkün problemlər üçün universal olaraq üstün deyil. NFL teoremi o deməkdir ki, bir datasetdə yaxşı nəticə verən alqoritm digərində zəif fəaliyyət göstərə bilər. 
+
+Teorem konkret problem üçün düzgün alqoritm və ya modelin seçilməsinin vacibliyini vurğulayır. Ehtiyatlı seçim problemin xüsusiyyətlərindən və tələblərindən asılıdır. Məsələ təkcə modellərlə əlaqəli də deyil, məsələn bir kontekstdə informativ olan feature digərində olmaya bilər.
+
+
+Hər şeyi əhatə edən vahid həll yolunu axtarmaq cazibədar olsa da, real dünya problemlərinin müxtəlif və mürəkkəb təbiəti xüsusi yanaşma tələb edir. Heç bir alqoritmin bütün domenlərdə üstün olmadığını qəbul edərək, həll yollarınızı hər bir problemə uyğunlaşdırmalısınız.
+
+
