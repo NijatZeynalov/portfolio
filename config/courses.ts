@@ -860,8 +860,8 @@ export const courses: Course[] = [
   },
 
   {
-    title: 'AWS for Machine Learning',
-    slug: 'aws',
+    title: 'Applied ML Mentorship program',
+    slug: 'mentorship-program',
     banner: '/static/courses/aws/machine-learning-aws.png',
     description:
       'Specifically designed to help you prepare for the AWS Machine Learning  Specialty Certification, this learning path provides interactive content comprised of hands-on labs and lectures. ',
