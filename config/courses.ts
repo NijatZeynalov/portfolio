@@ -858,4 +858,57 @@ export const courses: Course[] = [
       },
     ],
   },
+
+  {
+    title: 'AWS for Machine Learning',
+    slug: 'aws',
+    banner: '/static/courses/aws/machine-learning-aws.png',
+    description:
+      'Specifically designed to help you prepare for the AWS Machine Learning  Specialty Certification, this learning path provides interactive content comprised of hands-on labs and lectures. ',
+    content: [
+      {
+        name: 'AWS Cloud Concepts',
+        content: [
+          { name: 'What is AWS?', slug: 'test' },
+          {
+            name: 'Exploring AWS Accounts',
+            slug: 'test',
+          },
+          { name: 'AWS Identity and Access Management', slug: 'test' },
+          { name: 'Overview of AWS Services ', slug: 'test' },
+          { name: 'Analytics on AWS', slug: 'test' },
+          { name: 'Security in AWS', slug: 'test' },
+          { name: 'Billing and Pricing', slug: 'test' },
+          { name: 'AWS CLI', slug: 'test' },
+        ],
+      },
+      {
+        name: 'AWS for Machine Learning',
+        content: [
+          { name: 'AWS Machine Learning Tech-Stack', slug: 'test' },
+          { name: 'AWS services for ingesting data', slug: 'test' },
+          { name: 'Detailed overview of AWS S3', slug: 'test' },
+          { name: 'Migrating Oracle database to AWS using DMS', slug: 'test' },
+          { name: 'AWS services for transforming data', slug: 'test' },
+          { name: 'Data preprocessing with AWS Glue', slug: 'test' },
+          { name: 'AWS services for consuming data', slug: 'test' },
+          { name: 'Uploading dataset to S3, querying it with Amazon Athena', slug: 'test' },
+          { name: 'Exploring the Amazon SageMaker', slug: 'test' },
+          { name: 'AWS services for consuming data ', slug: 'test' },
+          { name: 'Amazon SageMaker Autopilot', slug: 'test' },
+          { name: 'Built-in algorithms in Amazon SageMaker', slug: 'test' },
+          { name: 'Training models on AWS Sagemaker', slug: 'test' },
+          { name: 'Training Computer Vision Models on AWS Sagemaker', slug: 'test' },
+          { name: 'Training NLP Models on AWS Sagemaker', slug: 'test' },
+                    { name: 'Training and deploying custom algorithms on AWS Sagemaker ', slug: 'test' },
+          { name: 'Scaling training jobs with pipe mode and distributed training', slug: 'test' },
+          { name: 'Deploying Machine Learning Models', slug: 'test' },
+          { name: 'Monitoring models with Amazon SageMaker Model Monitor', slug: 'test' },
+          { name: 'Deploying models to container services', slug: 'test' },
+          { name: 'Optimizing Prediction Cost and Performance', slug: 'test' },
+        ],
+      },
+    ],
+  },
+  
 ];
