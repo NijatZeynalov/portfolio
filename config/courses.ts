@@ -18,6 +18,7 @@ export const courseSlugMap = {
   go: 'Deep Learning with TensorFlow',
   'system-design': 'Machine Learning with Python',
   'aws':' AWS for Machine Learning',
+  'mentorship-program':'Applied ML Mentorship program',
 };
 
 export const courses: Course[] = [
